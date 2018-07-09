@@ -50,6 +50,7 @@ public class DazzaController : MonoBehaviour
         LimitHeight();
 
         IncrementTimer();
+		Debug.Log(dazzaRB.velocity);
 
     }
 
