@@ -27,7 +27,6 @@ public class LevelScrolling : MonoBehaviour
 	
 	void OnCollisionEnter2D(Collision2D collision)
 	{
-		Debug.Log("I have collided");
 		if(collision.gameObject.name == "LevelDeleter")
 		{
 			Destroy(gameObject);

@@ -50,7 +50,6 @@ public class DazzaController : MonoBehaviour
         LimitHeight();
 
         IncrementTimer();
-		Debug.Log(dazzaRB.velocity);
 
     }
 
@@ -121,7 +120,6 @@ public class DazzaController : MonoBehaviour
         if (collision.gameObject.tag == "CollisionMask")
         {
             Vector2 offset = (collision.transform.position - transform.position).normalized;
-            Debug.Log(offset);
             if (offset.y <= -.95f)
             {
                 isGrounded = true;
