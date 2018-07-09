@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
 	[SerializeField]
-	float LevelScrollSpeed; // The speed at which the level prefabs scroll
+	float levelScrollSpeed; // The speed at which the level prefabs scroll
 
 	void Start ()
 	{
@@ -27,5 +27,15 @@ public class GameController : MonoBehaviour
 	void IncreaseLevelScrollSpeed()
 	{
 
+	}
+	
+	public void SetLevelScrollSpeed(float inLevelScrollSpeed)
+	{
+		levelScrollSpeed = inLevelScrollSpeed;
+	}
+	
+	public float GetLevelScrollSpeed()
+	{
+		return levelScrollSpeed;
 	}
 }

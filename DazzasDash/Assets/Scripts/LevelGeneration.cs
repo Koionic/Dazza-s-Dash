@@ -30,6 +30,6 @@ public class LevelGeneration : GameController
 
 	void SpawnLevelPrefab()
 	{ 
-		Instantiate(levelPrefabs[UnityEngine.Random.Range(0, levelPrefabs.Length - 1)], spawnLocation); // Spawn a random level prefab at the spawn position.
+		Instantiate(levelPrefabs[UnityEngine.Random.Range(0, levelPrefabs.Length)], spawnLocation); // Spawn a random level prefab at the spawn position.
 	}
 }
