@@ -8,6 +8,9 @@ public class LevelGeneration : GameController
 	Vector2 spawnLocation; // Stores the level prefab storing position.
 
 	[SerializeField]
+	GameObject[] levelPrefabs;
+
+	[SerializeField]
 	float spawnDelay; // The time between level spawns.
 
 	float spawnTimer = 0; // A timer.
@@ -23,7 +26,7 @@ public class LevelGeneration : GameController
 
 		if (spawnDelay != null && spawnTimer % spawnDelay == 0); // If a spawn delay is specified and the spawn timer is divisible by the spawn delay.
 		{
-
+			
 		}
 	}
 }

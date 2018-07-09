@@ -274,6 +274,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79a0d4b5d766be439cce512e97a8648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelPrefabs:
+  - {fileID: 1218241242820958, guid: abfb7cb0833f9db45af7f58482d5a706, type: 2}
+  - {fileID: 1759438868636032, guid: cf263e282bdf5be45b06f38c83172ab9, type: 2}
+  - {fileID: 1730318956713578, guid: 708ffb6419d4d2649a965a3fb63b5546, type: 2}
   spawnDelay: 0
 --- !u!1 &1572256866
 GameObject:
