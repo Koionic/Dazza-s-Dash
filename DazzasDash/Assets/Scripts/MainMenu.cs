@@ -7,13 +7,19 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour 
 {
 
-	// Use this for initialization
+	//bool isDown = false;
+	
+	
+	//public GameObject uiDropdown;
+	
+	
+	//public Transform disabled;
+
 	void Start () 
 	{
 		
 	}
 	
-	// Update is called once per frame
 	void Update () 
 	{
 		
@@ -60,4 +66,17 @@ public class MainMenu : MonoBehaviour
 		SceneManager.LoadScene("UI - Store");
 	
 	}
+	
+	//public DropDown()
+	//{
+	
+		//if(isDown == false)
+		//{
+		
+			//uiDropdown.transform.position = new Vector3 (disabled.position.transform, transform.position);
+		
+		//}
+	
+	//}
+	//mac is aids. its suppose to be a drop down menu thing. gonna fix this on a real computer :P -John
 }
