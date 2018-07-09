@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
 	}
 
 	// A timer function
-	protected float Timer(float timer)
+	public float Timer(float timer)
 	{
 		timer += Time.deltaTime;
 		return timer;
