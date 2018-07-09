@@ -21,5 +21,4 @@ public class GameController : MonoBehaviour
 		return timer;
 	}
 
-	//comment
 }

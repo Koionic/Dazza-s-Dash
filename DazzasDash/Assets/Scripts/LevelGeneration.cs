@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelGeneration : GameController
 {
 
-	Vector2 spawnLocation; // Stores the level prefab storing position.
+	Transform spawnLocation; // Stores the level prefab storing position.
 
 	[SerializeField]
 	GameObject[] levelPrefabs;
@@ -17,16 +17,21 @@ public class LevelGeneration : GameController
 
 	void Start ()
 	{
-		spawnLocation = GameObject.Find("LevelPrefabSpawnLocation").transform.position; // Finds the spawn location for the level prefabs and stores it.
+		spawnLocation = GameObject.Find("LevelPrefabSpawnLocation").transform; // Finds the spawn location for the level prefabs and stores it.
 	}
 	
 	void Update ()
 	{
 		spawnTimer = Timer(spawnTimer); // Runs the timer from the GameController using the spawnTimer.
 
+		SpawnLevelPrefab();
+	}
+
+	void SpawnLevelPrefab()
+	{
 		if (spawnDelay != null && spawnTimer % spawnDelay == 0); // If a spawn delay is specified and the spawn timer is divisible by the spawn delay.
 		{
-			
+			Instantiate(levelPrefabs[Random.Range(0, levelPrefabs.Length - 1)], spawnLocation); // Spawn a random level prefab at the spawn position.
 		}
 	}
 }
