@@ -119,12 +119,26 @@ public class DazzaController : MonoBehaviour
     {
         if (collision.gameObject.tag == "CollisionMask")
         {
-            Vector2 offset = (collision.transform.position - transform.position).normalized;
-            if (offset.y <= -.95f)
+            if (IsBelow(collision))
             {
-                isGrounded = true;
                 jumpTimer = 0f;
+                isGrounded = false;
             }
+        }
+    }
+
+    //function that calculates whether a collider is below the player
+    bool IsBelow(Collsion2D collision)
+    {
+        //vector that stores which direction the 
+        Vector2 offset = (collision.transform.position - transform.position).normalized;
+        if (offset.y <= -.95f)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
