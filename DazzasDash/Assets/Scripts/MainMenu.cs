@@ -67,16 +67,10 @@ public class MainMenu : MonoBehaviour
 	
 	}
 	
-	//public DropDown()
-	//{
-	
-		//if(isDown == false)
-		//{
-		
-			//uiDropdown.transform.position = new Vector3 (disabled.position.transform, transform.position);
-		
-		//}
-	
-	//}
-	//mac is aids. its suppose to be a drop down menu thing. gonna fix this on a real computer :P -John
+	public void ToggleMenu()
+    {
+
+
+
+    }
 }

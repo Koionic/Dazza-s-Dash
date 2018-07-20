@@ -128,7 +128,7 @@ public class DazzaController : MonoBehaviour
     }
 
     //function that calculates whether a collider is below the player
-    bool IsBelow(Collsion2D collision)
+    bool IsBelow(Collision2D collision)
     {
         //vector that stores which direction the 
         Vector2 offset = (collision.transform.position - transform.position).normalized;
