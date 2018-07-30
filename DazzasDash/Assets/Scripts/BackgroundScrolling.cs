@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackgroundScrolling : BackgroundGeneration
+public class BackgroundScrolling : MonoBehaviour
 {
-	[SerializeField]
+    /*[SerializeField]
 	float backgroundScrollingSpeed;
 	
 	BoxCollider2D thisBC;
@@ -30,5 +30,37 @@ public class BackgroundScrolling : BackgroundGeneration
 			SpawnBackgroundPrefab(newPosition);
 			Destroy(gameObject);
 		}
-	}
+	}*/
+
+
+
+
+
+
+    [SerializeField]
+    private float moveSpeed = 10f;
+
+    private BackgroundGeneration backgroundGeneration;
+
+    private void Start()
+    {
+        backgroundGeneration = GameObject.Find("BackgroundController").GetComponent<BackgroundGeneration>();
+    }
+
+    private void Update()
+    {
+        transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("BackgroundDeleter"))
+        {
+            backgroundGeneration.RemoveFromList(this);
+            Destroy(gameObject); 
+        }
+    }
+
+
 }

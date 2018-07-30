@@ -20,11 +20,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4386446615685044}
   - component: {fileID: 212385662113384414}
-  - component: {fileID: 114115168647134466}
   - component: {fileID: 61881281458865332}
+  - component: {fileID: 50313103390674084}
+  - component: {fileID: 114037653743248778}
   m_Layer: 0
   m_Name: BlueBackground
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,6 +43,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50313103390674084
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1730318956713578}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6
 --- !u!61 &61881281458865332
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -67,7 +88,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114115168647134466
+--- !u!114 &114037653743248778
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -78,8 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c0dbd2eb1f1c4c1ba606fdfe5d9856a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundPrefabs: []
-  backgroundScrollingSpeed: 1
+  moveSpeed: 10
 --- !u!212 &212385662113384414
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -93,6 +113,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
