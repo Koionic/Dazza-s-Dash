@@ -43,7 +43,6 @@ public class BackgroundGeneration : MonoBehaviour
     {
         if (collision.CompareTag("Background"))
         {
-            Debug.Log("TRIGGER?!?!?!");
             SpawnBackgroundPrefab();
         }
     }

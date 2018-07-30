@@ -28,13 +28,14 @@ public class DazzaController : MonoBehaviour
 
     Rigidbody2D dazzaRB;
 
+	public Vector2 offset;
 
 
 
 
 
 
-    private void Awake()
+	private void Awake()
     {
         dazzaRB = GetComponent<Rigidbody2D>();
     }
@@ -66,9 +67,8 @@ public class DazzaController : MonoBehaviour
         if (isJumping)
         {
             dazzaRB.velocity = (Vector2.up * jumpForce);
-            Debug.Log("is jumping");
         }
-    }
+	}
 
 
 
@@ -121,28 +121,11 @@ public class DazzaController : MonoBehaviour
     {
         if (collision.gameObject.tag == "CollisionMask")
         {
-            if (IsBelow(collision))
-            {
-                jumpTimer = 0f;
-                isGrounded = true;
-            }
+               jumpTimer = 0f;
+               isGrounded = true;
         }
     }
-
-    //function that calculates whether a collider is below the player
-    bool IsBelow(Collision2D collision)
-    {
-        //vector that stores which direction the 
-        Vector2 offset = (collision.transform.position - transform.position).normalized;
-        if (offset.y <= -.95f)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+	
 
 	public bool IsDazzaDead()
 	{
