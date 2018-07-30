@@ -5,9 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - CollisionMask
+<<<<<<< HEAD
   - Background
   - BackgroundDeleter
   - BackgroundSpawn
+=======
+  - PauseButton
+  - DeathScreen
+>>>>>>> 7ed1d8e0d024b645d2c91d63daab97af9419d890
   layers:
   - Default
   - TransparentFX
