@@ -24,6 +24,8 @@ public class DazzaController : MonoBehaviour
     bool isJumping = false; 
     bool isGrounded = false;
 
+	bool isDead = false; //private bool that tracks if dazza is alive
+
     Rigidbody2D dazzaRB;
 
 
@@ -122,7 +124,7 @@ public class DazzaController : MonoBehaviour
             if (IsBelow(collision))
             {
                 jumpTimer = 0f;
-                isGrounded = false;
+                isGrounded = true;
             }
         }
     }
@@ -141,4 +143,9 @@ public class DazzaController : MonoBehaviour
             return false;
         }
     }
+
+	public bool IsDazzaDead()
+	{
+		return isDead;
+	}
 }
