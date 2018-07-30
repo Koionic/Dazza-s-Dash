@@ -7,7 +7,10 @@ public class BackgroundGeneration : MonoBehaviour
 {
 
 	Transform backgroundSpawnLocation;
-	
+
+    [SerializeField]
+    float distanceApart = 45f;
+
 	[SerializeField]
 	GameObject[] backgroundPrefabs;
 
@@ -29,7 +32,7 @@ public class BackgroundGeneration : MonoBehaviour
         {
             int lastIndex = backgroundList.Count - 1;
 
-            newBackground.transform.position = backgroundList[lastIndex].transform.position + new Vector3(40f, 0f, 0f);
+            newBackground.transform.position = backgroundList[lastIndex].transform.position + new Vector3(distanceApart, 0f, 0f);
         }
 
         backgroundList.Add(newBackground.GetComponent<BackgroundScrolling>());

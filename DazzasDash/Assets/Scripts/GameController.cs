@@ -4,38 +4,26 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-	[SerializeField]
-	float levelScrollSpeed; // The speed at which the level prefabs scroll
+    private LevelGeneration levelGeneration;
 
-	void Start ()
-	{
-		
-	}
-	
-	void Update ()
-	{
-		
-	}
+    private void Start()
+    {
+        levelGeneration = GameObject.Find("LevelGenerator").GetComponent<LevelGeneration>();
+    }
 
-	// A timer function
-	public float Timer(float timer)
-	{
-		timer += Time.deltaTime;
-		return timer;
-	}
+    // A timer function
+    public float Timer(float timer)
+    {
+        timer += Time.deltaTime;
+        return timer;
+    }
 
-	void IncreaseLevelScrollSpeed()
-	{
+    void IncreaseLevelScrollSpeed()
+    {
+        // grab speed from levelGeneration.GetLevelScrollSpeed()
+        // set speed using levelGeneration.SetLevelScrollSpeed( float)
+    }
 
-	}
-	
-	public void SetLevelScrollSpeed(float inLevelScrollSpeed)
-	{
-		levelScrollSpeed = inLevelScrollSpeed;
-	}
-	
-	public float GetLevelScrollSpeed()
-	{
-		return levelScrollSpeed;
-	}
 }
+
+

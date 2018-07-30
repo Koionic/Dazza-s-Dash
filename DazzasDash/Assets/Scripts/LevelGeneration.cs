@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class LevelGeneration : GameController
 {
+    [SerializeField]
+    float levelScrollSpeed; // The speed at which the level prefabs scroll
 
-	Transform spawnLocation; // Stores the level prefab storing position.
+    Transform spawnLocation; // Stores the level prefab storing position.
 
 	[SerializeField]
 	GameObject[] levelPrefabs; // An array storing the level prefabs
@@ -32,4 +34,15 @@ public class LevelGeneration : GameController
 	{ 
 		Instantiate(levelPrefabs[UnityEngine.Random.Range(0, levelPrefabs.Length)], spawnLocation); // Spawn a random level prefab at the spawn position.
 	}
+
+
+    public void SetLevelScrollSpeed(float inLevelScrollSpeed)
+    {
+        levelScrollSpeed = inLevelScrollSpeed;
+    }
+
+    public float GetLevelScrollSpeed()
+    {
+        return levelScrollSpeed;
+    }
 }
