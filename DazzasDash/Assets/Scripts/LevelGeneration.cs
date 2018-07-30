@@ -5,16 +5,17 @@ using UnityEngine;
 
 public class LevelGeneration : GameController
 {
-    [SerializeField]
-    float levelScrollSpeed; // The speed at which the level prefabs scroll
+    [SerializeField] float levelScrollSpeed; // The speed at which the level prefabs scroll
+
+	[SerializeField] float enemyRelativeScrollSpeed; // The speed at which the enemies will scroll relative to the level
+
+	float enemyScrollSpeed; // The speed at which the enemies will scroll
 
     Transform spawnLocation; // Stores the level prefab storing position.
 
-	[SerializeField]
-	GameObject[] levelPrefabs; // An array storing the level prefabs
+	[SerializeField] GameObject[] levelPrefabs; // An array storing the level prefabs
 
-	[SerializeField]
-	float spawnDelay; // The time between level spawns.
+	[SerializeField] float spawnDelay; // The time between level spawns.
 
 	float spawnTimer = 0; // A timer.
 
@@ -35,7 +36,6 @@ public class LevelGeneration : GameController
 		Instantiate(levelPrefabs[UnityEngine.Random.Range(0, levelPrefabs.Length)], spawnLocation); // Spawn a random level prefab at the spawn position.
 	}
 
-
     public void SetLevelScrollSpeed(float inLevelScrollSpeed)
     {
         levelScrollSpeed = inLevelScrollSpeed;
@@ -45,4 +45,10 @@ public class LevelGeneration : GameController
     {
         return levelScrollSpeed;
     }
+
+	public float GetEnemyScrollSpeed()
+	{
+		enemyScrollSpeed = levelScrollSpeed + enemyRelativeScrollSpeed;
+		return enemyScrollSpeed;
+	}
 }
