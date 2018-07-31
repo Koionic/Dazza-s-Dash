@@ -6,6 +6,11 @@ public class GameController : MonoBehaviour
 {
     private LevelGeneration levelGeneration;
 
+    [SerializeField]
+    private BackgroundState backgroundState = BackgroundState.Suburb;
+
+    [SerializeField] float gameSpeed;
+
     private void Start()
     {
         levelGeneration = GameObject.Find("LevelGenerator").GetComponent<LevelGeneration>();
@@ -24,6 +29,16 @@ public class GameController : MonoBehaviour
         // set speed using levelGeneration.SetLevelScrollSpeed( float)
     }
 
+    public float GetGameSpeed()
+    {
+        return gameSpeed;
+    }
+
+
+    public BackgroundState GetBackgroundState()
+    {
+        return backgroundState;
+    }
 }
 
 

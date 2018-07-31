@@ -37,19 +37,19 @@ public class BackgroundScrolling : MonoBehaviour
 
 
 
-    [SerializeField]
-    private float moveSpeed = 10f;
+
 
     private BackgroundGeneration backgroundGeneration;
 
+
     private void Start()
     {
-        backgroundGeneration = GameObject.Find("BackgroundController").GetComponent<BackgroundGeneration>();
+        backgroundGeneration = transform.parent.GetComponent<BackgroundGeneration>();
     }
 
     private void Update()
     {
-        transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+        transform.position += Vector3.left * backgroundGeneration.GetScrollSpeed() * Time.deltaTime;
     }
 
 

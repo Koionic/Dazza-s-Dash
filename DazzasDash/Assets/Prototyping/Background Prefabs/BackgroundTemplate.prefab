@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 4038973948701796}
   - component: {fileID: 212054922856241878}
   m_Layer: 0
-  m_Name: Road (2)
+  m_Name: Road
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 4040775450966714}
   - component: {fileID: 212827608594905816}
   m_Layer: 0
-  m_Name: Road
+  m_Name: Road 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 4678149253234662}
   - component: {fileID: 212926522494032212}
   m_Layer: 0
-  m_Name: Road (1)
+  m_Name: Road 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 61967125796660650}
   - component: {fileID: 114460688672598916}
   m_Layer: 0
-  m_Name: BackgroundTestPrefab 1
+  m_Name: BackgroundTemplate
   m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -350,11 +350,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1398812603261826}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: -0.39333335, z: 0}
+  m_LocalPosition: {x: -1.2, y: -0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4559211024826524}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4040775450966714
 Transform:
@@ -363,11 +363,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1406735835432626}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.39333335, z: 0}
+  m_LocalPosition: {x: 0, y: -0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4559211024826524}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4046354281857050
 Transform:
@@ -528,9 +528,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 15, y: 15, z: 1}
   m_Children:
+  - {fileID: 4038973948701796}
   - {fileID: 4040775450966714}
   - {fileID: 4678149253234662}
-  - {fileID: 4038973948701796}
   - {fileID: 4778639383264098}
   - {fileID: 4290367185457262}
   - {fileID: 4461389192798082}
@@ -547,11 +547,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1479303385751974}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: -0.39333335, z: 0}
+  m_LocalPosition: {x: 1.2, y: -0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4559211024826524}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4684915115719642
 Transform:
@@ -591,7 +591,7 @@ Transform:
   m_GameObject: {fileID: 1504799754441354}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.4129, z: 0}
-  m_LocalScale: {x: 2.730609, y: 1.3302339, z: 1}
+  m_LocalScale: {x: 3, y: 1.3302339, z: 1}
   m_Children: []
   m_Father: {fileID: 4559211024826524}
   m_RootOrder: 8
@@ -650,9 +650,9 @@ BoxCollider2D:
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_AutoTiling: 1
   serializedVersion: 2
-  m_Size: {x: 48, y: 20}
+  m_Size: {x: 53.95, y: 20}
   m_EdgeRadius: 0
 --- !u!114 &114460688672598916
 MonoBehaviour:
@@ -926,7 +926,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -100
-  m_Sprite: {fileID: 21300000, guid: 73db154153f04694ca537d92d3fbe16f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a6622e4706c2ae5409081d5e69e562c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

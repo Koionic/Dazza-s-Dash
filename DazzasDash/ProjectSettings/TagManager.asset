@@ -8,6 +8,7 @@ TagManager:
   - Background
   - BackgroundDeleter
   - Enemy
+  - BackgroundSpawnLocation
   layers:
   - Default
   - TransparentFX

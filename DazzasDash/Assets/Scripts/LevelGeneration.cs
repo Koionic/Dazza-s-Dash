@@ -13,6 +13,7 @@ public class LevelGeneration : GameController
 
     Transform spawnLocation; // Stores the level prefab storing position.
 
+
 	[SerializeField] GameObject[] levelPrefabs; // An array storing the level prefabs
 
 	[SerializeField] float spawnDelay; // The time between level spawns.

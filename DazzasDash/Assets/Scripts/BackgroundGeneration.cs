@@ -5,28 +5,46 @@ using UnityEngine;
 
 public class BackgroundGeneration : MonoBehaviour
 {
-
 	Transform backgroundSpawnLocation;
+
+
+    float scrollSpeed;
+
+    [SerializeField]
+    float scrollSpeedRate;
 
     [SerializeField]
     float distanceApart = 45f;
 
 	[SerializeField]
-	GameObject[] backgroundPrefabs;
+	GameObject[] backgroundPrefabsSuburb, backgroundPrefabsCity;
+
+    GameController gameController;
 
     private List<BackgroundScrolling> backgroundList = new List<BackgroundScrolling>();
 	
 	void Start () 
 	{
-		backgroundSpawnLocation = GameObject.Find("BackgroundSpawnLocation").transform;
-        SpawnBackgroundPrefab();
+        gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        backgroundSpawnLocation = GameObject.FindWithTag("BackgroundSpawnLocation").transform;
+
+        if (gameController.GetBackgroundState() == BackgroundState.City)
+        {
+            SpawnBackgroundPrefab(backgroundPrefabsCity);
+        }
+        else
+        {
+            SpawnBackgroundPrefab(backgroundPrefabsSuburb);
+        }
+
 	}
-	
-	
-	private void SpawnBackgroundPrefab()
-	{
-        int randIndex = UnityEngine.Random.Range(0, backgroundPrefabs.Length);
-		GameObject newBackground = Instantiate(backgroundPrefabs[randIndex], backgroundSpawnLocation.position, Quaternion.identity, transform);
+
+
+
+    private void SpawnBackgroundPrefab(GameObject[] backgroundArray)
+    {
+        int randIndex = UnityEngine.Random.Range(0, backgroundArray.Length);
+        GameObject newBackground = Instantiate(backgroundArray[randIndex], backgroundSpawnLocation.position, Quaternion.identity, transform);
 
         if (backgroundList.Count > 0)
         {
@@ -43,13 +61,37 @@ public class BackgroundGeneration : MonoBehaviour
     {
         if (collision.CompareTag("Background"))
         {
-            SpawnBackgroundPrefab();
+            for (int i = 0; i < backgroundList.Count; i++)
+            {
+                if (collision.gameObject == backgroundList[i].gameObject)
+                {
+                    if (gameController.GetBackgroundState() == BackgroundState.City)
+                    {
+                        SpawnBackgroundPrefab(backgroundPrefabsCity);
+                    }
+                    else
+                    {
+                        SpawnBackgroundPrefab(backgroundPrefabsSuburb);
+                    }
+                }
+            }
         }
+    }
+
+    public float GetScrollSpeed()
+    {
+        CalculateSpeed();
+        return scrollSpeed;
     }
 
     public void RemoveFromList(BackgroundScrolling thisComp)
     {
         backgroundList.Remove(thisComp);
+    }
+
+    void CalculateSpeed()
+    {
+        scrollSpeed = gameController.GetGameSpeed() * scrollSpeedRate;
     }
 
 }
