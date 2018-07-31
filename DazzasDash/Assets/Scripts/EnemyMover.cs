@@ -10,6 +10,7 @@ public class EnemyMover : MonoBehaviour
 
 	LevelGeneration levelGenerator;
 
+
 	void Start()
 	{
 		levelGenerator = GameObject.Find("LevelGenerator").GetComponent<LevelGeneration>();
@@ -19,7 +20,10 @@ public class EnemyMover : MonoBehaviour
 
 	void Update()
 	{
-		rb2d.velocity = Vector2.left * levelGenerator.GetEnemyScrollSpeed();
+		if (rb2d.velocity.x < levelGenerator.GetEnemyScrollSpeed())
+		{
+			rb2d.velocity += Vector2.left * levelGenerator.GetEnemyScrollSpeed() * Time.fixedDeltaTime;
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)
