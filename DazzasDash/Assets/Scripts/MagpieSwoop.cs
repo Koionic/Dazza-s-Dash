@@ -33,9 +33,9 @@ public class MagpieSwoop : MonoBehaviour
 
 	void Swoop()
 	{
-		if (rb2d.velocity.y < levelGenerator.GetEnemyScrollSpeed())
+		if (rb2d.velocity.y < levelGenerator.GetScrollSpeed())
 		{
-			rb2d.velocity += (hasSwooped ? Vector2.up : Vector2.down) * levelGenerator.GetEnemyScrollSpeed() * Time.fixedDeltaTime;
+			rb2d.velocity += (hasSwooped ? Vector2.up : Vector2.down) * levelGenerator.GetScrollSpeed() * Time.fixedDeltaTime;
 		}
 
 		if (transform.position.y < dazzaTransform.position.y)

@@ -3,53 +3,55 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelGeneration : GameController
+public class LevelGeneration : MonoBehaviour
 {
-    [SerializeField] float levelScrollSpeed; // The speed at which the level prefabs scroll
+    private GameController gameController; // the game controller
 
-	[SerializeField] float enemyRelativeScrollSpeed; // The speed at which the enemies will scroll relative to the level
+    [SerializeField] float levelScrollRate; // The rate of the game speed at which the level prefabs scroll
 
-	float enemyScrollSpeed; // The speed at which the enemies will scroll
+    private float levelScrollSpeed; // the speed the level objects should scroll at - calculated using the rate and the game speed
 
     Transform spawnLocation; // Stores the level prefab storing position.
+
+
 
 
 	[SerializeField] GameObject[] levelPrefabs; // An array storing the level prefabs
 
 	[SerializeField] float spawnDelay; // The time between level spawns.
 
-	float spawnTimer = 0; // A timer.
+
+
+
+
 
 	void Start ()
 	{
-		spawnLocation = GameObject.Find("LevelPrefabSpawnLocation").transform; // Finds the spawn location for the level prefabs and stores it.
+        // grab references
+        gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+        spawnLocation = GameObject.FindWithTag("ObjectSpawnLocation").transform; 
 
-		InvokeRepeating("SpawnLevelPrefab", 0, spawnDelay);
-	}
-	
-	void Update ()
-	{
-		spawnTimer = Timer(spawnTimer); // Runs the timer from the GameController using the spawnTimer.
+        // spawn the objects at the spawn delay interval over and over
+		InvokeRepeating("SpawnLevelPrefab", 0, spawnDelay); // invokes them repead
 	}
 
+    // this function instantiates the object
 	void SpawnLevelPrefab()
 	{ 
-		Instantiate(levelPrefabs[UnityEngine.Random.Range(0, levelPrefabs.Length)], spawnLocation); // Spawn a random level prefab at the spawn position.
+		Instantiate(levelPrefabs[UnityEngine.Random.Range(0, levelPrefabs.Length)], spawnLocation.position, Quaternion.identity, transform); // Spawn a random level prefab at the spawn position.
 	}
 
-    public void SetLevelScrollSpeed(float inLevelScrollSpeed)
+    // this calculates the speed the objects should be scrolling at based on the game speed
+    void CalculateSpeed()
     {
-        levelScrollSpeed = inLevelScrollSpeed;
+        levelScrollSpeed = gameController.GetGameSpeed() * levelScrollRate;
     }
 
-    public float GetLevelScrollSpeed()
+    // this grabs the scroll speed
+    public float GetScrollSpeed()
     {
+        CalculateSpeed();
         return levelScrollSpeed;
     }
 
-	public float GetEnemyScrollSpeed()
-	{
-		enemyScrollSpeed = levelScrollSpeed + enemyRelativeScrollSpeed;
-		return enemyScrollSpeed;
-	}
 }

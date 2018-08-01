@@ -20,9 +20,9 @@ public class EnemyMover : MonoBehaviour
 
 	void Update()
 	{
-		if (rb2d.velocity.x < levelGenerator.GetEnemyScrollSpeed())
+		if (rb2d.velocity.x < levelGenerator.GetScrollSpeed())
 		{
-			rb2d.velocity += Vector2.left * levelGenerator.GetEnemyScrollSpeed() * Time.fixedDeltaTime;
+			rb2d.velocity += Vector2.left * levelGenerator.GetScrollSpeed() * Time.fixedDeltaTime;
 		}
 	}
 
