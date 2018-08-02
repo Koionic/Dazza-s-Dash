@@ -6,14 +6,14 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour 
 {
+    [SerializeField]
+	bool isDown = false;
 
-	//bool isDown = false;
-	
-	
-	//public GameObject uiDropdown;
-	
-	
-	//public Transform disabled;
+    [SerializeField]
+    GameObject uiMenu;
+
+    [SerializeField]
+    GameObject externalToggle;
 
 	void Start () 
 	{
@@ -35,42 +35,58 @@ public class MainMenu : MonoBehaviour
 	public void Upgrades()
 	{
 	
-		SceneManager.LoadScene("UI - Upgrades");
+		SceneManager.LoadScene("Upgrades");
 	
 	}
 	
 	public void Customisation() 
 	{
 	
-		SceneManager.LoadScene("UI - Customisation");
+		SceneManager.LoadScene("Customisation");
 	
 	}
 	
 	public void Settings() 
 	{
 	
-		SceneManager.LoadScene("UI - Settings");
+		SceneManager.LoadScene("Settings");
 	
 	}
 	
 	public void HighScore()
 	{
 	
-		SceneManager.LoadScene("UI - HighScore");
+		SceneManager.LoadScene("HighScore");
 	
 	}
 	
 	public void Store() 
 	{
 	
-		SceneManager.LoadScene("UI - Store");
+		SceneManager.LoadScene("Store");
 	
 	}
 	
 	public void ToggleMenu()
     {
 
+        if (isDown == false)
+        {
 
+            isDown = true;
+            externalToggle.SetActive(false);
+            uiMenu.SetActive(true);
+
+        }
+        else if (isDown == true)
+        {
+
+            isDown = false;
+            externalToggle.SetActive(true);
+            uiMenu.SetActive(false);
+
+        }
 
     }
+
 }
