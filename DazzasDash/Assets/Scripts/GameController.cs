@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    private int dollaryDoos = 0;
+
     private LevelGeneration levelGeneration;
 
     [SerializeField]
@@ -38,6 +40,16 @@ public class GameController : MonoBehaviour
     public BackgroundState GetBackgroundState()
     {
         return backgroundState;
+    }
+
+    public void AddDollaryDoo()
+    {
+        dollaryDoos++;
+    }
+
+    public void SetDollaryDoos(int inDollaryDoos)
+    {
+        dollaryDoos = inDollaryDoos;
     }
 }
 
