@@ -37,8 +37,10 @@ public class LevelGeneration : MonoBehaviour
 
     // this function instantiates the object
 	void SpawnLevelPrefab()
-	{ 
-		Instantiate(levelPrefabs[UnityEngine.Random.Range(0, levelPrefabs.Length)], spawnLocation.position, Quaternion.identity, transform); // Spawn a random level prefab at the spawn position.
+	{
+        int randIndex = UnityEngine.Random.Range(0, levelPrefabs.Length);
+
+        Instantiate(levelPrefabs[randIndex], spawnLocation.position + levelPrefabs[randIndex].transform.localPosition, Quaternion.identity, transform); // Spawn a random level prefab at the spawn position.
 	}
 
     // this calculates the speed the objects should be scrolling at based on the game speed
