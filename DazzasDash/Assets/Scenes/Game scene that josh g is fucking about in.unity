@@ -1012,6 +1012,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1689544616664306, guid: 8ff82fe89eade4a9a88855650bf51953, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ff82fe89eade4a9a88855650bf51953, type: 2}
   m_IsPrefabParent: 0
@@ -2231,6 +2235,10 @@ Prefab:
     - target: {fileID: 1684804723528792, guid: 8053d8c709dc34b559dbd1babeb95f4d, type: 2}
       propertyPath: m_Name
       value: RoadTemplate 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684804723528792, guid: 8053d8c709dc34b559dbd1babeb95f4d, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8053d8c709dc34b559dbd1babeb95f4d, type: 2}
