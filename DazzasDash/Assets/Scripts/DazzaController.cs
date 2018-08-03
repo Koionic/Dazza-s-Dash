@@ -76,7 +76,7 @@ public class DazzaController : MonoBehaviour
     // makes the player jump
     private void FixedUpdate()
     {
-        if (isJumping)
+        if (isJumping && !isDead)
         {
             dazzaRB.velocity = (Vector2.up * jumpForce);
         }
@@ -157,6 +157,8 @@ public class DazzaController : MonoBehaviour
 		gameController.SetGameSpeed(0f);
 
 		StartCoroutine(KillingDazza());
+
+		dazzaRB.velocity = Vector2.zero;
 	}
 
 	IEnumerator KillingDazza()

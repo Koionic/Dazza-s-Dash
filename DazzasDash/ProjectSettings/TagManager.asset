@@ -19,7 +19,11 @@ TagManager:
   - MagnetPowerUp
   - ShieldPowerUp
   - SprintBoostPowerUp
+<<<<<<< HEAD
 >>>>>>> 3f1545fba9220eb1d36cbb2870a3144ad065ee3c
+=======
+  - MagnetCollider
+>>>>>>> 1a3825d8141a9ab0040ac21b9e3ff8c222f04bf7
   layers:
   - Default
   - TransparentFX
