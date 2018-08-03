@@ -14,7 +14,7 @@ public class DazzaController : MonoBehaviour
     [SerializeField]
     float maximumJumpTime = .5f; // the maximum time dazza can ascend in his jump for
 
-
+	bool isInvincible = false;
 
 
 
@@ -29,6 +29,8 @@ public class DazzaController : MonoBehaviour
     Rigidbody2D dazzaRB;
 
 	public Vector2 offset;
+
+
 
 
 
@@ -66,7 +68,7 @@ public class DazzaController : MonoBehaviour
     // makes the player jump
     private void FixedUpdate()
     {
-        if (isJumping && !isDead)
+        if (isJumping)
         {
             dazzaRB.velocity = (Vector2.up * jumpForce);
         }
@@ -147,20 +149,11 @@ public class DazzaController : MonoBehaviour
 		gameController.SetGameSpeed(0f);
 
 		StartCoroutine(KillingDazza());
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-		dazzaRB.velocity = Vector2.zero;
-=======
-		Debug.Log("Dazza's dying");
->>>>>>> parent of 3f1545f... Magnet powerup works but isn't moving yet
-=======
-		Debug.Log("Dazza's dying");
->>>>>>> parent of 3f1545f... Magnet powerup works but isn't moving yet
 	}
 
 	IEnumerator KillingDazza()
 	{
+		Debug.Log("Dazza's dying");
 		//Run Dazza's death animation
 		yield return new WaitForSeconds(3); //Change this to the length of Dazza's death animation plus a second
 		Debug.Log("Dazza's dead");
@@ -172,35 +165,7 @@ public class DazzaController : MonoBehaviour
 	{
 		return isDead;
 	}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-
-
-
-    private void IncrementDistance()
-    {
-        distanceIncrementTimer = gameController.Timer(distanceIncrementTimer);
-
-        if (distanceIncrementTimer >= timeToIncrementDistance)
-        {
-            distance += (int)(gameController.GetGameSpeed() / 3f);
-            distanceIncrementTimer = 0f;
-        }
-    }
-
-
-
-    public int GetDistance()
-    {
-        return distance;
-    }
-
-
-
-=======
 	public bool IsDazzaInvincible()
 	{
 		return isInvincible;
@@ -210,11 +175,4 @@ public class DazzaController : MonoBehaviour
 	{
 		isInvincible = stateToSet;
 	}
->>>>>>> 3f1545fba9220eb1d36cbb2870a3144ad065ee3c
-=======
->>>>>>> parent of 1879128... dollarydoo count UI / distance in game UI
-=======
->>>>>>> parent of 3f1545f... Magnet powerup works but isn't moving yet
-=======
->>>>>>> parent of 3f1545f... Magnet powerup works but isn't moving yet
 }

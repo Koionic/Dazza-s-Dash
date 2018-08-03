@@ -15,31 +15,20 @@ public class DollaryDoo : MonoBehaviour
 		player = GameObject.FindGameObjectWithTag("Player");
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject.tag == "Player")
+		{
+			gameController.AddDollaryDoo();
+			Destroy(gameObject);
+		}
+	}
+
 	private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-			gameController.AddDollaryDoo();
-			Destroy(gameObject);
-		}
-
-		if (collision.CompareTag("MagnetCollider"))
-		{
 			Vector2.MoveTowards(transform.position, player.transform.position, Time.deltaTime);
-		}
-	}
-=======
-=======
->>>>>>> parent of 3f1545f... Magnet powerup works but isn't moving yet
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            gameController.AddDollaryDoo();
-            Destroy(gameObject);
         }
     }
->>>>>>> parent of 3f1545f... Magnet powerup works but isn't moving yet
 }

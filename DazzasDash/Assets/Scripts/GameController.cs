@@ -13,24 +13,7 @@ public class GameController : MonoBehaviour
 
     [SerializeField] float gameSpeed;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-
-=======
->>>>>>> parent of 1879128... dollarydoo count UI / distance in game UI
-    private void Start()
-=======
 	private void Start()
->>>>>>> 3f1545fba9220eb1d36cbb2870a3144ad065ee3c
-=======
-    private void Start()
->>>>>>> parent of 3f1545f... Magnet powerup works but isn't moving yet
-=======
-    private void Start()
->>>>>>> parent of 3f1545f... Magnet powerup works but isn't moving yet
     {
         levelGeneration = GameObject.Find("LevelGenerator").GetComponent<LevelGeneration>();
     }
