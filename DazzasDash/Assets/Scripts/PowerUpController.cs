@@ -13,7 +13,7 @@ public class PowerUpController : MonoBehaviour
 
 	void Awake()
 	{
-		magnetCollider = GetComponent<CircleCollider2D>();
+		magnetCollider = GetComponentInChildren<CircleCollider2D>();
 	}
 
 	void Start ()
