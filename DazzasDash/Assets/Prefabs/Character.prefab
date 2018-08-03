@@ -95,6 +95,7 @@ Rigidbody2D:
   m_CollisionDetection: 0
   m_Constraints: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!58 &58925752006508392
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -110,6 +111,8 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 10
+=======
+>>>>>>> parent of 3f1545f... Magnet powerup works but isn't moving yet
 =======
 >>>>>>> parent of 3f1545f... Magnet powerup works but isn't moving yet
 --- !u!70 &70141521969617270
@@ -161,6 +164,7 @@ MonoBehaviour:
   maximumJumpTime: 0.7
   offset: {x: 0, y: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!114 &114638722817358600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -172,6 +176,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8c8f33bdba3ef418084f7372f576d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+>>>>>>> parent of 3f1545f... Magnet powerup works but isn't moving yet
 =======
 >>>>>>> parent of 3f1545f... Magnet powerup works but isn't moving yet
 --- !u!212 &212553707959186060

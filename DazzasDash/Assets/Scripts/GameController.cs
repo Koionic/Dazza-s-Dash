@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 =======
@@ -24,6 +25,9 @@ public class GameController : MonoBehaviour
 =======
 	private void Start()
 >>>>>>> 3f1545fba9220eb1d36cbb2870a3144ad065ee3c
+=======
+    private void Start()
+>>>>>>> parent of 3f1545f... Magnet powerup works but isn't moving yet
 =======
     private void Start()
 >>>>>>> parent of 3f1545f... Magnet powerup works but isn't moving yet

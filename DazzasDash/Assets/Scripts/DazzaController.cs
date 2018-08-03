@@ -149,7 +149,11 @@ public class DazzaController : MonoBehaviour
 		StartCoroutine(KillingDazza());
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		dazzaRB.velocity = Vector2.zero;
+=======
+		Debug.Log("Dazza's dying");
+>>>>>>> parent of 3f1545f... Magnet powerup works but isn't moving yet
 =======
 		Debug.Log("Dazza's dying");
 >>>>>>> parent of 3f1545f... Magnet powerup works but isn't moving yet
@@ -168,6 +172,7 @@ public class DazzaController : MonoBehaviour
 	{
 		return isDead;
 	}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -208,6 +213,8 @@ public class DazzaController : MonoBehaviour
 >>>>>>> 3f1545fba9220eb1d36cbb2870a3144ad065ee3c
 =======
 >>>>>>> parent of 1879128... dollarydoo count UI / distance in game UI
+=======
+>>>>>>> parent of 3f1545f... Magnet powerup works but isn't moving yet
 =======
 >>>>>>> parent of 3f1545f... Magnet powerup works but isn't moving yet
 }
