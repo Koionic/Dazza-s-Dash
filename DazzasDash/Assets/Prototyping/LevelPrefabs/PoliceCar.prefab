@@ -26,11 +26,11 @@ GameObject:
   - component: {fileID: 114241502317630660}
   m_Layer: 0
   m_Name: PoliceCar
-  m_TagString: Untagged
+  m_TagString: WouldKillDazza
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4340142956628918
 Transform:
   m_ObjectHideFlags: 1

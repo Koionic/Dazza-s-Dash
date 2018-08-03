@@ -56,4 +56,8 @@ public class LevelGeneration : MonoBehaviour
         return levelScrollSpeed;
     }
 
+	public void SetScrollSpeed(float speedToSet)
+	{
+		levelScrollSpeed = Mathf.Lerp(levelScrollSpeed, speedToSet, 1f);
+	}
 }

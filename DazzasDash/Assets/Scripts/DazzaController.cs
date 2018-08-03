@@ -30,7 +30,7 @@ public class DazzaController : MonoBehaviour
 
 	public Vector2 offset;
 
-
+	LevelGeneration levelGenerator;
 
 
 
@@ -38,7 +38,9 @@ public class DazzaController : MonoBehaviour
 	private void Awake()
     {
         dazzaRB = GetComponent<Rigidbody2D>();
-    }
+
+		gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+	}
 
 
 
@@ -48,12 +50,14 @@ public class DazzaController : MonoBehaviour
 
 	void Update ()
     {
-        DetectUserInputs();
+		if (!isDead)
+		{
+			DetectUserInputs();
+
+			IncrementTimer();
+		}
 
         LimitHeight();
-
-        IncrementTimer();
-
     }
 
 
@@ -124,8 +128,31 @@ public class DazzaController : MonoBehaviour
                jumpTimer = 0f;
                isGrounded = true;
         }
+		
+		if (collision.gameObject.tag == "WouldKillDazza")
+		{
+			KillDazza();
+		}
     }
-	
+
+
+	void KillDazza()
+	{
+		isDead = true;
+
+		levelGenerator.SetScrollSpeed(0f);
+
+		StartCoroutine(KillingDazza());
+	}
+
+	IEnumerator KillingDazza()
+	{
+		//Run Dazza's death animation
+		yield return new WaitForSeconds(3); //Change this to the length of Dazza's death animation plus a second
+		Debug.Log("Dazza's dead");
+		//Change scene to whichever scene happens after death
+	}
+
 
 	public bool IsDazzaDead()
 	{

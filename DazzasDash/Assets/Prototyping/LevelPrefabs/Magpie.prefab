@@ -27,11 +27,11 @@ GameObject:
   - component: {fileID: 114783289445763746}
   m_Layer: 0
   m_Name: Magpie
-  m_TagString: Untagged
+  m_TagString: WouldKillDazza
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4573564035521940
 Transform:
   m_ObjectHideFlags: 1
@@ -130,7 +130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236a4cbf620ddfa4dab1fa54b6c6d8b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  verticalSwoopRate: 1
 --- !u!212 &212152166116180246
 SpriteRenderer:
   m_ObjectHideFlags: 1
