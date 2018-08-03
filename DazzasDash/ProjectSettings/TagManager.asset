@@ -12,6 +12,9 @@ TagManager:
   - ObjectSpawnLocation
   - ObjectDeleter
   - WouldKillDazza
+  - MagnetPowerUp
+  - ShieldPowerUp
+  - SprintBoostPowerUp
   layers:
   - Default
   - TransparentFX
