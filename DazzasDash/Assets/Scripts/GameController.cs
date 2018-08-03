@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour
 
     [SerializeField] float gameSpeed;
 
+
+
     private void Start()
     {
         levelGeneration = GameObject.Find("LevelGenerator").GetComponent<LevelGeneration>();
@@ -54,6 +56,11 @@ public class GameController : MonoBehaviour
     public void SetDollaryDoos(int inDollaryDoos)
     {
         dollaryDoos = inDollaryDoos;
+    }
+
+    public int GetDollaryDoos()
+    {
+        return dollaryDoos;
     }
 }
 

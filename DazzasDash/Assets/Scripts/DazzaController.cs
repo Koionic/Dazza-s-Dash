@@ -30,6 +30,12 @@ public class DazzaController : MonoBehaviour
 
 	public Vector2 offset;
 
+    [SerializeField]
+    private float timeToIncrementDistance = 1f;
+
+    private float distanceIncrementTimer = 0f;
+
+    private int distance = 0;
 
 
 
@@ -53,6 +59,8 @@ public class DazzaController : MonoBehaviour
 			DetectUserInputs();
 
 			IncrementTimer();
+
+            IncrementDistance();
 		}
 
         LimitHeight();
@@ -164,4 +172,28 @@ public class DazzaController : MonoBehaviour
 	{
 		return isDead;
 	}
+
+
+
+
+    private void IncrementDistance()
+    {
+        distanceIncrementTimer = gameController.Timer(distanceIncrementTimer);
+
+        if (distanceIncrementTimer >= timeToIncrementDistance)
+        {
+            distance += (int)(gameController.GetGameSpeed() / 3f);
+            distanceIncrementTimer = 0f;
+        }
+    }
+
+
+
+    public int GetDistance()
+    {
+        return distance;
+    }
+
+
+
 }

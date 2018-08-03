@@ -12,6 +12,8 @@ TagManager:
   - ObjectSpawnLocation
   - ObjectDeleter
   - WouldKillDazza
+  - DollaryDoosInGameUI
+  - DistanceInGameUI
   layers:
   - Default
   - TransparentFX
