@@ -36,8 +36,12 @@ public class GameController : MonoBehaviour
         return gameSpeed;
     }
 
+	public void SetGameSpeed(float speedToSet)
+	{
+		gameSpeed = Mathf.Lerp(gameSpeed, speedToSet, 3f);
+	}
 
-    public BackgroundState GetBackgroundState()
+	public BackgroundState GetBackgroundState()
     {
         return backgroundState;
     }

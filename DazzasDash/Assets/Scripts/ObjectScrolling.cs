@@ -10,7 +10,7 @@ public class ObjectScrolling : MonoBehaviour
 	void Start ()
 	{
         // grab reference
-		levelGenerator = transform.parent.GetComponent<LevelGeneration>();
+		levelGenerator = GameObject.Find("LevelGenerator").GetComponent<LevelGeneration>();
 	}
 	
 

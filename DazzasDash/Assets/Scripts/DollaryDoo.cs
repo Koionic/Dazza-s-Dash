@@ -6,9 +6,13 @@ public class DollaryDoo : MonoBehaviour
 {
     private GameController gameController;
 
+	GameObject player;
+
     private void Start()
     {
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+
+		player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

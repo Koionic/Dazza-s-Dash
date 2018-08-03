@@ -30,8 +30,6 @@ public class DazzaController : MonoBehaviour
 
 	public Vector2 offset;
 
-	LevelGeneration levelGenerator;
-
 
 
 
@@ -128,21 +126,29 @@ public class DazzaController : MonoBehaviour
                jumpTimer = 0f;
                isGrounded = true;
         }
-		
-		if (collision.gameObject.tag == "WouldKillDazza")
+    }
+
+
+	private void OnTriggerEnter2D(Collider2D collider)
+	{
+		if (collider.gameObject.tag == "WouldKillDazza")
 		{
 			KillDazza();
+
+			Debug.Log("Dazza should die");
 		}
-    }
+	}
 
 
 	void KillDazza()
 	{
 		isDead = true;
 
-		levelGenerator.SetScrollSpeed(0f);
+		gameController.SetGameSpeed(0f);
 
 		StartCoroutine(KillingDazza());
+
+		Debug.Log("Dazza's dying");
 	}
 
 	IEnumerator KillingDazza()
