@@ -25,10 +25,25 @@ GameObject:
   - component: {fileID: 50921316133671724}
   - component: {fileID: 70141521969617270}
   - component: {fileID: 95355109845707832}
-  - component: {fileID: 58598382268990368}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1703998756840128
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4198177093679784}
+  - component: {fileID: 58801872131673392}
+  m_Layer: 0
+  m_Name: MagnetCollector
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,8 +57,22 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.96, y: -5.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4198177093679784}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4198177093679784
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1703998756840128}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4025988796735974}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &50921316133671724
@@ -66,12 +95,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 1
---- !u!58 &58598382268990368
+--- !u!58 &58801872131673392
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1099943165192774}
+  m_GameObject: {fileID: 1703998756840128}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -140,7 +169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8c8f33bdba3ef418084f7372f576d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magnetRange: 5
 --- !u!212 &212553707959186060
 SpriteRenderer:
   m_ObjectHideFlags: 1

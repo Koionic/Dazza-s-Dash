@@ -68,7 +68,7 @@ public class DazzaController : MonoBehaviour
     // makes the player jump
     private void FixedUpdate()
     {
-        if (isJumping)
+        if (isJumping && !isDead)
         {
             dazzaRB.velocity = (Vector2.up * jumpForce);
         }
