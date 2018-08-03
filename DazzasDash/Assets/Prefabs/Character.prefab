@@ -21,9 +21,11 @@ GameObject:
   - component: {fileID: 4025988796735974}
   - component: {fileID: 212553707959186060}
   - component: {fileID: 114025337712810782}
+  - component: {fileID: 114638722817358600}
   - component: {fileID: 50921316133671724}
   - component: {fileID: 70141521969617270}
   - component: {fileID: 95355109845707832}
+  - component: {fileID: 58598382268990368}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -64,6 +66,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 1
+--- !u!58 &58598382268990368
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1099943165192774}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 10
 --- !u!70 &70141521969617270
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
@@ -112,6 +129,18 @@ MonoBehaviour:
   jumpForce: 15
   maximumJumpTime: 0.7
   offset: {x: 0, y: 0}
+--- !u!114 &114638722817358600
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1099943165192774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d8c8f33bdba3ef418084f7372f576d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magnetRange: 5
 --- !u!212 &212553707959186060
 SpriteRenderer:
   m_ObjectHideFlags: 1

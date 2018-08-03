@@ -12,8 +12,14 @@ TagManager:
   - ObjectSpawnLocation
   - ObjectDeleter
   - WouldKillDazza
+<<<<<<< HEAD
   - DollaryDoosInGameUI
   - DistanceInGameUI
+=======
+  - MagnetPowerUp
+  - ShieldPowerUp
+  - SprintBoostPowerUp
+>>>>>>> 3f1545fba9220eb1d36cbb2870a3144ad065ee3c
   layers:
   - Default
   - TransparentFX

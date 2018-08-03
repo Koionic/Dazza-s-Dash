@@ -14,7 +14,7 @@ public class DazzaController : MonoBehaviour
     [SerializeField]
     float maximumJumpTime = .5f; // the maximum time dazza can ascend in his jump for
 
-
+	bool isInvincible = false;
 
 
 
@@ -36,6 +36,8 @@ public class DazzaController : MonoBehaviour
     private float distanceIncrementTimer = 0f;
 
     private int distance = 0;
+
+
 
 
 
@@ -155,12 +157,11 @@ public class DazzaController : MonoBehaviour
 		gameController.SetGameSpeed(0f);
 
 		StartCoroutine(KillingDazza());
-
-		Debug.Log("Dazza's dying");
 	}
 
 	IEnumerator KillingDazza()
 	{
+		Debug.Log("Dazza's dying");
 		//Run Dazza's death animation
 		yield return new WaitForSeconds(3); //Change this to the length of Dazza's death animation plus a second
 		Debug.Log("Dazza's dead");
@@ -173,6 +174,7 @@ public class DazzaController : MonoBehaviour
 		return isDead;
 	}
 
+<<<<<<< HEAD
 
 
 
@@ -196,4 +198,15 @@ public class DazzaController : MonoBehaviour
 
 
 
+=======
+	public bool IsDazzaInvincible()
+	{
+		return isInvincible;
+	}
+
+	public void MakeDazzaInvincible(bool stateToSet)
+	{
+		isInvincible = stateToSet;
+	}
+>>>>>>> 3f1545fba9220eb1d36cbb2870a3144ad065ee3c
 }

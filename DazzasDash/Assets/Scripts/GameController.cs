@@ -13,9 +13,13 @@ public class GameController : MonoBehaviour
 
     [SerializeField] float gameSpeed;
 
+<<<<<<< HEAD
 
 
     private void Start()
+=======
+	private void Start()
+>>>>>>> 3f1545fba9220eb1d36cbb2870a3144ad065ee3c
     {
         levelGeneration = GameObject.Find("LevelGenerator").GetComponent<LevelGeneration>();
     }
