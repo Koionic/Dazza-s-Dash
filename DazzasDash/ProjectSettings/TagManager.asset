@@ -4,19 +4,16 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - CollisionMask
-  - Background
+  - DollaryDooInGameUI
   - BackgroundDeleter
-  - Enemy
+  - ObjectDeleter
+  - DistanceInGameUI
   - BackgroundSpawnLocation
   - ObjectSpawnLocation
-  - ObjectDeleter
   - WouldKillDazza
-  - MagnetPowerUp
-  - ShieldPowerUp
-  - SprintBoostPowerUp
-  - DollaryDooInGameUI
-  - DistanceInGameUI
+  - Background
+  - CollisionMask
+  - MagnetCollider
   layers:
   - Default
   - TransparentFX
