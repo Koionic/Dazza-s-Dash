@@ -15,20 +15,17 @@ public class DollaryDoo : MonoBehaviour
 		player = GameObject.FindGameObjectWithTag("Player");
     }
 
-	private void OnCollisionEnter2D(Collision2D collision)
-	{
-		if (collision.gameObject.tag == "Player")
-		{
-			gameController.AddDollaryDoo();
-			Destroy(gameObject);
-		}
-	}
-
 	private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
+			gameController.AddDollaryDoo();
+			Destroy(gameObject);
+		}
+
+		if (collision.CompareTag("MagnetCollider"))
+		{
 			Vector2.MoveTowards(transform.position, player.transform.position, Time.deltaTime);
-        }
-    }
+		}
+	}
 }

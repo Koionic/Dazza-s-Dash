@@ -15,6 +15,7 @@ TagManager:
   - MagnetPowerUp
   - ShieldPowerUp
   - SprintBoostPowerUp
+  - MagnetCollider
   layers:
   - Default
   - TransparentFX
