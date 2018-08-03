@@ -32,7 +32,7 @@ public class LevelGeneration : MonoBehaviour
         spawnLocation = GameObject.FindWithTag("ObjectSpawnLocation").transform; 
 
         // spawn the objects at the spawn delay interval over and over
-		InvokeRepeating("SpawnLevelPrefab", 0, spawnDelay); // invokes them repead
+		InvokeRepeating("SpawnLevelPrefab", spawnDelay, spawnDelay); // invokes them repead
 	}
 
     // this function instantiates the object
