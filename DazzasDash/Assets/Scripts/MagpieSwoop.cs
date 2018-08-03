@@ -67,5 +67,7 @@ public class MagpieSwoop : MonoBehaviour
                 hasSwooped = true;
             }
         }
+
+        Debug.Log(hasSwooped);
     }
 }

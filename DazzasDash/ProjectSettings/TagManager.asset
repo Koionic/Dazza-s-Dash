@@ -14,6 +14,7 @@ TagManager:
   - WouldKillDazza
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   - DollaryDoosInGameUI
   - DistanceInGameUI
 =======
@@ -27,6 +28,8 @@ TagManager:
 >>>>>>> 1a3825d8141a9ab0040ac21b9e3ff8c222f04bf7
 =======
 >>>>>>> parent of 1879128... dollarydoo count UI / distance in game UI
+=======
+>>>>>>> parent of 3f1545f... Magnet powerup works but isn't moving yet
   layers:
   - Default
   - TransparentFX
