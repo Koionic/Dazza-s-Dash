@@ -15,6 +15,8 @@ TagManager:
   - MagnetPowerUp
   - ShieldPowerUp
   - SprintBoostPowerUp
+  - DollaryDooInGameUI
+  - DistanceInGameUI
   layers:
   - Default
   - TransparentFX

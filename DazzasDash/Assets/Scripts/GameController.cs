@@ -55,6 +55,11 @@ public class GameController : MonoBehaviour
     {
         dollaryDoos = inDollaryDoos;
     }
+
+    public int GetDollaryDoos()
+    {
+        return dollaryDoos;
+    }
 }
 
 
