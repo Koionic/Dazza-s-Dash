@@ -614,10 +614,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1703998756840128, guid: 0c84d2327b7ef234fbf9a5f551243f24, type: 2}
-      propertyPath: m_TagString
-      value: MagnetCollider
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c84d2327b7ef234fbf9a5f551243f24, type: 2}
   m_IsPrefabParent: 0
@@ -1419,21 +1415,6 @@ Prefab:
     - target: {fileID: 4059700115834828, guid: 7369add299332604280fea336cbeea77, type: 2}
       propertyPath: m_RootOrder
       value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 58719156943252388, guid: 7369add299332604280fea336cbeea77,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 50840744430594200, guid: 7369add299332604280fea336cbeea77,
-        type: 2}
-      propertyPath: m_Simulated
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212397495359353444, guid: 7369add299332604280fea336cbeea77,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7369add299332604280fea336cbeea77, type: 2}

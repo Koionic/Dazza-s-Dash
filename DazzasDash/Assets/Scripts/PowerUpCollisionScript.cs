@@ -9,6 +9,8 @@ public class PowerUpCollisionScript : MonoBehaviour
 		if (collision.CompareTag("Player"))
 		{
 			Destroy(gameObject, 0.1f);
+
+			Debug.Log(tag + " has been collected");
 		}
 	}
 }

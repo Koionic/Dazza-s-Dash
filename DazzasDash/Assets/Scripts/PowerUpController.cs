@@ -28,7 +28,7 @@ public class PowerUpController : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.tag == "MagnetPowerUp")
+		if (collision.CompareTag("MagnetPowerUp"))
 		{
 			StartCoroutine(ActivateMagnetPowerUp());
 		}
