@@ -13,6 +13,7 @@ TagManager:
   - ObjectDeleter
   - WouldKillDazza
 <<<<<<< HEAD
+<<<<<<< HEAD
   - DollaryDoosInGameUI
   - DistanceInGameUI
 =======
@@ -24,6 +25,8 @@ TagManager:
 =======
   - MagnetCollider
 >>>>>>> 1a3825d8141a9ab0040ac21b9e3ff8c222f04bf7
+=======
+>>>>>>> parent of 1879128... dollarydoo count UI / distance in game UI
   layers:
   - Default
   - TransparentFX

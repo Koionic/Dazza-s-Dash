@@ -14,8 +14,11 @@ public class GameController : MonoBehaviour
     [SerializeField] float gameSpeed;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> parent of 1879128... dollarydoo count UI / distance in game UI
     private void Start()
 =======
 	private void Start()
@@ -60,11 +63,6 @@ public class GameController : MonoBehaviour
     public void SetDollaryDoos(int inDollaryDoos)
     {
         dollaryDoos = inDollaryDoos;
-    }
-
-    public int GetDollaryDoos()
-    {
-        return dollaryDoos;
     }
 }
 

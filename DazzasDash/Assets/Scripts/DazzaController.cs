@@ -30,12 +30,6 @@ public class DazzaController : MonoBehaviour
 
 	public Vector2 offset;
 
-    [SerializeField]
-    private float timeToIncrementDistance = 1f;
-
-    private float distanceIncrementTimer = 0f;
-
-    private int distance = 0;
 
 
 
@@ -61,8 +55,6 @@ public class DazzaController : MonoBehaviour
 			DetectUserInputs();
 
 			IncrementTimer();
-
-            IncrementDistance();
 		}
 
         LimitHeight();
@@ -175,6 +167,7 @@ public class DazzaController : MonoBehaviour
 	{
 		return isDead;
 	}
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 
@@ -211,4 +204,6 @@ public class DazzaController : MonoBehaviour
 		isInvincible = stateToSet;
 	}
 >>>>>>> 3f1545fba9220eb1d36cbb2870a3144ad065ee3c
+=======
+>>>>>>> parent of 1879128... dollarydoo count UI / distance in game UI
 }
