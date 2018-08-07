@@ -167,6 +167,10 @@ public class DazzaController : MonoBehaviour
 		//Run Dazza's death animation
 		yield return new WaitForSeconds(3); //Change this to the length of Dazza's death animation plus a second
 		Debug.Log("Dazza's dead");
+
+        Highscore highscore = FindObjectOfType<Highscore>().GetComponent<Highscore>();
+        highscore.CompareHighScore((int)gameController.GetDistance());
+
 		//Change scene to whichever scene happens after death
 	}
 

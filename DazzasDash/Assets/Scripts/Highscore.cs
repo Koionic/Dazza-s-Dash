@@ -29,7 +29,7 @@ public class Highscore : MonoBehaviour
 		
 	}
 
-    public void CompareHighScore(int newScore, string newName)
+    public void CompareHighScore(int newScore)
     {
         string scorePosition;
         string scoreName;
@@ -41,12 +41,12 @@ public class Highscore : MonoBehaviour
 
             if (newScore > PlayerPrefs.GetInt(scorePosition))
             {
-                Debug.Log(newName + " is " + scorePosition);
+                Debug.Log("New Highscore");
 
-                PlayerPrefs.SetInt(scorePosition, newScore);
-                PlayerPrefs.SetString(scoreName, newName);
+                GameData gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
+                gameData.newHighScore = newScore;
 
-                break;
+                SceneManager.LoadScene("New Highscore");
             }
         }
     }
