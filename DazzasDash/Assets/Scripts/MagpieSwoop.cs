@@ -25,47 +25,46 @@ public class MagpieSwoop : MonoBehaviour
 	
 	void FixedUpdate ()
 	{
-        CheckSwoop();
-		Swoop();
+        //CheckSwoop();
+		//Swoop();
 	}
 
-	void Swoop()
-	{
-        if (hasSwooped == false)
-        {
-            if(transform.position.y <= dazzaTransform.position.y + 3f)
-            {
-                verticalVelocity = new Vector3(0f, Mathf.Lerp(verticalVelocity.y, 0f, 0.05f), 0f);
-            }
-            else
-            {
-                verticalVelocity = new Vector3(0f, Mathf.Lerp(verticalVelocity.y, -levelGeneration.GetScrollSpeed(), 0.01f), 0f);
-            }
-        }
-        else
-        {
-            verticalVelocity = new Vector3(0f, Mathf.Lerp(verticalVelocity.y, levelGeneration.GetScrollSpeed(), 0.05f), 0f);
-        }
+ //   void Swoop()
+ //   {
+ //       if (hasSwooped == false)
+ //       {
+ //           if(transform.position.y <= dazzaTransform.position.y + 3f)
+ //           {
+ //               verticalVelocity = new Vector3(0f, Mathf.Lerp(verticalVelocity.y, 0f, 0.05f), 0f);
+ //           }
+ //           else
+ //           {
+ //               verticalVelocity = new Vector3(0f, Mathf.Lerp(verticalVelocity.y, -levelGeneration.GetScrollSpeed(), 0.01f), 0f);
+ //           }
+ //       }
+ //       else
+ //       {
+ //           verticalVelocity = new Vector3(0f, Mathf.Lerp(verticalVelocity.y, levelGeneration.GetScrollSpeed(), 0.05f), 0f);
+ //       }
 
-        transform.position += verticalVelocity * Time.deltaTime;
-    }
+ //       transform.position += verticalVelocity * Time.deltaTime;
+ //   }'
 
-
-    void CheckSwoop()
-    {
-        if (transform.position.y > dazzaTransform.position.y)
-        {
-            if(transform.position.x >= dazzaTransform.position.x)
-            {
-                hasSwooped = false;
-            }
-        }
-        else
-        {
-            if(transform.position.x <= dazzaTransform.position.x)
-            {
-                hasSwooped = true;
-            }
-        }
-    }
+ //   void CheckSwoop()
+ //   {
+ //       if (transform.position.y > dazzaTransform.position.y)
+ //       {
+ //           if(transform.position.x >= dazzaTransform.position.x)
+ //           {
+ //               hasSwooped = false;
+ //           }
+ //       }
+ //       else
+ //       {
+ //           if(transform.position.x <= dazzaTransform.position.x)
+ //           {
+ //               hasSwooped = true;
+ //           }
+ //       }
+ //   }
 }

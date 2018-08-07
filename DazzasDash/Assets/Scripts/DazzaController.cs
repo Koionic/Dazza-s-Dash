@@ -5,22 +5,17 @@ using UnityEngine;
 public class DazzaController : MonoBehaviour
 {
 
-    [SerializeField]
-    GameController gameController; // reference to the game controller script
+    [SerializeField] GameController gameController; // reference to the game controller script
 
-    [SerializeField]
-    float jumpForce = 15f; // the speed Dazza jumps
+    [SerializeField] float jumpForce = 15f; // the speed Dazza jumps
 
-    [SerializeField]
-    float maximumJumpTime = .5f; // the maximum time dazza can ascend in his jump for
+    [SerializeField] float maximumJumpTime = .5f; // the maximum time dazza can ascend in his jump for
 
-	bool isInvincible = false;
+    [SerializeField] float distanceConstant = 0.1f;
+
+    bool isInvincible = false;
 
     float dazzaDistance = 0f;
-
-    [SerializeField]
-    float distanceConstant = 0.1f;
-
 
     float jumpTimer = 0f; // timer to control the jump
 
