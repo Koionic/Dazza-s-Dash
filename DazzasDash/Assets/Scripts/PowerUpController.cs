@@ -9,13 +9,14 @@ public class PowerUpController : MonoBehaviour
 	bool sprintBoostActive = false;
 	bool magnetActive = false;
 
-	CircleCollider2D shieldCollider;
-    CircleCollider2D magnetCollider;
+	GameObject shieldCollider;
+    GameObject magnetCollider;
 
     void Awake()
 	{
-		magnetCollider = transform.GetChild(0).GetComponentInChildren<CircleCollider2D>();
-	}
+        shieldCollider = GameObject.FindGameObjectWithTag("ShieldCollider");
+		magnetCollider = GameObject.FindGameObjectWithTag("MagnetCollider");
+    }
 
 	void Start ()
 	{
@@ -24,8 +25,10 @@ public class PowerUpController : MonoBehaviour
 	
 	void Update ()
 	{
-		EnableDisableMagnetCollider();
-	}
+		EnableDisableShieldCollider();
+
+        EnableDisableMagnetCollider();
+    }
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
@@ -66,24 +69,24 @@ public class PowerUpController : MonoBehaviour
 
     IEnumerator ActivateMagnetPowerUp()
 	{
-
+        ActivateMagnet(true);
 		yield return new WaitForSeconds(15);
-
-	}
+        ActivateMagnet(false);
+    }
 
     void EnableDisableShieldCollider()
     {
         if (shieldActive)
-            shieldCollider.enabled = true;
+            shieldCollider.SetActive(true);
         else
-            shieldCollider.enabled = false;
+            shieldCollider.SetActive(false);
     }
 
     void EnableDisableMagnetCollider()
 	{
 		if (magnetActive)
-			magnetCollider.enabled = true;
+			magnetCollider.SetActive(true);
 		else
-			magnetCollider.enabled = false;
+			magnetCollider.SetActive(false);
 	}
 }
