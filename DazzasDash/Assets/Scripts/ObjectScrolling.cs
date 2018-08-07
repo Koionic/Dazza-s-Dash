@@ -7,11 +7,15 @@ public class ObjectScrolling : MonoBehaviour
 {
 	LevelGeneration levelGenerator; // the level generator
 
+    GameObject player;
+
 	void Start ()
 	{
         // grab reference
 		levelGenerator = GameObject.Find("LevelGenerator").GetComponent<LevelGeneration>();
-	}
+
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 	
 
 
@@ -19,7 +23,7 @@ public class ObjectScrolling : MonoBehaviour
 	{
         // move the object to the left based on the scroll speed
         transform.position += Vector3.left * levelGenerator.GetScrollSpeed() * Time.deltaTime;
-	}
+    }
 
 
 

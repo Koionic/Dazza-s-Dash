@@ -6,13 +6,21 @@ public class DollaryDoo : MonoBehaviour
 {
     private GameController gameController;
 
-	GameObject player;
+    LevelGeneration levelGenerator;
+
+    ObjectScrolling objectScrolling;
+
+    GameObject player;
 
     private void Start()
     {
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
 
-		player = GameObject.FindGameObjectWithTag("Player");
+        levelGenerator = GameObject.Find("LevelGenerator").GetComponent<LevelGeneration>();
+
+        objectScrolling = GetComponentInParent<ObjectScrolling>();
+
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
 	private void OnTriggerEnter2D(Collider2D collision)
@@ -22,10 +30,15 @@ public class DollaryDoo : MonoBehaviour
 			gameController.AddDollaryDoo();
 			Destroy(gameObject);
 		}
-
-		if (collision.CompareTag("MagnetCollider"))
-		{
-			Vector2.MoveTowards(transform.position, player.transform.position, Time.deltaTime);
-		}
 	}
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("MagnetCollider"))
+        {
+            Debug.Log("Moving Towards Player");
+
+            transform.position = Vector2.Lerp(transform.position, player.transform.position, gameController.GetGameSpeed() * Time.deltaTime);
+        }
+    }
 }
