@@ -15,6 +15,9 @@ TagManager:
   - CollisionMask
   - MagnetCollider
   - MagnetPowerUp
+  - ShieldCollider
+  - ShieldPowerUp
+  - SpeedBoostPowerUp
   layers:
   - Default
   - TransparentFX
