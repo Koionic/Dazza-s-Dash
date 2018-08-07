@@ -16,6 +16,10 @@ public class DazzaController : MonoBehaviour
 
 	bool isInvincible = false;
 
+    float dazzaDistance = 0f;
+
+    [SerializeField]
+    float distanceConstant = 0.1f;
 
 
     float jumpTimer = 0f; // timer to control the jump
@@ -55,6 +59,8 @@ public class DazzaController : MonoBehaviour
 			DetectUserInputs();
 
 			IncrementTimer();
+
+            CalculateDistance();
 		}
 
         LimitHeight();
@@ -116,7 +122,11 @@ public class DazzaController : MonoBehaviour
     }
 
 
-
+    private void CalculateDistance()
+    {
+        dazzaDistance += (gameController.GetGameSpeed() * Time.deltaTime * distanceConstant);
+        gameController.SetDistance(dazzaDistance);
+    }
 
 
 

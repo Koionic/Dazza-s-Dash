@@ -6,6 +6,8 @@ public class GameController : MonoBehaviour
 {
     private int dollaryDoos = 0;
 
+    private float distance = 0f;
+
     private LevelGeneration levelGeneration;
 
     [SerializeField]
@@ -59,6 +61,16 @@ public class GameController : MonoBehaviour
     public int GetDollaryDoos()
     {
         return dollaryDoos;
+    }
+
+    public void SetDistance(float inDistance)
+    {
+        distance = inDistance;
+    }
+
+    public float GetDistance()
+    {
+        return distance;
     }
 }
 
