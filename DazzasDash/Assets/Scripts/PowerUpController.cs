@@ -36,6 +36,11 @@ public class PowerUpController : MonoBehaviour
 		{
 			StartCoroutine(ActivateMagnetPowerUp());
 		}
+
+        if (collision.CompareTag("ShieldPowerUp"))
+        {
+            StartCoroutine(ActivateShieldPowerUp());
+        }
 	}
 
 	public void ActivateShield(bool stateToSet)
