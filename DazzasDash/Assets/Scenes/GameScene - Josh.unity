@@ -612,6 +612,7 @@ GameObject:
   - component: {fileID: 459094074}
   - component: {fileID: 459094073}
   - component: {fileID: 459094075}
+  - component: {fileID: 459094076}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -654,6 +655,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74943ad7e7ec4a547aa2bf6a3a20e719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &459094076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 459094072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 055d050f5cc4843a99d0ed7489cd6ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &461636942 stripped
@@ -970,7 +982,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &628190023
 Transform:
   m_ObjectHideFlags: 0
@@ -1209,10 +1221,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelScrollRate: 1
   levelPrefabs:
-  - {fileID: 1218241242820958, guid: abfb7cb0833f9db45af7f58482d5a706, type: 2}
-  - {fileID: 1759438868636032, guid: cf263e282bdf5be45b06f38c83172ab9, type: 2}
-  - {fileID: 1730318956713578, guid: 708ffb6419d4d2649a965a3fb63b5546, type: 2}
-  spawnDelay: 2
+  - {fileID: 1172533771816338, guid: 7369add299332604280fea336cbeea77, type: 2}
+  spawnDelay: 20
 --- !u!1001 &996009339
 Prefab:
   m_ObjectHideFlags: 0

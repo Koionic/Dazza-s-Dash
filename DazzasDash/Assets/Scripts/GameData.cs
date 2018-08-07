@@ -6,8 +6,11 @@ public class GameData : MonoBehaviour
 {
     public int dollaryDoos;
 
+    public int scorePosition;
     public int newHighScore;
     public string newInitials;
+
+    public bool newScoreIsSet;
 
 	// Use this for initialization
 	void Start () 

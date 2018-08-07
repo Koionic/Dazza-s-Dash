@@ -6,16 +6,29 @@ using UnityEngine.SceneManagement;
 
 public class Highscore : MonoBehaviour 
 {
+
+    GameData gameData;
+
     int[] scoreBoard = new int[10];
     string[] nameBoard = new string[10];
 
     Text[] scoreNameText = new Text[10];
     Text[] highScoreText = new Text[10];
 
-	void Start () 
+    void Awake()
+    {
+        gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
+    }
+
+    void Start () 
 	{
         if (SceneManager.GetActiveScene().name == "HighScore")
         {
+            if (gameData.newScoreIsSet)
+            {
+                SetNewScore();
+            }
+
             GrabHighscoreData();
 
             GrabHighScoreTexts();
@@ -32,23 +45,25 @@ public class Highscore : MonoBehaviour
     public void CompareHighScore(int newScore)
     {
         string scorePosition;
-        string scoreName;
 
         for (int i = 0; i < scoreBoard.Length; i++)
         {
-            scorePosition = "Highscore" + (i+1).ToString();
-            scoreName = "HighscoreName" + (i + 1).ToString();
+            scorePosition = "Highscore" + (i + 1).ToString();
 
             if (newScore > PlayerPrefs.GetInt(scorePosition))
             {
                 Debug.Log("New Highscore");
 
                 GameData gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
+                gameData.scorePosition = i + 1;
                 gameData.newHighScore = newScore;
+                gameData.newScoreIsSet = true;
 
                 SceneManager.LoadScene("New Highscore");
+                return;
             }
         }
+        gameData.newScoreIsSet = false;
     }
 
     void GrabHighScoreTexts()
@@ -77,6 +92,30 @@ public class Highscore : MonoBehaviour
             highScoreText[i].text = scoreBoard[i].ToString() + " Meters";
             scoreNameText[i].text = nameBoard[i];
         }
+    }
+
+    void SetNewScore()
+    {
+        string scoreKey;
+        string initialKey;
+
+        for (int i = scoreBoard.Length; i > gameData.scorePosition; i--)
+        {
+            scoreKey = "Highscore" + (i).ToString();
+            string newScoreKey = "Highscore" + (i - 1).ToString();
+
+            initialKey = "HighscoreName" + (i).ToString();
+            string newInitialKey = "HighscoreName" + (i - 1).ToString();
+
+            PlayerPrefs.SetInt(scoreKey, PlayerPrefs.GetInt(newScoreKey));
+            PlayerPrefs.SetString(initialKey, PlayerPrefs.GetString(newInitialKey));
+        }
+
+        scoreKey = "Highscore" + gameData.scorePosition.ToString();
+        initialKey = "HighscoreName" + gameData.scorePosition.ToString();
+
+        PlayerPrefs.SetInt(scoreKey, gameData.newHighScore);
+        PlayerPrefs.SetString(initialKey, gameData.newInitials);
     }
 
     void GrabHighscoreData()
