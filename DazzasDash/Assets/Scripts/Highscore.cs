@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Highscore : MonoBehaviour 
 {
@@ -13,11 +14,14 @@ public class Highscore : MonoBehaviour
 
 	void Start () 
 	{
-        GrabHighscoreData();
+        if (SceneManager.GetActiveScene().name == "HighScore")
+        {
+            GrabHighscoreData();
 
-        GrabHighScoreTexts();
+            GrabHighScoreTexts();
 
-        SetHighScoreTexts();
+            SetHighScoreTexts();
+        }
 	}
 
 	void Update () 
@@ -25,20 +29,42 @@ public class Highscore : MonoBehaviour
 		
 	}
 
+    public void CompareHighScore(int newScore, string newName)
+    {
+        string scorePosition;
+        string scoreName;
+
+        for (int i = 0; i < scoreBoard.Length; i++)
+        {
+            scorePosition = "Highscore" + (i+1).ToString();
+            scoreName = "HighscoreName" + (i + 1).ToString();
+
+            if (newScore > PlayerPrefs.GetInt(scorePosition))
+            {
+                Debug.Log(newName + " is " + scorePosition);
+
+                PlayerPrefs.SetInt(scorePosition, newScore);
+                PlayerPrefs.SetString(scoreName, newName);
+
+                break;
+            }
+        }
+    }
+
     void GrabHighScoreTexts()
     {
         string highscorePosition;
 
         for (int i = 0; i < highScoreText.Length; i++)
         {
-            highscorePosition = "Highscore" + i.ToString();
+            highscorePosition = "Highscore" + (i+1).ToString();
 
             highScoreText[i] = GameObject.Find(highscorePosition).GetComponent<Text>();
         }
 
         for (int i = 0; i < scoreNameText.Length; i++)
         {
-            highscorePosition = "HighscoreName" + i.ToString();
+            highscorePosition = "HighscoreName" + (i+1).ToString();
 
             scoreNameText[i] = GameObject.Find(highscorePosition).GetComponent<Text>();
         }
@@ -48,7 +74,7 @@ public class Highscore : MonoBehaviour
     {
         for (int i = 0; i < highScoreText.Length; i++)
         {
-            highScoreText[i].text = scoreBoard[i].ToString();
+            highScoreText[i].text = scoreBoard[i].ToString() + " Meters";
             scoreNameText[i].text = nameBoard[i];
         }
     }
@@ -60,8 +86,8 @@ public class Highscore : MonoBehaviour
 
         for (int i = 0; i < scoreBoard.Length; i++)
         {
-            highscorePosition = "Highscore" + i.ToString();
-            namePosition = "PlayerName" + i.ToString();
+            highscorePosition = "Highscore" + (i+1).ToString();
+            namePosition = "HighscoreName" + (i+1).ToString();
 
             if (PlayerPrefs.HasKey(highscorePosition))
             {
