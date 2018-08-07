@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4811012700553554}
   - component: {fileID: 114618226376454604}
   - component: {fileID: 61881323632750448}
+  - component: {fileID: 114994056781110566}
   m_Layer: 0
   m_Name: BackgroundController
   m_TagString: Untagged
@@ -82,3 +83,17 @@ MonoBehaviour:
   backgroundPrefabsSuburb:
   - {fileID: 1684804723528792, guid: 8053d8c709dc34b559dbd1babeb95f4d, type: 2}
   backgroundPrefabsCity: []
+--- !u!114 &114994056781110566
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1631019237677290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dc32d2703cb34a009c7466afeafd285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstInitialText: {fileID: 0}
+  secondInitialText: {fileID: 0}
+  thirdInitialText: {fileID: 0}
