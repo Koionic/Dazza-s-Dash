@@ -1078,7 +1078,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa8eb885fc317d408edd70034bc88fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameController: {fileID: 0}
   jumpForce: 15
   maximumJumpTime: 0.7
   distanceConstant: 0.1
@@ -2628,6 +2627,7 @@ GameObject:
   - component: {fileID: 1983589688}
   - component: {fileID: 1983589692}
   - component: {fileID: 1983589691}
+  - component: {fileID: 1983589693}
   m_Layer: 0
   m_Name: ShieldCollider
   m_TagString: ShieldCollider
@@ -2746,6 +2746,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1983589693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1983589687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bee1e4c9959654147b47c1e28d58d256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2141932000
 GameObject:
   m_ObjectHideFlags: 0

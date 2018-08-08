@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PowerUpController : MonoBehaviour
 {
+    DazzaController dazzaController;
+
 	//Powerup bools
 	bool shieldActive = false;
 	bool sprintBoostActive = false;
@@ -14,6 +16,8 @@ public class PowerUpController : MonoBehaviour
 
     void Awake()
 	{
+        dazzaController = GetComponent<DazzaController>();
+
         shieldCollider = GameObject.FindGameObjectWithTag("ShieldCollider");
 		magnetCollider = GameObject.FindGameObjectWithTag("MagnetCollider");
     }
@@ -39,7 +43,7 @@ public class PowerUpController : MonoBehaviour
 
         if (collision.CompareTag("ShieldPowerUp"))
         {
-            StartCoroutine(ActivateShieldPowerUp());
+            ActivateShieldPowerUp();
         }
 	}
 
@@ -58,11 +62,16 @@ public class PowerUpController : MonoBehaviour
 		magnetActive = stateToSet;
 	}
 
-    IEnumerator ActivateShieldPowerUp()
+    private void ActivateShieldPowerUp()
     {
         ActivateShield(true);
-        yield return new WaitForSeconds(15);
+        dazzaController.MakeDazzaInvincible(true);
+    }
+
+    public void DeactivateShieldPowerUp()
+    {
         ActivateShield(false);
+        dazzaController.MakeDazzaInvincible(false);
     }
 
     IEnumerator ActivateSprintPowerUp()

@@ -5,7 +5,9 @@ using UnityEngine;
 public class DazzaController : MonoBehaviour
 {
 
-    [SerializeField] GameController gameController; // reference to the game controller script
+    GameController gameController; // reference to the game controller script
+
+    PowerUpController powerUpController;
 
     [SerializeField] float jumpForce = 15f; // the speed Dazza jumps
 
@@ -38,8 +40,10 @@ public class DazzaController : MonoBehaviour
     {
         dazzaRB = GetComponent<Rigidbody2D>();
 
-		gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
-	}
+        gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+        powerUpController = transform.GetComponent<PowerUpController>();
+
+    }
 
 
 
@@ -149,11 +153,14 @@ public class DazzaController : MonoBehaviour
 
 	void KillDazza()
 	{
-		isDead = true;
+        if (isInvincible == false)
+        {
+            isDead = true;
 
-		gameController.SetGameSpeed(0f);
+            gameController.SetGameSpeed(0f);
 
-		StartCoroutine(KillingDazza());
+            StartCoroutine(KillingDazza());
+        }
 	}
 
 	IEnumerator KillingDazza()
