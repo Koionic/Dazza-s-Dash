@@ -15,9 +15,11 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     GameObject externalToggle;
 
+    Text dollaryDooText;
+
 	void Start () 
 	{
-		
+        GrabDollaryDooData();
 	}
 	
 	void Update () 
@@ -89,4 +91,23 @@ public class MainMenu : MonoBehaviour
 
     }
 
+    void GrabDollaryDooData()
+    {
+        int dollaryDoos;
+
+        GameData gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
+
+        if (PlayerPrefs.HasKey("DollaryDoos"))
+        {
+            dollaryDoos = PlayerPrefs.GetInt("DollaryDoos");
+
+            gameData.dollaryDoos = dollaryDoos;
+        }
+        else
+        {
+            dollaryDoos = gameData.dollaryDoos;
+        }
+
+        dollaryDooText.text = dollaryDoos.ToString();
+    }
 }
