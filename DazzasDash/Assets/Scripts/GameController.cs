@@ -16,7 +16,6 @@ public class GameController : MonoBehaviour
     private BackgroundState backgroundState = BackgroundState.Suburb;
 
     [SerializeField] float gameSpeed;
-
     
     private void Awake()
     {

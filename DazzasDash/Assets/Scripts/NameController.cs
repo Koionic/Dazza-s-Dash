@@ -67,6 +67,10 @@ public class NameController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.F))
         {
+            AddInitial("F");
+        }
+        else if (Input.GetKeyDown(KeyCode.G))
+        {
             AddInitial("G");
         }
         else if (Input.GetKeyDown(KeyCode.H))

@@ -58,6 +58,8 @@ public class Highscore : MonoBehaviour
                 gameData.newHighScore = newScore;
                 gameData.newScoreIsSet = true;
 
+                
+
                 return;
             }
         }

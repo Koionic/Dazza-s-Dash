@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -328,7 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79a0d4b5d766be439cce512e97a8648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelScrollRate: 1.65
+  levelScrollRate: 2.5
   levelPrefabs:
   - {fileID: 1722967504302136, guid: 6ee621412cc016a49a925d94b94e7818, type: 2}
   spawnDelay: 15
@@ -1222,6 +1222,7 @@ MonoBehaviour:
   levelScrollRate: 1
   levelPrefabs:
   - {fileID: 1172533771816338, guid: 7369add299332604280fea336cbeea77, type: 2}
+  - {fileID: 1304088034650736, guid: 5b433bcc10d20034ba0c70128cea10f7, type: 2}
   spawnDelay: 20
 --- !u!1001 &996009339
 Prefab:
@@ -1604,7 +1605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79a0d4b5d766be439cce512e97a8648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelScrollRate: 3
+  levelScrollRate: 5
   levelPrefabs:
   - {fileID: 1825411690816760, guid: 85006facb05fd5348bc8e8b05e86cb92, type: 2}
   spawnDelay: 10

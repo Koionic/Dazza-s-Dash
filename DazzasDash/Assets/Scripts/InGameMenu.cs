@@ -51,7 +51,7 @@ public class InGameMenu : MonoBehaviour
 
     public void HighScores()
     {
-
+        
         SceneManager.LoadScene("HighScore");
 
     }
