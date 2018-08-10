@@ -10,15 +10,16 @@ public class InGameMenu : MonoBehaviour
     [SerializeField]
     GameObject pauseMenu;
 
+    [SerializeField]
     GameObject pauseButton;
 
+    [SerializeField]
     GameObject deathScreen;
+
+    bool isPaused = false;
 
     public void Start()
     {
-
-        pauseButton = GameObject.FindGameObjectWithTag("PauseButton");
-        deathScreen = GameObject.FindGameObjectWithTag("DeathScreen");
 
     }
 
@@ -52,6 +53,7 @@ public class InGameMenu : MonoBehaviour
     public void HighScores()
     {
 
+        Time.timeScale = 1f;
         SceneManager.LoadScene("HighScore");
 
     }
@@ -59,22 +61,40 @@ public class InGameMenu : MonoBehaviour
     public void Pause()
     {
 
-        Time.timeScale = 0f;
-        pauseMenu.SetActive(true);
+        if (isPaused == false)
+        {
+
+            isPaused = true;
+            Time.timeScale = 0f;
+            pauseMenu.SetActive(true);
+
+        }
+        else if (isPaused == true)
+        {
+
+            isPaused = false;
+            Time.timeScale = 1f;
+            pauseMenu.SetActive(false);
+
+        }
+        
 
     }
 
     public void Retry()
     {
 
-        SceneManager.LoadScene("GameScene");
+        Scene currentScene = SceneManager.GetActiveScene();
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(currentScene.name);
 
     }
 
     public void ToMainMenu()
 	{
-	
-		SceneManager.LoadScene("MainMenu");
+
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
 	
 	}
 
