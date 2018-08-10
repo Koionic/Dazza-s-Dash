@@ -10,14 +10,22 @@ public class GameController : MonoBehaviour
 
     private LevelGeneration levelGeneration;
 
+    private GameData gameData;
+
     [SerializeField]
     private BackgroundState backgroundState = BackgroundState.Suburb;
 
     [SerializeField] float gameSpeed;
-
-	private void Start()
+    
+    private void Awake()
     {
+        gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
         levelGeneration = GameObject.Find("LevelGenerator").GetComponent<LevelGeneration>();
+    }
+
+    private void Start()
+    {
+        SetDollaryDoos(gameData.dollaryDoos);
     }
 
     // A timer function
@@ -56,6 +64,13 @@ public class GameController : MonoBehaviour
     public void SetDollaryDoos(int inDollaryDoos)
     {
         dollaryDoos = inDollaryDoos;
+        SaveDollaryDoos(dollaryDoos);
+    }
+
+    void SaveDollaryDoos(int inDollaryDoos)
+    {
+        gameData.dollaryDoos = inDollaryDoos;
+        PlayerPrefs.SetInt("DollaryDoos", inDollaryDoos);
     }
 
     public int GetDollaryDoos()

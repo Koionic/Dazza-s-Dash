@@ -54,12 +54,12 @@ public class Highscore : MonoBehaviour
             {
                 Debug.Log("New Highscore");
 
-                GameData gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
                 gameData.scorePosition = i + 1;
                 gameData.newHighScore = newScore;
                 gameData.newScoreIsSet = true;
 
-                SceneManager.LoadScene("New Highscore");
+                
+
                 return;
             }
         }

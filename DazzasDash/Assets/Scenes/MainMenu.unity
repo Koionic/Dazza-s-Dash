@@ -1861,6 +1861,7 @@ MonoBehaviour:
   isDown: 0
   uiMenu: {fileID: 779427282}
   externalToggle: {fileID: 2055713272}
+  dollaryDooText: {fileID: 530364329}
 --- !u!4 &791846621
 Transform:
   m_ObjectHideFlags: 0

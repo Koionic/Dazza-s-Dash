@@ -7,6 +7,8 @@ public class DazzaController : MonoBehaviour
 
     GameController gameController; // reference to the game controller script
 
+    GameData gameData;
+
     PowerUpController powerUpController;
 
     [SerializeField] float jumpForce = 15f; // the speed Dazza jumps
@@ -31,7 +33,7 @@ public class DazzaController : MonoBehaviour
 
 	public Vector2 offset;
 
-
+   // InGameMenu inGameMenu;
 
 
 
@@ -40,6 +42,8 @@ public class DazzaController : MonoBehaviour
     {
         dazzaRB = GetComponent<Rigidbody2D>();
 
+       // inGameMenu = FindObjectOfType<InGameMenu>().GetComponent<InGameMenu>();
+        gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
         powerUpController = transform.GetComponent<PowerUpController>();
 
@@ -170,8 +174,17 @@ public class DazzaController : MonoBehaviour
 		yield return new WaitForSeconds(3); //Change this to the length of Dazza's death animation plus a second
 		Debug.Log("Dazza's dead");
 
+        gameController.SetDollaryDoos(gameController.GetDollaryDoos());
+
         Highscore highscore = FindObjectOfType<Highscore>().GetComponent<Highscore>();
-        highscore.CompareHighScore((int)gameController.GetDistance());
+        if (highscore != null)
+        {
+            highscore.CompareHighScore((int)gameController.GetDistance());
+        }
+        else
+        {
+            Debug.Log("Highscore script not found. Make sure you're starting from the preload scene");
+        }
 
 		//Change scene to whichever scene happens after death
 	}
