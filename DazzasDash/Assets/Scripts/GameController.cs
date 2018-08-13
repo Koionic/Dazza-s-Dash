@@ -48,7 +48,7 @@ public class GameController : MonoBehaviour
 
 	public void SetGameSpeed(float speedToSet)
 	{
-		gameSpeed = Mathf.Lerp(gameSpeed, speedToSet, 3f);
+		gameSpeed = Mathf.Lerp(gameSpeed, speedToSet, 1f);
 	}
 
 	public BackgroundState GetBackgroundState()

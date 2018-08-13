@@ -187,6 +187,32 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 19018521}
+--- !u!1 &22466372 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1099943165192774, guid: 0c84d2327b7ef234fbf9a5f551243f24,
+    type: 2}
+  m_PrefabInternal: {fileID: 1890501899}
+--- !u!114 &22466380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 22466372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c79a73fc196e8c64693ce3eea3dba39f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dazzasSkin: 1
+  dazzaAnimationStruct:
+  - animation: 0
+    animationBool: Default Skin
+  - animation: 2
+    animationBool: Shirtless Skin
+  - animation: 1
+    animationBool: Police Skin
+  - animation: 3
+    animationBool: SpeedBoost
 --- !u!1 &70115277
 GameObject:
   m_ObjectHideFlags: 0

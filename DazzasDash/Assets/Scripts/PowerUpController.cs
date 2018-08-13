@@ -154,4 +154,10 @@ public class PowerUpController : MonoBehaviour
     {
         dazzaController.MakeDazzaInvincible(false);
     }
+
+
+    public bool GetSpeedBoostActive()
+    {
+        return sprintBoostActive;
+    }
 }
