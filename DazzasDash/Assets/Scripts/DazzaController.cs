@@ -204,4 +204,9 @@ public class DazzaController : MonoBehaviour
 	{
 		isInvincible = stateToSet;
 	}
+
+    public bool GetJumping()
+    {
+        return isJumping;
+    }
 }

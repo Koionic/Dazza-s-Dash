@@ -27,6 +27,7 @@ public class SkinController : MonoBehaviour
 
     private Animator dazzaAnimator;
 
+    private DazzaController dazzaController;
     private PowerUpController powerUpController;
 
     private bool skinApplied = false;
@@ -37,6 +38,7 @@ public class SkinController : MonoBehaviour
     {
         dazzaAnimator = GetComponent<Animator>();
         powerUpController = GetComponent<PowerUpController>();
+        dazzaController = GetComponent<DazzaController>();
 
         ChooseSkin();
 
@@ -64,10 +66,17 @@ public class SkinController : MonoBehaviour
         }
         else
         {
-            currentDazzaAnimation = currentDazzaSkinAnimation;
+            if (dazzaController.GetJumping())
+            {
+                currentDazzaAnimation = DazzaAnimationState.Jumping;
+            }
+            else
+            {
+                currentDazzaAnimation = currentDazzaSkinAnimation; 
+            }
+
 
             if (previousDazzaAnimation != currentDazzaAnimation) ApplyCorrectAnimation();
-
             previousDazzaAnimation = currentDazzaAnimation;
 
             
@@ -77,7 +86,6 @@ public class SkinController : MonoBehaviour
 
     private void ApplyCorrectAnimation()
     {
-        Debug.Log("NOT SPEED BOOST");
 
         string animationParameter;
 
