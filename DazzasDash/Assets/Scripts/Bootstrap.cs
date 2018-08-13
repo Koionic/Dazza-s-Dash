@@ -9,15 +9,31 @@ using UnityEngine.SceneManagement;
 
 public class Bootstrap : MonoBehaviour
 {
+    [SerializeField]
+    private bool debugMode = false;
+
+    private bool doesExist = false;
 
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if(debugMode == false) CheckGameObjectExists();
     }
 
-    void Start ()
+    private void CheckGameObjectExists()
     {
-        SceneManager.LoadScene("MainMenu");
-	}
+        if(doesExist == false)
+        {
+            DontDestroyOnLoad(this.gameObject);
+
+            SceneManager.LoadScene("MainMenu");
+
+            doesExist = true;
+        }
+
+        if(FindObjectsOfType(GetType()).Length > 1)
+        {
+            Destroy(gameObject);
+        }
+    }
 
 }

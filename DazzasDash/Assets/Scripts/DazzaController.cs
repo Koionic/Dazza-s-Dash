@@ -43,9 +43,9 @@ public class DazzaController : MonoBehaviour
         dazzaRB = GetComponent<Rigidbody2D>();
 
        // inGameMenu = FindObjectOfType<InGameMenu>().GetComponent<InGameMenu>();
-        gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
         powerUpController = transform.GetComponent<PowerUpController>();
+        gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
 
     }
 

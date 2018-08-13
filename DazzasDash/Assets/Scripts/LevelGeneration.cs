@@ -29,7 +29,9 @@ public class LevelGeneration : MonoBehaviour
 	{
         // grab references
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
-        spawnLocation = GameObject.FindWithTag("ObjectSpawnLocation").transform; 
+        spawnLocation = GameObject.FindWithTag("ObjectSpawnLocation").transform;
+
+        CalculateSpeed();
 
         // spawn the objects at the spawn delay interval over and over
 		InvokeRepeating("SpawnLevelPrefab", spawnDelay, spawnDelay); // invokes them repead
