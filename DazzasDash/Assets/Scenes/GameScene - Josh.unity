@@ -521,7 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79a0d4b5d766be439cce512e97a8648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelScrollRate: 2.5
+  levelScrollRate: 1.65
   levelPrefabs:
   - {fileID: 1722967504302136, guid: 6ee621412cc016a49a925d94b94e7818, type: 2}
   spawnDelay: 15
@@ -908,7 +908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79a0d4b5d766be439cce512e97a8648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelScrollRate: 1.65
+  levelScrollRate: 1
   levelPrefabs:
   - {fileID: 1825411690816760, guid: 85006facb05fd5348bc8e8b05e86cb92, type: 2}
   spawnDelay: 15
@@ -1848,9 +1848,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelScrollRate: 1
   levelPrefabs:
-  - {fileID: 1172533771816338, guid: 7369add299332604280fea336cbeea77, type: 2}
   - {fileID: 1304088034650736, guid: 5b433bcc10d20034ba0c70128cea10f7, type: 2}
-  spawnDelay: 20
+  - {fileID: 1304088034650736, guid: 5b433bcc10d20034ba0c70128cea10f7, type: 2}
+  spawnDelay: 5
 --- !u!1001 &996009339
 Prefab:
   m_ObjectHideFlags: 0
@@ -2296,7 +2296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79a0d4b5d766be439cce512e97a8648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelScrollRate: 5
+  levelScrollRate: 1.8
   levelPrefabs:
   - {fileID: 1825411690816760, guid: 85006facb05fd5348bc8e8b05e86cb92, type: 2}
   spawnDelay: 10
@@ -3173,7 +3173,7 @@ Prefab:
     - target: {fileID: 114802610601539524, guid: ca2a035c5ac86e14eab3d477fa0fd4b8,
         type: 2}
       propertyPath: levelScrollRate
-      value: 1.2
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 114802610601539524, guid: ca2a035c5ac86e14eab3d477fa0fd4b8,
         type: 2}

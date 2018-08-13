@@ -11,7 +11,7 @@ public class ShieldController : MonoBehaviour
     private SpriteRenderer thisSR;
 
 
-    private void Start()
+    private void Awake()
     {
         powerUpController = GameObject.FindWithTag("Player").GetComponent<PowerUpController>();
         thisSR = GetComponent<SpriteRenderer>();
@@ -22,6 +22,7 @@ public class ShieldController : MonoBehaviour
     private void OnEnable()
     {
         deactivate = false;
+        thisSR.enabled = true;
     }
 
 
