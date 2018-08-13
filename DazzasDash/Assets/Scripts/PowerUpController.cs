@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PowerUpController : MonoBehaviour
 {
+    GameController gameController;
     DazzaController dazzaController;
 
 	//Powerup bools
@@ -14,8 +15,17 @@ public class PowerUpController : MonoBehaviour
 	GameObject shieldCollider;
     GameObject magnetCollider;
 
+    private bool gameSpeedSet = false;
+    private float gameSpeedBeforeBoost = 0f;
+
+    [SerializeField]
+    private float sprintBoostTime = 5f, sprintBoostGameSpeedRate = 2.5f;
+
+
+
     void Awake()
 	{
+        gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
         dazzaController = GetComponent<DazzaController>();
 
         shieldCollider = GameObject.FindGameObjectWithTag("ShieldCollider");
@@ -32,6 +42,8 @@ public class PowerUpController : MonoBehaviour
 		EnableDisableShieldCollider();
 
         EnableDisableMagnetCollider();
+
+        SprintBoostBehaviour();
     }
 
 	private void OnTriggerEnter2D(Collider2D collision)
@@ -44,6 +56,11 @@ public class PowerUpController : MonoBehaviour
         if (collision.CompareTag("ShieldPowerUp"))
         {
             ActivateShieldPowerUp();
+        }
+
+        if(collision.CompareTag("SpeedBoostPowerUp"))
+        {
+            StartCoroutine(ActivateSprintPowerUp());
         }
 	}
 
@@ -77,7 +94,9 @@ public class PowerUpController : MonoBehaviour
     IEnumerator ActivateSprintPowerUp()
     {
         ActivateSprintBoost(true);
-        yield return new WaitForSeconds(15);
+        gameSpeedBeforeBoost = gameController.GetGameSpeed();
+        //gameSpeedSet = false;
+        yield return new WaitForSeconds(sprintBoostTime);
         ActivateSprintBoost(false);
     }
 
@@ -103,4 +122,36 @@ public class PowerUpController : MonoBehaviour
 		else
 			magnetCollider.SetActive(false);
 	}
+
+
+    void SprintBoostBehaviour()
+    {
+        if(sprintBoostActive)
+        {
+            dazzaController.MakeDazzaInvincible(true);
+
+            if(gameSpeedSet == false)
+            {
+                gameSpeedSet = true;
+                gameController.SetGameSpeed(gameController.GetGameSpeed() * sprintBoostGameSpeedRate);
+            }
+        }
+           
+        else
+        {
+            if(gameSpeedSet == true)
+            {
+                gameSpeedSet = false;
+                gameController.SetGameSpeed(gameSpeedBeforeBoost);
+                Invoke("MakeDazzaVulnerable", 1.5f);
+            }
+        }
+    }
+
+
+
+    void MakeDazzaVulnerable()
+    {
+        dazzaController.MakeDazzaInvincible(false);
+    }
 }
