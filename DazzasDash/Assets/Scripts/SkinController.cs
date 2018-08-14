@@ -66,9 +66,16 @@ public class SkinController : MonoBehaviour
         }
         else
         {
-            if (dazzaController.GetJumping())
+            if(dazzaController.IsGrounded() == false)
             {
-                currentDazzaAnimation = DazzaAnimationState.Jumping;
+                if (dazzaController.GetJumping())
+                {
+                    currentDazzaAnimation = DazzaAnimationState.Jumping;
+                }
+                else
+                {
+                    currentDazzaAnimation = DazzaAnimationState.Falling;
+                }
             }
             else
             {

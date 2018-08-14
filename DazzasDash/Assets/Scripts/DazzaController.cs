@@ -24,25 +24,25 @@ public class DazzaController : MonoBehaviour
     float jumpTimer = 0f; // timer to control the jump
 
     // booleans for determines jump and grounded states
-    bool isJumping = false; 
+    bool isJumping = false;
     bool isGrounded = false;
 
-	bool isDead = false; //private bool that tracks if dazza is alive
+    bool isDead = false; //private bool that tracks if dazza is alive
 
     Rigidbody2D dazzaRB;
 
-	public Vector2 offset;
+    public Vector2 offset;
 
-   // InGameMenu inGameMenu;
-
-
+    // InGameMenu inGameMenu;
 
 
-	private void Awake()
+
+
+    private void Awake()
     {
         dazzaRB = GetComponent<Rigidbody2D>();
 
-       // inGameMenu = FindObjectOfType<InGameMenu>().GetComponent<InGameMenu>();
+        // inGameMenu = FindObjectOfType<InGameMenu>().GetComponent<InGameMenu>();
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
         powerUpController = transform.GetComponent<PowerUpController>();
         gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
@@ -55,16 +55,16 @@ public class DazzaController : MonoBehaviour
 
 
 
-	void Update ()
+    void Update()
     {
-		if (!isDead)
-		{
-			DetectUserInputs();
+        if (!isDead)
+        {
+            DetectUserInputs();
 
-			IncrementTimer();
+            IncrementTimer();
 
             CalculateDistance();
-		}
+        }
 
         LimitHeight();
     }
@@ -81,7 +81,7 @@ public class DazzaController : MonoBehaviour
         {
             dazzaRB.velocity = (Vector2.up * jumpForce);
         }
-	}
+    }
 
 
 
@@ -91,7 +91,7 @@ public class DazzaController : MonoBehaviour
     // switches the isJumping boolean when the timer has reached the amount of time allowed to jump
     private void LimitHeight()
     {
-        if(jumpTimer >= maximumJumpTime)
+        if (jumpTimer >= maximumJumpTime)
         {
             isJumping = false;
         }
@@ -138,25 +138,25 @@ public class DazzaController : MonoBehaviour
     {
         if (collision.gameObject.tag == "CollisionMask")
         {
-               jumpTimer = 0f;
-               isGrounded = true;
+            jumpTimer = 0f;
+            isGrounded = true;
         }
     }
 
 
-	private void OnTriggerEnter2D(Collider2D collider)
-	{
-		if (collider.gameObject.tag == "WouldKillDazza")
-		{
-			KillDazza();
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "WouldKillDazza")
+        {
+            KillDazza();
 
-			Debug.Log("Dazza should die");
-		}
-	}
+            Debug.Log("Dazza should die");
+        }
+    }
 
 
-	void KillDazza()
-	{
+    void KillDazza()
+    {
         if (isInvincible == false)
         {
             isDead = true;
@@ -165,14 +165,14 @@ public class DazzaController : MonoBehaviour
 
             StartCoroutine(KillingDazza());
         }
-	}
+    }
 
-	IEnumerator KillingDazza()
-	{
-		Debug.Log("Dazza's dying");
-		//Run Dazza's death animation
-		yield return new WaitForSeconds(3); //Change this to the length of Dazza's death animation plus a second
-		Debug.Log("Dazza's dead");
+    IEnumerator KillingDazza()
+    {
+        Debug.Log("Dazza's dying");
+        //Run Dazza's death animation
+        yield return new WaitForSeconds(3); //Change this to the length of Dazza's death animation plus a second
+        Debug.Log("Dazza's dead");
 
         gameController.SetDollaryDoos(gameController.GetDollaryDoos());
 
@@ -186,27 +186,32 @@ public class DazzaController : MonoBehaviour
             Debug.Log("Highscore script not found. Make sure you're starting from the preload scene");
         }
 
-		//Change scene to whichever scene happens after death
-	}
+        //Change scene to whichever scene happens after death
+    }
 
 
-	public bool IsDazzaDead()
-	{
-		return isDead;
-	}
+    public bool IsDazzaDead()
+    {
+        return isDead;
+    }
 
-	public bool IsDazzaInvincible()
-	{
-		return isInvincible;
-	}
+    public bool IsDazzaInvincible()
+    {
+        return isInvincible;
+    }
 
-	public void MakeDazzaInvincible(bool stateToSet)
-	{
-		isInvincible = stateToSet;
-	}
+    public void MakeDazzaInvincible(bool stateToSet)
+    {
+        isInvincible = stateToSet;
+    }
 
     public bool GetJumping()
     {
         return isJumping;
+    }
+
+    public bool IsGrounded()
+    {
+        return isGrounded;
     }
 }

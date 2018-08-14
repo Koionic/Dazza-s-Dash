@@ -215,6 +215,8 @@ MonoBehaviour:
     animationBool: SpeedBoost
   - animation: 4
     animationBool: Default Jump
+  - animation: 5
+    animationBool: Default Falling
 --- !u!1 &70115277
 GameObject:
   m_ObjectHideFlags: 0
