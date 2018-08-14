@@ -20,12 +20,17 @@ public class GameController : MonoBehaviour
     [SerializeField] float gameSpeed;
 
     [SerializeField] float rateGameSpeedIncreases = 0.1f;
+
+    private AudioSource soundEffectSource, musicSource;
     
     private void Awake()
     {
         gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
         levelGeneration = GameObject.Find("LevelGenerator").GetComponent<LevelGeneration>();
         dazzaController = GameObject.FindWithTag("Player").GetComponent<DazzaController>();
+
+        soundEffectSource = transform.GetChild(0).GetComponent<AudioSource>();
+        musicSource = transform.GetChild(1).GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -54,8 +59,6 @@ public class GameController : MonoBehaviour
             if (gameSpeed >= 30f) gameSpeed = 30f;
             else gameSpeed += Time.deltaTime * rateGameSpeedIncreases;
         }
-
-        Debug.Log(gameSpeed);
     }
 
     public float GetGameSpeed()
@@ -73,9 +76,14 @@ public class GameController : MonoBehaviour
         return backgroundState;
     }
 
-    public void AddDollaryDoo()
+    public void AddDollaryDoo(AudioClip collectedDollaryDooSound)
     {
         dollaryDoos++;
+
+        Debug.Log(collectedDollaryDooSound.name);
+
+        soundEffectSource.clip = collectedDollaryDooSound;
+        soundEffectSource.Play();
     }
 
     public void SetDollaryDoos(int inDollaryDoos)

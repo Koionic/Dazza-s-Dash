@@ -118,6 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6b2971c8e4f40c58428dc67c42d6b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectedDollaryDooSound: {fileID: 8300000, guid: 1d0eb4deb727554428e5010da86862e1,
+    type: 3}
 --- !u!212 &212506863642656608
 SpriteRenderer:
   m_ObjectHideFlags: 1

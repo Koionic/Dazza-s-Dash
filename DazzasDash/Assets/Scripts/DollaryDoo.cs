@@ -12,6 +12,9 @@ public class DollaryDoo : MonoBehaviour
 
     GameObject player;
 
+    [SerializeField]
+    private AudioClip collectedDollaryDooSound;
+
     private void Start()
     {
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
@@ -27,8 +30,8 @@ public class DollaryDoo : MonoBehaviour
 	{
 		if (collision.CompareTag("Player"))
 		{
-			gameController.AddDollaryDoo();
-			Destroy(gameObject);
+			gameController.AddDollaryDoo(collectedDollaryDooSound);
+            Destroy(gameObject);
 		}
 	}
 
