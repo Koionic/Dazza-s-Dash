@@ -7,7 +7,11 @@ public class LevelGeneration : MonoBehaviour
 {
     private GameController gameController; // the game controller
 
+    private DazzaController dazzaController;
+
     [SerializeField] float levelScrollRate; // The rate of the game speed at which the level prefabs scroll
+
+    private float lastGameSpeed;
 
     private float levelScrollSpeed; // the speed the level objects should scroll at - calculated using the rate and the game speed
 
@@ -29,13 +33,19 @@ public class LevelGeneration : MonoBehaviour
 	{
         // grab references
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+        dazzaController = GameObject.FindWithTag("Player").GetComponent<DazzaController>();
+
+
         spawnLocation = GameObject.FindWithTag("ObjectSpawnLocation").transform;
 
         CalculateSpeed();
 
         // spawn the objects at the spawn delay interval over and over
 		InvokeRepeating("SpawnLevelPrefab", spawnDelay, spawnDelay); // invokes them repead
-	}
+
+        lastGameSpeed = gameController.GetGameSpeed();
+
+    }
 
     // this function instantiates the object
 	void SpawnLevelPrefab()
@@ -48,7 +58,18 @@ public class LevelGeneration : MonoBehaviour
     // this calculates the speed the objects should be scrolling at based on the game speed
     void CalculateSpeed()
     {
-        levelScrollSpeed = gameController.GetGameSpeed() * levelScrollRate;
+        if (!dazzaController.IsDazzaDead())
+        {
+            levelScrollSpeed = gameController.GetGameSpeed() * levelScrollRate;
+            lastGameSpeed = levelScrollSpeed;
+        }
+        else
+        {
+            if (levelScrollRate != 1) levelScrollSpeed = lastGameSpeed;
+            else levelScrollSpeed = 0;
+        }
+
+        
     }
 
     // this grabs the scroll speed
