@@ -113,6 +113,12 @@ public class GameController : MonoBehaviour
         return distance;
     }
 
+    public void CollectedPowerup(AudioClip powerUpAudio)
+    {
+        soundEffectSource.clip = powerUpAudio;
+        soundEffectSource.Play();
+    }
+
 }
 
 

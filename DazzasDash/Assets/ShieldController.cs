@@ -10,11 +10,20 @@ public class ShieldController : MonoBehaviour
 
     private SpriteRenderer thisSR;
 
+    private AudioSource thisAudioSource;
+
+    [SerializeField]
+    private AudioClip activateSound, deactivateSound, activeSound;
+
+    private GameController gameController;
+
 
     private void Awake()
     {
         powerUpController = GameObject.FindWithTag("Player").GetComponent<PowerUpController>();
         thisSR = GetComponent<SpriteRenderer>();
+        thisAudioSource = GetComponent<AudioSource>();
+        gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
     }
 
 
@@ -23,6 +32,9 @@ public class ShieldController : MonoBehaviour
     {
         deactivate = false;
         thisSR.enabled = true;
+        thisAudioSource.clip = activateSound;
+        thisAudioSource.Play();
+        Invoke("ShieldActiveSound", thisAudioSource.clip.length);
     }
 
 
@@ -33,6 +45,9 @@ public class ShieldController : MonoBehaviour
         {
             deactivate = true;
             thisSR.enabled = false;
+            thisAudioSource.clip = deactivateSound;
+            thisAudioSource.loop = false;
+            thisAudioSource.Play();
         }
     }
 
@@ -42,5 +57,13 @@ public class ShieldController : MonoBehaviour
         {
             powerUpController.DeactivateShieldPowerUp();
         }
+    }
+
+
+    private void ShieldActiveSound()
+    {
+        thisAudioSource.clip = activeSound;
+        thisAudioSource.loop = true;
+        thisAudioSource.Play();
     }
 }
