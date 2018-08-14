@@ -2442,6 +2442,7 @@ MonoBehaviour:
   levelScrollRate: 1
   levelPrefabs:
   - {fileID: 1028235908683632, guid: bdd3e46e056fc49e9af274448d5b36c0, type: 2}
+  - {fileID: 1028235908683632, guid: 7e1c13f7758464d129aae40d1c5e8610, type: 2}
   spawnDelay: 2
 --- !u!1001 &829326807
 Prefab:
@@ -4178,15 +4179,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 61615873290427838, guid: 7e1c13f7758464d129aae40d1c5e8610,
-        type: 2}
-      propertyPath: m_Offset.x
+    - target: {fileID: 1028235908683632, guid: 7e1c13f7758464d129aae40d1c5e8610, type: 2}
+      propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 61615873290427838, guid: 7e1c13f7758464d129aae40d1c5e8610,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 14.671311
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e1c13f7758464d129aae40d1c5e8610, type: 2}
@@ -4810,6 +4805,11 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 3326f45744e4aea4bad6e7ee62c85612,
         type: 3}
+    - target: {fileID: 70141521969617270, guid: 0c84d2327b7ef234fbf9a5f551243f24,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c84d2327b7ef234fbf9a5f551243f24, type: 2}
   m_IsPrefabParent: 0
