@@ -105,6 +105,7 @@ public class SkinController : MonoBehaviour
                 dazzaAnimator.SetBool(dazzaAnimator.parameters[i].name, false);
             }
         }
+
     }
 
     private void ChooseSkin()
