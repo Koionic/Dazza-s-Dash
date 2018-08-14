@@ -54,8 +54,7 @@ public class GameController : MonoBehaviour
             if (gameSpeed >= 30f) gameSpeed = 30f;
             else gameSpeed += Time.deltaTime * rateGameSpeedIncreases;
         }
-        
-        Debug.Log(gameSpeed);
+       
     }
 
     public float GetGameSpeed()

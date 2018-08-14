@@ -54,40 +54,50 @@ public class SkinController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (powerUpController.GetSpeedBoostActive())
+        if (dazzaController.IsDazzaDead() == false)
         {
-            currentDazzaAnimation = DazzaAnimationState.SpeedBoost;
-
-            if(previousDazzaAnimation != currentDazzaAnimation) ApplyCorrectAnimation();
-
-            previousDazzaAnimation = currentDazzaAnimation;
-
-
-        }
-        else
-        {
-            if(dazzaController.IsGrounded() == false)
+            if (powerUpController.GetSpeedBoostActive())
             {
-                if (dazzaController.GetJumping())
-                {
-                    currentDazzaAnimation = DazzaAnimationState.Jumping;
-                }
-                else
-                {
-                    currentDazzaAnimation = DazzaAnimationState.Falling;
-                }
+                currentDazzaAnimation = DazzaAnimationState.SpeedBoost;
+
+                if (previousDazzaAnimation != currentDazzaAnimation) ApplyCorrectAnimation();
+
+                previousDazzaAnimation = currentDazzaAnimation;
+
+
             }
             else
             {
-                currentDazzaAnimation = currentDazzaSkinAnimation; 
-            }
+                if (dazzaController.IsGrounded() == false)
+                {
+                    if (dazzaController.GetJumping())
+                    {
+                        currentDazzaAnimation = DazzaAnimationState.Jumping;
+                    }
+                    else
+                    {
+                        currentDazzaAnimation = DazzaAnimationState.Falling;
+                    }
+                }
+                else
+                {
+                    currentDazzaAnimation = currentDazzaSkinAnimation;
+                }
 
+
+                if (previousDazzaAnimation != currentDazzaAnimation) ApplyCorrectAnimation();
+                previousDazzaAnimation = currentDazzaAnimation;
+            }
+        }
+        else
+        {
+            currentDazzaAnimation = DazzaAnimationState.Death;
 
             if (previousDazzaAnimation != currentDazzaAnimation) ApplyCorrectAnimation();
-            previousDazzaAnimation = currentDazzaAnimation;
 
-            
+            previousDazzaAnimation = currentDazzaAnimation;
         }
+        
     }
 
 

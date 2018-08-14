@@ -215,6 +215,8 @@ MonoBehaviour:
     animationBool: SpeedBoost
   - animation: 4
     animationBool: Default Jump
+  - animation: 6
+    animationBool: Default Death
   - animation: 5
     animationBool: Default Falling
 --- !u!1 &70115277
@@ -1079,6 +1081,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundState: 0
   gameSpeed: 10
+  rateGameSpeedIncreases: 0.05
 --- !u!4 &459094074
 Transform:
   m_ObjectHideFlags: 0
@@ -3813,6 +3816,11 @@ Prefab:
         type: 2}
       propertyPath: m_Mass
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 212553707959186060, guid: 0c84d2327b7ef234fbf9a5f551243f24,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 420
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c84d2327b7ef234fbf9a5f551243f24, type: 2}
