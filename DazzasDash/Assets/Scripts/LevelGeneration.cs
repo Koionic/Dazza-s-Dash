@@ -52,10 +52,7 @@ public class LevelGeneration : MonoBehaviour
 	{
         int randIndex = UnityEngine.Random.Range(0, levelPrefabs.Length);
 
-        if (dazzaController.IsDazzaDead() == false)
-        {
-            Instantiate(levelPrefabs[randIndex], spawnLocation.position + levelPrefabs[randIndex].transform.localPosition, Quaternion.identity, transform); // Spawn a random level prefab at the spawn position.
-        }
+        Instantiate(levelPrefabs[randIndex], spawnLocation.position + levelPrefabs[randIndex].transform.localPosition, Quaternion.identity, transform); // Spawn a random level prefab at the spawn position.
     }
 
     // this calculates the speed the objects should be scrolling at based on the game speed
