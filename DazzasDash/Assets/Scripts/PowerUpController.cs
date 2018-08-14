@@ -21,6 +21,11 @@ public class PowerUpController : MonoBehaviour
     [SerializeField]
     private float sprintBoostTime = 5f, sprintBoostGameSpeedRate = 2.5f;
 
+    [SerializeField]
+    private AudioClip speedBoostSound;
+
+    private AudioSource speedBoostSoundSource;
+
 
 
     void Awake()
@@ -30,6 +35,8 @@ public class PowerUpController : MonoBehaviour
 
         shieldCollider = GameObject.FindGameObjectWithTag("ShieldCollider");
 		magnetCollider = GameObject.FindGameObjectWithTag("MagnetCollider");
+
+        speedBoostSoundSource = transform.GetChild(2).GetComponent<AudioSource>();
     }
 
 	void Start ()
@@ -134,6 +141,7 @@ public class PowerUpController : MonoBehaviour
             {
                 gameSpeedSet = true;
                 gameController.SetGameSpeed(gameController.GetGameSpeed() * sprintBoostGameSpeedRate);
+                speedBoostSoundSource.Play();
             }
         }
            
@@ -144,6 +152,7 @@ public class PowerUpController : MonoBehaviour
                 gameSpeedSet = false;
                 gameController.SetGameSpeed(gameSpeedBeforeBoost);
                 Invoke("MakeDazzaVulnerable", 1.5f);
+                speedBoostSoundSource.Stop();
             }
         }
     }

@@ -119,6 +119,11 @@ public class GameController : MonoBehaviour
         soundEffectSource.Play();
     }
 
+
+    public AudioSource GetSFXAudioSource()
+    {
+        return soundEffectSource;
+    }
 }
 
 

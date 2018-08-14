@@ -6,6 +6,7 @@ public class DazzaSoundEffects : MonoBehaviour
 {
     private DazzaController dazzaController;
     private GameController gameController;
+    private PowerUpController powerUpController;
 
     private AudioSource thisAudioSource;
 
@@ -27,12 +28,15 @@ public class DazzaSoundEffects : MonoBehaviour
         dazzaController = GetComponent<DazzaController>();
 
         thisAudioSource = GetComponent<AudioSource>();
+
+        powerUpController = GetComponent<PowerUpController>();
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (!dazzaController.IsDazzaDead())
+
+        if (!dazzaController.IsDazzaDead() && !powerUpController.GetSpeedBoostActive())
         {
             if (dazzaController.IsGrounded())
             {
