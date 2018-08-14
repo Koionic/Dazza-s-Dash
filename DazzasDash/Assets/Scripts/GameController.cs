@@ -12,20 +12,32 @@ public class GameController : MonoBehaviour
 
     private GameData gameData;
 
+    private DazzaController dazzaController;
+
     [SerializeField]
     private BackgroundState backgroundState = BackgroundState.Suburb;
 
     [SerializeField] float gameSpeed;
+
+    [SerializeField] float rateGameSpeedIncreases = 0.1f;
     
     private void Awake()
     {
         gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
         levelGeneration = GameObject.Find("LevelGenerator").GetComponent<LevelGeneration>();
+        dazzaController = GameObject.FindWithTag("Player").GetComponent<DazzaController>();
     }
 
     private void Start()
     {
         SetDollaryDoos(gameData.dollaryDoos);
+    }
+
+
+
+    private void Update()
+    {
+        IncreaseGameSpeed();
     }
 
     // A timer function
@@ -35,10 +47,15 @@ public class GameController : MonoBehaviour
         return timer;
     }
 
-    void IncreaseLevelScrollSpeed()
+    void IncreaseGameSpeed()
     {
-        // grab speed from levelGeneration.GetLevelScrollSpeed()
-        // set speed using levelGeneration.SetLevelScrollSpeed( float)
+        if(!dazzaController.IsDazzaDead())
+        {
+            if (gameSpeed >= 30f) gameSpeed = 30f;
+            else gameSpeed += Time.deltaTime * rateGameSpeedIncreases;
+        }
+        
+        Debug.Log(gameSpeed);
     }
 
     public float GetGameSpeed()
