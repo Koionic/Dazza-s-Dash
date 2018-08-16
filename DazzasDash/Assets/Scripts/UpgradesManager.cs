@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UpgradesManager : MonoBehaviour
 {
@@ -13,35 +14,68 @@ public class UpgradesManager : MonoBehaviour
     [SerializeField]
     private int doubleCost = 3000, headStartCost = 2000, reviveCost = 1500;
 
+    [Header("INVENTORY COUNT UI IN ORDER: DOUBLE / REVIVE / HEAD START")]
+    [SerializeField]
+    private Text[] inventoryCountUI;
+
+    [Header("ITEM COSTS UI IN ORDER: DOUBLE / REVIVE / HEAD START")]
+    [SerializeField]
+    private Text[] itemCostsUI;
+
+    [SerializeField]
+    private Text dollaryDooUI;
+
+    [SerializeField]
+    private Sprite[] upgradeIconSprites;
+
+    [SerializeField]
+    private Image[] upgradeImageUI;
+
+    [SerializeField]
+    private Image equippedImageUI;
+
     private void Awake()
     {
         gameData = GameObject.Find("DataController").GetComponent<GameData>();
 
+        itemCostsUI[0].text = doubleCost.ToString();
+        itemCostsUI[1].text = reviveCost.ToString();
+        itemCostsUI[2].text = headStartCost.ToString();
+
+        upgradeImageUI[0].sprite = upgradeIconSprites[0];
+        upgradeImageUI[1].sprite = upgradeIconSprites[1];
+        upgradeImageUI[2].sprite = upgradeIconSprites[2];
+
         upgradeInventory.Add(Upgrades.DoubleDollaryDoos, 0);
         upgradeInventory.Add(Upgrades.HeadStart, 0);
         upgradeInventory.Add(Upgrades.Revive, 0);
+
+        UpdateDollaryDoosUI();
     }
 
-    public void Buy(Upgrades inUpgrade)
+    public void Buy(string inUpgrade)
     {
         switch(inUpgrade)
         {
-            case Upgrades.DoubleDollaryDoos:
+            case "Double":
                 if(gameData.dollaryDoos >= doubleCost)
                 {
-                    Add(inUpgrade);
+                    Add(Upgrades.DoubleDollaryDoos);
+                    SubtractDollaryDoos(doubleCost);
                 }
                 break;
-            case Upgrades.HeadStart:
+            case "HeadStart":
                 if (gameData.dollaryDoos >= headStartCost)
                 {
-                    Add(inUpgrade);
+                    Add(Upgrades.HeadStart);
+                    SubtractDollaryDoos(headStartCost);
                 }
                 break;
-            case Upgrades.Revive:
+            case "Revive":
                 if (gameData.dollaryDoos >= reviveCost)
                 {
-                    Add(inUpgrade);
+                    Add(Upgrades.Revive);
+                    SubtractDollaryDoos(reviveCost);
                 }
                 break;
         }
@@ -69,12 +103,45 @@ public class UpgradesManager : MonoBehaviour
         upgradeInventory.Remove(inUpgrade);
         upgradeInventory.Add(inUpgrade, currentCount);
 
-        Debug.Log("UPGRADE: " + inUpgrade.ToString() + "\tx " + currentCount);
+
+        UpdateUI(inUpgrade, currentCount);
     }
 
 
     private void OnDestroy()
     {
         
+    }
+
+
+    void UpdateUI(Upgrades inUpgrade, int theCount)
+    {
+        switch(inUpgrade)
+        {
+            case Upgrades.DoubleDollaryDoos:
+                inventoryCountUI[0].text = theCount.ToString();
+                break;
+
+            case Upgrades.Revive:
+                inventoryCountUI[1].text = theCount.ToString();
+                break;
+
+            case Upgrades.HeadStart:
+                inventoryCountUI[2].text = theCount.ToString();
+                break;
+        }
+    }
+
+
+
+    void UpdateDollaryDoosUI()
+    {
+        dollaryDooUI.text = gameData.dollaryDoos.ToString();
+    }
+
+    void SubtractDollaryDoos(int subtract)
+    {
+        gameData.dollaryDoos -= subtract;
+        UpdateDollaryDoosUI();
     }
 }

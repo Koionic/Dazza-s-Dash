@@ -20,6 +20,8 @@ public class GameData : MonoBehaviour
 
     public Dictionary<Upgrades, int> upgradeInventory = new Dictionary<Upgrades, int>();
 
+    public bool debug = false;
+
 
     // Use this for initialization
     void Start () 
@@ -28,6 +30,15 @@ public class GameData : MonoBehaviour
         {
             PlayerPrefs.DeleteAll();
         }
+
+        if(debug == false)
+        {
+            if (PlayerPrefs.HasKey("DollaryDoos"))
+            {
+                dollaryDoos = PlayerPrefs.GetInt("DollaryDoos");
+            }
+        }
+
 	}
 	
 	// Update is called once per frame
