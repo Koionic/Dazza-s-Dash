@@ -1473,6 +1473,7 @@ GameObject:
   - component: {fileID: 459094075}
   - component: {fileID: 459094076}
   - component: {fileID: 459094077}
+  - component: {fileID: 459094078}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -1547,6 +1548,17 @@ MonoBehaviour:
   pauseButton: {fileID: 1288025341}
   deathScreen: {fileID: 100977803}
   newHighscoreScreen: {fileID: 1334126401}
+--- !u!114 &459094078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 459094072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d1085d2f3793c42a2a59ac1c3af392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &461636942 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4814946460328418, guid: 8ff82fe89eade4a9a88855650bf51953,

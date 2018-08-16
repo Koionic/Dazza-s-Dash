@@ -16,9 +16,9 @@ public class GameData : MonoBehaviour
 
     public bool resetScores = false;
 
-    private Upgrades equippedUpgrade;
+    public Upgrades equippedUpgrade = Upgrades.DoubleDollaryDoos;
 
-    private Dictionary<Upgrades, int> upgradeInventory = new Dictionary<Upgrades, int>();
+    public Dictionary<Upgrades, int> upgradeInventory = new Dictionary<Upgrades, int>();
 
 
     // Use this for initialization
