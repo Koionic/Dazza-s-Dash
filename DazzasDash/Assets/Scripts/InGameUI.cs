@@ -25,6 +25,6 @@ public class InGameUI : MonoBehaviour
 	void Update ()
     {
         dollaryDoosUI.text = gameController.GetInGameDollaryDoos().ToString();
-        distanceUI.text = gameController.GetDistance().ToString("F0") + " METERS";
+        distanceUI.text = ((int)gameController.GetDistance()).ToString() + " METERS";
 	}
 }

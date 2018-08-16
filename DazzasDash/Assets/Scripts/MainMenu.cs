@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
-        gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
+        gameData = GameObject.Find("DataController").GetComponent<GameData>();
     }
 
     void Start()
@@ -103,7 +103,7 @@ public class MainMenu : MonoBehaviour
     {
         int dollaryDoos;
 
-        GameData gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
+        GameData gameData = GameObject.Find("DataController").GetComponent<GameData>();
 
         if (PlayerPrefs.HasKey("DollaryDoos"))
         {

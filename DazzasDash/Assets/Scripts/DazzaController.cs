@@ -47,7 +47,7 @@ public class DazzaController : MonoBehaviour
         // inGameMenu = FindObjectOfType<InGameMenu>().GetComponent<InGameMenu>();
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
         powerUpController = transform.GetComponent<PowerUpController>();
-        gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
+        gameData = GameObject.Find("DataController").GetComponent<GameData>();
         inGameMenu = FindObjectOfType<InGameMenu>().GetComponent<InGameMenu>();
 
     }
@@ -182,7 +182,14 @@ public class DazzaController : MonoBehaviour
         Highscore highscore = FindObjectOfType<Highscore>().GetComponent<Highscore>();
         if (highscore != null)
         {
-            highscore.CompareHighScore();
+            if (!gameData.newScoreIsSet)
+            {
+                highscore.CompareHighScore();
+            }
+            else
+            {
+                Debug.Log("score already been set");
+            }
         }
         else
         {

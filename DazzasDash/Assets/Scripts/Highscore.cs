@@ -22,7 +22,7 @@ public class Highscore : MonoBehaviour
 
     void Awake()
     {
-        gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
+        gameData = GameObject.Find("DataController").GetComponent<GameData>();
         if (SceneManager.GetActiveScene().name == gameData.gameSceneName)
         {
             gameController = FindObjectOfType<GameController>().GetComponent<GameController>();
@@ -39,6 +39,7 @@ public class Highscore : MonoBehaviour
 
             SetHighScoreTexts();
         }
+        gameData.newScoreIsSet = false;
 	}
 
 	void Update () 
@@ -62,13 +63,18 @@ public class Highscore : MonoBehaviour
 
                 gameData.scorePosition = i + 1;
                 gameData.newHighScore = newScore;
+                Debug.Log(newScore);
+                Debug.Log(gameData.newHighScore);
 
                 gameData.newScoreIsSet = true;
 
                 return;
             }
+            else
+            {
+                gameData.newScoreIsSet = false;
+            }
         }
-        gameData.newScoreIsSet = false;
     }
 
     void GrabHighScoreTexts()
@@ -104,22 +110,31 @@ public class Highscore : MonoBehaviour
         string scoreKey;
         string initialKey;
 
+        gameData = GameObject.Find("DataController").GetComponent<GameData>();
+
         for (int i = scoreBoard.Length; i > gameData.scorePosition; i--)
         {
             scoreKey = "Highscore" + (i).ToString();
+            Debug.Log(scoreKey);
             string newScoreKey = "Highscore" + (i - 1).ToString();
+            Debug.Log(newScoreKey);
 
             initialKey = "HighscoreName" + (i).ToString();
+            Debug.Log(initialKey);
             string newInitialKey = "HighscoreName" + (i - 1).ToString();
+            Debug.Log(newInitialKey);
+
 
             PlayerPrefs.SetInt(scoreKey, PlayerPrefs.GetInt(newScoreKey));
             PlayerPrefs.SetString(initialKey, PlayerPrefs.GetString(newInitialKey));
+
         }
 
         scoreKey = "Highscore" + gameData.scorePosition.ToString();
         initialKey = "HighscoreName" + gameData.scorePosition.ToString();
 
         PlayerPrefs.SetInt(scoreKey, gameData.newHighScore);
+        Debug.Log(gameData.newInitials);
         PlayerPrefs.SetString(initialKey, gameData.newInitials);
     }
 

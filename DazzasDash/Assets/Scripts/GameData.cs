@@ -14,11 +14,16 @@ public class GameData : MonoBehaviour
 
     public string gameSceneName, mainMenuSceneName, highScoreSceneName;
 
+    public bool resetScores = false;
+
 
 	// Use this for initialization
 	void Start () 
     {
-		
+		if(resetScores == true)
+        {
+            PlayerPrefs.DeleteAll();
+        }
 	}
 	
 	// Update is called once per frame

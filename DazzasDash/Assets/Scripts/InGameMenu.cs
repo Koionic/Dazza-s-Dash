@@ -25,7 +25,7 @@ public class InGameMenu : MonoBehaviour
 
     public void Awake()
     {
-        gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
+        gameData = GameObject.Find("DataController").GetComponent<GameData>();
     }
 
     public void Start()

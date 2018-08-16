@@ -182,6 +182,11 @@ Prefab:
       propertyPath: songs.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: 501f2e6aae6cf2e4ca7ac3bcd4892a47, type: 3}
+    - target: {fileID: 114061527002089460, guid: 45c1bd5963aafe74b8a414546639e576,
+        type: 2}
+      propertyPath: resetScores
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45c1bd5963aafe74b8a414546639e576, type: 2}
   m_IsPrefabParent: 0

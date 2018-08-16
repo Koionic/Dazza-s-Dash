@@ -39,8 +39,7 @@ public class NameController : MonoBehaviour
 
 	void Update () 
 	{
-        fullIntials = firstInitial + secondInitial + thirdInitial;
-
+       
         if (Input.GetKeyDown(KeyCode.Return))
         {
             if (firstInitial == "")
@@ -49,8 +48,13 @@ public class NameController : MonoBehaviour
             }
             else
             {
-                GameData gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
+                GameData gameData = GameObject.Find("DataController").GetComponent<GameData>();
+
+                fullIntials = firstInitial + secondInitial + thirdInitial;
+
+                Debug.Log(fullIntials);
                 gameData.newInitials = fullIntials;
+                Debug.Log(gameData.newInitials);
                 highscoreController.SetNewScore();
                 newHighscoreScreen.SetActive(false);
                 deathScreen.SetActive(true);

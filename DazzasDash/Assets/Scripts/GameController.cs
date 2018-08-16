@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
+        gameData = GameObject.Find("DataController").GetComponent<GameData>();
         levelGeneration = GameObject.Find("LevelGenerator").GetComponent<LevelGeneration>();
         dazzaController = GameObject.FindWithTag("Player").GetComponent<DazzaController>();
 
