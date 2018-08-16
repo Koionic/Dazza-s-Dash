@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79a73fc196e8c64693ce3eea3dba39f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dazzasSkin: 3
+  dazzasSkin: 2
   dazzaAnimationStruct:
   - animation: 0
     animationBool: Default Skin
@@ -226,6 +226,14 @@ MonoBehaviour:
     animationBool: Default Falling
   - animation: 3
     animationBool: Tradie Skin
+  - animation: 8
+    animationBool: ShirtlessJump
+  - animation: 9
+    animationBool: ShirtlessDeath
+  - animation: 10
+    animationBool: ShirtlessFalling
+  - animation: 11
+    animationBool: ShirtlessSpeedBoost
 --- !u!114 &22466381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3511,7 +3519,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1952198283410366, guid: dcace1c2c77c2ff49bcae24719ece580, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dcace1c2c77c2ff49bcae24719ece580, type: 2}
