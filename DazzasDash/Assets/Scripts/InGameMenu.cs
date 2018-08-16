@@ -21,14 +21,11 @@ public class InGameMenu : MonoBehaviour
     [SerializeField]
     GameObject newHighscoreScreen;
 
-    Highscore highscore;
-
     bool isPaused = false;
 
     public void Awake()
     {
         gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
-        highscore = FindObjectOfType<Highscore>().GetComponent<Highscore>();
     }
 
     public void Start()

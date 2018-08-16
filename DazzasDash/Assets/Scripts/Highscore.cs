@@ -23,7 +23,10 @@ public class Highscore : MonoBehaviour
     void Awake()
     {
         gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
-        gameController = FindObjectOfType<GameController>().GetComponent<GameController>();
+        if (SceneManager.GetActiveScene().name == "GameScene - Josh")
+        {
+            gameController = FindObjectOfType<GameController>().GetComponent<GameController>();
+        }
     }
 
     void Start () 
