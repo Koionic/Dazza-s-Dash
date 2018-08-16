@@ -9,6 +9,8 @@ public class DazzaController : MonoBehaviour
 
     GameData gameData;
 
+    InGameMenu inGameMenu;
+
     PowerUpController powerUpController;
 
     [SerializeField] float jumpForce = 15f; // the speed Dazza jumps
@@ -46,6 +48,7 @@ public class DazzaController : MonoBehaviour
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
         powerUpController = transform.GetComponent<PowerUpController>();
         gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
+        inGameMenu = FindObjectOfType<InGameMenu>().GetComponent<InGameMenu>();
 
     }
 
@@ -179,14 +182,14 @@ public class DazzaController : MonoBehaviour
         Highscore highscore = FindObjectOfType<Highscore>().GetComponent<Highscore>();
         if (highscore != null)
         {
-            highscore.CompareHighScore((int)gameController.GetDistance());
+            highscore.CompareHighScore();
         }
         else
         {
             Debug.Log("Highscore script not found. Make sure you're starting from the preload scene");
         }
 
-        //Change scene to whichever scene happens after death
+        inGameMenu.DeathScreen();
     }
 
 

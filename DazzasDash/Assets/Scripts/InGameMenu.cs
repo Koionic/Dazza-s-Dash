@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class InGameMenu : MonoBehaviour 
 {
 
+    GameData gameData;
+
     [SerializeField]
     GameObject pauseMenu;
 
@@ -16,7 +18,18 @@ public class InGameMenu : MonoBehaviour
     [SerializeField]
     GameObject deathScreen;
 
+    [SerializeField]
+    GameObject newHighscoreScreen;
+
+    Highscore highscore;
+
     bool isPaused = false;
+
+    public void Awake()
+    {
+        gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
+        highscore = FindObjectOfType<Highscore>().GetComponent<Highscore>();
+    }
 
     public void Start()
     {
@@ -28,7 +41,7 @@ public class InGameMenu : MonoBehaviour
         
         if(deathScreen.activeSelf == true)
         {
-
+            
             pauseButton.SetActive(false);
 
         }
@@ -97,5 +110,17 @@ public class InGameMenu : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
 	
 	}
+
+    public void DeathScreen()
+    {
+        if (gameData.newScoreIsSet && deathScreen.gameObject.activeSelf == false)
+        {
+            newHighscoreScreen.SetActive(true);
+        }
+        else
+        {
+            deathScreen.SetActive(true);
+        }
+    }
 
 }

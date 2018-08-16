@@ -6,6 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class NameController : MonoBehaviour 
 {
+    [SerializeField]
+    GameObject newHighscoreScreen;
+
+    [SerializeField]
+    GameObject deathScreen;
+
+    Highscore highscoreController;
+
     string fullIntials;
 
     string firstInitial;
@@ -19,7 +27,12 @@ public class NameController : MonoBehaviour
     [SerializeField]
     Text thirdInitialText;
 
-	void Start () 
+    void Awake()
+    {
+        highscoreController = FindObjectOfType<Highscore>().GetComponent<Highscore>();
+    }
+
+    void Start () 
 	{
         ClearNames();
 	}
@@ -38,7 +51,9 @@ public class NameController : MonoBehaviour
             {
                 GameData gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
                 gameData.newInitials = fullIntials;
-                SceneManager.LoadScene("HighScore");
+                highscoreController.SetNewScore();
+                newHighscoreScreen.SetActive(false);
+                deathScreen.SetActive(true);
             }
         }
         else if (Input.GetKeyDown(KeyCode.Backspace))

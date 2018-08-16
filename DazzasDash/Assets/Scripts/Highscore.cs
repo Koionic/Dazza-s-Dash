@@ -6,8 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class Highscore : MonoBehaviour 
 {
+    
+    GameController gameController;
 
     GameData gameData;
+
+    [SerializeField]
+    GameObject newHighscoreScreen;
 
     int[] scoreBoard = new int[10];
     string[] nameBoard = new string[10];
@@ -18,17 +23,13 @@ public class Highscore : MonoBehaviour
     void Awake()
     {
         gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
+        gameController = FindObjectOfType<GameController>().GetComponent<GameController>();
     }
 
     void Start () 
 	{
         if (SceneManager.GetActiveScene().name == "HighScore")
         {
-            if (gameData.newScoreIsSet)
-            {
-                SetNewScore();
-            }
-
             GrabHighscoreData();
 
             GrabHighScoreTexts();
@@ -42,9 +43,11 @@ public class Highscore : MonoBehaviour
 		
 	}
 
-    public void CompareHighScore(int newScore)
+    public void CompareHighScore()
     {
         string scorePosition;
+
+        int newScore = (int)gameController.GetDistance();
 
         for (int i = 0; i < scoreBoard.Length; i++)
         {
@@ -56,9 +59,8 @@ public class Highscore : MonoBehaviour
 
                 gameData.scorePosition = i + 1;
                 gameData.newHighScore = newScore;
-                gameData.newScoreIsSet = true;
 
-                
+                gameData.newScoreIsSet = true;
 
                 return;
             }
@@ -94,7 +96,7 @@ public class Highscore : MonoBehaviour
         }
     }
 
-    void SetNewScore()
+    public void SetNewScore()
     {
         string scoreKey;
         string initialKey;
