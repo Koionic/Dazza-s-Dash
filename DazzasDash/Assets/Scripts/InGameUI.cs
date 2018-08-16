@@ -24,7 +24,7 @@ public class InGameUI : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        dollaryDoosUI.text = gameController.GetDollaryDoos().ToString();
+        dollaryDoosUI.text = gameController.GetInGameDollaryDoos().ToString();
         distanceUI.text = gameController.GetDistance().ToString("F0") + " METERS";
 	}
 }

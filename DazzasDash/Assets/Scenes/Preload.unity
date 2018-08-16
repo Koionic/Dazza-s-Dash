@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -172,6 +172,16 @@ Prefab:
       propertyPath: highScoreSceneName
       value: HighScore
       objectReference: {fileID: 0}
+    - target: {fileID: 114689882334208492, guid: 45c1bd5963aafe74b8a414546639e576,
+        type: 2}
+      propertyPath: songs.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8650807ecfb4b674290a86c7b02ef4a5, type: 3}
+    - target: {fileID: 114689882334208492, guid: 45c1bd5963aafe74b8a414546639e576,
+        type: 2}
+      propertyPath: songs.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 501f2e6aae6cf2e4ca7ac3bcd4892a47, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45c1bd5963aafe74b8a414546639e576, type: 2}
   m_IsPrefabParent: 0

@@ -22,7 +22,13 @@ public class LevelGeneration : MonoBehaviour
 
 	[SerializeField] GameObject[] levelPrefabs; // An array storing the level prefabs
 
-	[SerializeField] float spawnDelay; // The time between level spawns.
+	[SerializeField] float spawnDelayMin, spawnDelayMax; // The time between level spawns.
+
+    private float nextSpawnTime;
+
+
+    private float spawnTimer = 0f;
+
 
 
 
@@ -35,24 +41,40 @@ public class LevelGeneration : MonoBehaviour
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
         dazzaController = GameObject.FindWithTag("Player").GetComponent<DazzaController>();
 
-
         spawnLocation = GameObject.FindWithTag("ObjectSpawnLocation").transform;
 
         CalculateSpeed();
 
-        // spawn the objects at the spawn delay interval over and over
-		InvokeRepeating("SpawnLevelPrefab", spawnDelay, spawnDelay); // invokes them repead
-
         lastGameSpeed = gameController.GetGameSpeed();
+
+        nextSpawnTime = UnityEngine.Random.Range(spawnDelayMin, spawnDelayMax);
 
     }
 
+
+
+    private void Update()
+    {
+        if(spawnTimer >= nextSpawnTime)
+        {
+            SpawnLevelPrefab();
+        }
+        else
+        {
+            spawnTimer += Time.deltaTime;
+        }
+    }
+
     // this function instantiates the object
-	void SpawnLevelPrefab()
+    void SpawnLevelPrefab()
 	{
         int randIndex = UnityEngine.Random.Range(0, levelPrefabs.Length);
 
         Instantiate(levelPrefabs[randIndex], spawnLocation.position + levelPrefabs[randIndex].transform.localPosition, Quaternion.identity, transform); // Spawn a random level prefab at the spawn position.
+
+        nextSpawnTime = UnityEngine.Random.Range(spawnDelayMin, spawnDelayMax);
+
+        spawnTimer = 0f;
     }
 
     // this calculates the speed the objects should be scrolling at based on the game speed

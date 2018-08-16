@@ -177,7 +177,7 @@ public class DazzaController : MonoBehaviour
         yield return new WaitForSeconds(3); //Change this to the length of Dazza's death animation plus a second
         Debug.Log("Dazza's dead");
 
-        gameController.SetDollaryDoos(gameController.GetDollaryDoos());
+        gameController.SaveDollaryDoos();
 
         Highscore highscore = FindObjectOfType<Highscore>().GetComponent<Highscore>();
         if (highscore != null)

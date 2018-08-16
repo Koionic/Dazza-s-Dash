@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    private int dollaryDoos = 0;
+    private int dollaryDoos;
 
     private float distance = 0f;
 
@@ -22,7 +22,12 @@ public class GameController : MonoBehaviour
     [SerializeField] float rateGameSpeedIncreases = 0.1f;
 
     private AudioSource soundEffectSource, musicSource;
-    
+
+    private int inGameDollaryDoos = 0;
+
+    private bool savedDollaryDoos = false;
+
+
     private void Awake()
     {
         gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
@@ -35,7 +40,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        SetDollaryDoos(gameData.dollaryDoos);
+        SetDollaryDoos(PlayerPrefs.GetInt("DollaryDoos", 0));
     }
 
 
@@ -79,8 +84,7 @@ public class GameController : MonoBehaviour
     public void AddDollaryDoo(AudioClip collectedDollaryDooSound)
     {
         dollaryDoos++;
-
-        Debug.Log(collectedDollaryDooSound.name);
+        inGameDollaryDoos++;
 
         soundEffectSource.clip = collectedDollaryDooSound;
         soundEffectSource.Play();
@@ -89,18 +93,26 @@ public class GameController : MonoBehaviour
     public void SetDollaryDoos(int inDollaryDoos)
     {
         dollaryDoos = inDollaryDoos;
-        SaveDollaryDoos(dollaryDoos);
     }
 
-    void SaveDollaryDoos(int inDollaryDoos)
+    public void SaveDollaryDoos()
     {
-        gameData.dollaryDoos = inDollaryDoos;
-        PlayerPrefs.SetInt("DollaryDoos", inDollaryDoos);
+        if(savedDollaryDoos == false)
+        {
+            savedDollaryDoos = true;
+            gameData.dollaryDoos = dollaryDoos;
+            PlayerPrefs.SetInt("DollaryDoos", dollaryDoos);
+        }
     }
 
     public int GetDollaryDoos()
     {
         return dollaryDoos;
+    }
+
+    public int GetInGameDollaryDoos()
+    {
+        return inGameDollaryDoos;
     }
 
     public void SetDistance(float inDistance)
