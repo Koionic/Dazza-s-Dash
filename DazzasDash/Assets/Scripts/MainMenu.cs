@@ -18,6 +18,13 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     Text dollaryDooText;
 
+    GameData gameData;
+
+    private void Awake()
+    {
+        gameData = FindObjectOfType<GameData>().GetComponent<GameData>();
+    }
+
     void Start()
     {
         GrabDollaryDooData();
@@ -31,7 +38,7 @@ public class MainMenu : MonoBehaviour
     public void Play()
     {
 
-        SceneManager.LoadScene("GameScene - Josh");
+        SceneManager.LoadScene(gameData.gameSceneName);
 
     }
 

@@ -1592,7 +1592,22 @@ Prefab:
     - target: {fileID: 114839898569287366, guid: 45c1bd5963aafe74b8a414546639e576,
         type: 2}
       propertyPath: debugMode
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114061527002089460, guid: 45c1bd5963aafe74b8a414546639e576,
+        type: 2}
+      propertyPath: gameSceneName
+      value: GameScene - Josh
+      objectReference: {fileID: 0}
+    - target: {fileID: 114061527002089460, guid: 45c1bd5963aafe74b8a414546639e576,
+        type: 2}
+      propertyPath: mainMenuSceneName
+      value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 114061527002089460, guid: 45c1bd5963aafe74b8a414546639e576,
+        type: 2}
+      propertyPath: highScoreSceneName
+      value: HighScore
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45c1bd5963aafe74b8a414546639e576, type: 2}
@@ -4278,7 +4293,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1952198283410366, guid: dcace1c2c77c2ff49bcae24719ece580, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dcace1c2c77c2ff49bcae24719ece580, type: 2}

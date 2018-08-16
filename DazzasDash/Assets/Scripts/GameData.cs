@@ -12,6 +12,9 @@ public class GameData : MonoBehaviour
 
     public bool newScoreIsSet;
 
+    public string gameSceneName, mainMenuSceneName, highScoreSceneName;
+
+
 	// Use this for initialization
 	void Start () 
     {

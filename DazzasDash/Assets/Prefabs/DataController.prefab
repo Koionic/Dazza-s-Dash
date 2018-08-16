@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4829146524235024}
   - component: {fileID: 114839898569287366}
   - component: {fileID: 114061527002089460}
+  - component: {fileID: 114689882334208492}
   m_Layer: 0
   m_Name: DataController
   m_TagString: Untagged
@@ -57,6 +58,20 @@ MonoBehaviour:
   newHighScore: 0
   newInitials: 
   newScoreIsSet: 0
+--- !u!114 &114689882334208492
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1693588612030700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10758f06e12fe6c4086f622183078a5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  songs:
+  - {fileID: 8300000, guid: 501f2e6aae6cf2e4ca7ac3bcd4892a47, type: 3}
+  - {fileID: 8300000, guid: 8650807ecfb4b674290a86c7b02ef4a5, type: 3}
 --- !u!114 &114839898569287366
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,3 +83,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c529d94007dbde4c9bb2dd35a0c1241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugMode: 1

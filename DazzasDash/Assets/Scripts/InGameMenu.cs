@@ -35,18 +35,16 @@ public class InGameMenu : MonoBehaviour
 
     private void Update()
     {
-        
-        if(deathScreen.activeSelf == true)
+        if (SceneManager.GetActiveScene().name == gameData.gameSceneName)
         {
-            
-            pauseButton.SetActive(false);
-
-        }
-        else
-        {
-
-            pauseButton.SetActive(true);
-
+            if (deathScreen.activeSelf == true)
+            {
+                pauseButton.SetActive(false);
+            }
+            else
+            {
+                pauseButton.SetActive(true);
+            }
         }
 
 
@@ -107,6 +105,11 @@ public class InGameMenu : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
 	
 	}
+
+    public void QuitGame()
+    {
+        
+    }
 
     public void DeathScreen()
     {

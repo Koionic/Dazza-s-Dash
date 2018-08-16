@@ -14,18 +14,27 @@ public class Bootstrap : MonoBehaviour
 
     private bool doesExist = false;
 
+    private GameData gameData;
+
     void Awake()
     {
+        
         if(debugMode == false) CheckGameObjectExists();
+
     }
 
     private void CheckGameObjectExists()
     {
-        if(doesExist == false)
+        if (doesExist == false)
         {
+            gameData = GetComponent<GameData>();
+
             DontDestroyOnLoad(this.gameObject);
 
-            SceneManager.LoadScene("MainMenu");
+            if (SceneManager.GetActiveScene().name.Equals("Preload"))
+            {
+                SceneManager.LoadScene(gameData.mainMenuSceneName);
+            }    
 
             doesExist = true;
         }
