@@ -249,4 +249,15 @@ public class UpgradesManager : MonoBehaviour
                 break;
         }
     }
+
+
+
+    public void UnEquip()
+    {
+        Add(equipped);
+
+        equipped = Upgrades.None;
+
+        UpdateEquippedItemUI();
+    }
 }
