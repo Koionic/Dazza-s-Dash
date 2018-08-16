@@ -144,4 +144,72 @@ public class UpgradesManager : MonoBehaviour
         gameData.dollaryDoos -= subtract;
         UpdateDollaryDoosUI();
     }
+
+
+
+
+    public void EquipUpgrade(string inUpgrade)
+    {
+        switch (inUpgrade)
+        {
+            case "Double":
+                CheckEquip(Upgrades.DoubleDollaryDoos, 0);
+                break;
+
+            case "Revive":
+                CheckEquip(Upgrades.Revive, 1);
+                break;
+
+            case "HeadStart":
+                CheckEquip(Upgrades.HeadStart, 2);
+                break;
+        }
+    }
+
+
+
+    private void CheckEquip(Upgrades inUpgrade, int arrayIndex)
+    {
+        int inventoryCount;
+
+        upgradeInventory.TryGetValue(inUpgrade, out inventoryCount);
+
+        
+        if (inventoryCount > 0)
+        {
+            if (equipped != Upgrades.None)
+            {
+                int equippedCount;
+
+                upgradeInventory.TryGetValue(equipped, out equippedCount);
+
+                equippedCount++;
+
+                upgradeInventory.Remove(equipped);
+                upgradeInventory.Add(equipped, equippedCount);
+
+                Add(equipped);
+
+                inventoryCount--;
+
+                upgradeInventory.Remove(inUpgrade);
+                upgradeInventory.Add(inUpgrade, inventoryCount);
+
+                UpdateUI(inUpgrade, inventoryCount);
+            }
+            else
+            {
+                inventoryCount--;
+
+                upgradeInventory.Remove(inUpgrade);
+                upgradeInventory.Add(inUpgrade, inventoryCount);
+
+                UpdateUI(inUpgrade, inventoryCount);
+            }
+
+            equippedImageUI.sprite = upgradeIconSprites[arrayIndex];
+        }
+        
+
+    }
 }
