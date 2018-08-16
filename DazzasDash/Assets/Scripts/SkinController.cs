@@ -108,7 +108,7 @@ public class SkinController : MonoBehaviour
 
         dazzaAnimationDictionary.TryGetValue(currentDazzaAnimation, out animationParameter);
 
-        Debug.Log(dazzaAnimator.parameterCount);
+        
 
         for(int i=0; i < dazzaAnimator.parameterCount; i++)
         {
@@ -122,6 +122,8 @@ public class SkinController : MonoBehaviour
                 dazzaAnimator.SetBool(dazzaAnimator.parameters[i].name, false);
             }
         }
+
+        Debug.Log("APPLY ANIMATION!");
 
     }
 
@@ -139,6 +141,10 @@ public class SkinController : MonoBehaviour
 
             case DazzaSkin.Shirtless:
                 currentDazzaSkinAnimation = DazzaAnimationState.ShirtlessSkin;
+                break;
+
+            case DazzaSkin.Tradie:
+                currentDazzaSkinAnimation = DazzaAnimationState.TradieSkin;
                 break;
         }
 

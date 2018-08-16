@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79a73fc196e8c64693ce3eea3dba39f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dazzasSkin: 0
+  dazzasSkin: 3
   dazzaAnimationStruct:
   - animation: 0
     animationBool: Default Skin
@@ -216,14 +216,16 @@ MonoBehaviour:
     animationBool: Shirtless Skin
   - animation: 1
     animationBool: Police Skin
-  - animation: 3
-    animationBool: SpeedBoost
   - animation: 4
-    animationBool: Default Jump
-  - animation: 6
-    animationBool: Default Death
+    animationBool: SpeedBoost
   - animation: 5
+    animationBool: Default Jump
+  - animation: 7
+    animationBool: Default Death
+  - animation: 6
     animationBool: Default Falling
+  - animation: 3
+    animationBool: Tradie Skin
 --- !u!114 &22466381
 MonoBehaviour:
   m_ObjectHideFlags: 0
