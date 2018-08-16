@@ -18,9 +18,11 @@ public class GameData : MonoBehaviour
 
     private Upgrades equippedUpgrade;
 
+    private Dictionary<Upgrades, int> upgradeInventory = new Dictionary<Upgrades, int>();
 
-	// Use this for initialization
-	void Start () 
+
+    // Use this for initialization
+    void Start () 
     {
 		if(resetScores == true)
         {
