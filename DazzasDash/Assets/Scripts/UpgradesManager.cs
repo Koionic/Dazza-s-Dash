@@ -34,6 +34,19 @@ public class UpgradesManager : MonoBehaviour
     [SerializeField]
     private Image equippedImageUI;
 
+    private Color opaque = new Color(1f, 1f, 1f, 1f);
+    private Color transparent = new Color(1f, 1f, 1f, 0f);
+
+
+
+    private void OnDestroy()
+    {
+        gameData.tempUpgradeInventory = upgradeInventory;
+        gameData.equippedUpgrade = equipped;
+    }
+
+
+
     private void Awake()
     {
         gameData = GameObject.Find("DataController").GetComponent<GameData>();
@@ -46,11 +59,29 @@ public class UpgradesManager : MonoBehaviour
         upgradeImageUI[1].sprite = upgradeIconSprites[1];
         upgradeImageUI[2].sprite = upgradeIconSprites[2];
 
-        upgradeInventory.Add(Upgrades.DoubleDollaryDoos, 0);
-        upgradeInventory.Add(Upgrades.HeadStart, 0);
-        upgradeInventory.Add(Upgrades.Revive, 0);
+        if(gameData.inventoryUpdated == 1)
+        {
+            upgradeInventory = gameData.upgradeInventory;
+            equipped = gameData.equippedUpgrade;
+            gameData.inventoryUpdated = 0;
+        }
+        else
+        {
+            upgradeInventory = gameData.tempUpgradeInventory;
+            equipped = gameData.equippedUpgrade;
+        }
+
+        int newValue;
+        upgradeInventory.TryGetValue(Upgrades.DoubleDollaryDoos, out newValue);
+        UpdateUI(Upgrades.DoubleDollaryDoos, newValue);
+        upgradeInventory.TryGetValue(Upgrades.Revive, out newValue);
+        UpdateUI(Upgrades.Revive, newValue);
+        upgradeInventory.TryGetValue(Upgrades.HeadStart, out newValue);
+        UpdateUI(Upgrades.HeadStart, newValue);
 
         UpdateDollaryDoosUI();
+
+        UpdateEquippedItemUI();
     }
 
     public void Buy(string inUpgrade)
@@ -81,17 +112,7 @@ public class UpgradesManager : MonoBehaviour
         }
     }
 
-	// Use this for initialization
-	void Start ()
-    {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
+
 
     void Add(Upgrades inUpgrade)
     {
@@ -108,10 +129,7 @@ public class UpgradesManager : MonoBehaviour
     }
 
 
-    private void OnDestroy()
-    {
-        
-    }
+
 
 
     void UpdateUI(Upgrades inUpgrade, int theCount)
@@ -200,10 +218,35 @@ public class UpgradesManager : MonoBehaviour
                 // update the UI
                 UpdateUI(inUpgrade, inventoryCount);
 
-                equippedImageUI.sprite = upgradeIconSprites[arrayIndex];
+                UpdateEquippedItemUI();
             }
         }
         
 
+    }
+
+
+
+    void UpdateEquippedItemUI()
+    {
+        switch(equipped)
+        {
+            case Upgrades.DoubleDollaryDoos:
+                equippedImageUI.color = opaque;
+                equippedImageUI.sprite = upgradeIconSprites[0];
+                break;
+            case Upgrades.Revive:
+                equippedImageUI.color = opaque;
+                equippedImageUI.sprite = upgradeIconSprites[1];
+                break;
+            case Upgrades.HeadStart:
+                equippedImageUI.color = opaque;
+                equippedImageUI.sprite = upgradeIconSprites[2];
+                break;
+            case Upgrades.None:
+                equippedImageUI.color = transparent;
+                equippedImageUI.sprite = null;
+                break;
+        }
     }
 }

@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene - Josh.unity
     guid: 771333501741764448a228f1cf660849
+  - enabled: 1
+    path: Assets/Scenes/GameScene - Blake.unity
+    guid: 093effa8482223741b2d0f7484f44411
   m_configObjects: {}
