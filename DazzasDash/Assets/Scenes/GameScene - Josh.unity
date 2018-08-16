@@ -1533,6 +1533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   songs:
   - {fileID: 8300000, guid: 501f2e6aae6cf2e4ca7ac3bcd4892a47, type: 3}
+  - {fileID: 8300000, guid: 8650807ecfb4b674290a86c7b02ef4a5, type: 3}
 --- !u!82 &485892423
 AudioSource:
   m_ObjectHideFlags: 0
