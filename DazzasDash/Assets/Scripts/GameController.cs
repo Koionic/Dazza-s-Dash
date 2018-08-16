@@ -15,6 +15,8 @@ public class GameController : MonoBehaviour
 
     private DazzaController dazzaController;
 
+	private UpgradeController upgradeController;
+
     [SerializeField]
     private BackgroundState backgroundState = BackgroundState.Suburb;
 
@@ -34,6 +36,7 @@ public class GameController : MonoBehaviour
         gameData = GameObject.Find("DataController").GetComponent<GameData>();
         levelGeneration = GameObject.Find("LevelGenerator").GetComponent<LevelGeneration>();
         dazzaController = GameObject.FindWithTag("Player").GetComponent<DazzaController>();
+		upgradeController = GetComponent<UpgradeController>();
 
         soundEffectSource = transform.GetChild(0).GetComponent<AudioSource>();
         musicSource = transform.GetChild(1).GetComponent<AudioSource>();
@@ -89,6 +92,12 @@ public class GameController : MonoBehaviour
     {
         dollaryDoos++;
         inGameDollaryDoos++;
+
+		if (upgradeController.DoubleDollaryDoos())
+		{
+			dollaryDoos++;
+			inGameDollaryDoos++;
+		}
 
         soundEffectSource.clip = collectedDollaryDooSound;
         soundEffectSource.Play();
