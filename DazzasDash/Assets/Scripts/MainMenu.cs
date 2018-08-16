@@ -101,22 +101,10 @@ public class MainMenu : MonoBehaviour
 
     void GrabDollaryDooData()
     {
-        int dollaryDoos;
-
         GameData gameData = GameObject.Find("DataController").GetComponent<GameData>();
 
-        if (PlayerPrefs.HasKey("DollaryDoos"))
-        {
-            dollaryDoos = PlayerPrefs.GetInt("DollaryDoos");
-
-            gameData.dollaryDoos = dollaryDoos;
-        }
-        else
-        {
-            dollaryDoos = gameData.dollaryDoos;
-        }
-
-        SetDollaryDooText(dollaryDoos);
+        //SetDollaryDooText(dollaryDoos);
+        SetDollaryDooText(gameData.dollaryDoos);
     }
 
     void SetDollaryDooText(int amount)

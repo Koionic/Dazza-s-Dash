@@ -185,6 +185,16 @@ Prefab:
     - target: {fileID: 114061527002089460, guid: 45c1bd5963aafe74b8a414546639e576,
         type: 2}
       propertyPath: resetScores
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114061527002089460, guid: 45c1bd5963aafe74b8a414546639e576,
+        type: 2}
+      propertyPath: dollaryDoos
+      value: 8000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114061527002089460, guid: 45c1bd5963aafe74b8a414546639e576,
+        type: 2}
+      propertyPath: debug
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
