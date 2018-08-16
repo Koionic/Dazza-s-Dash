@@ -174,40 +174,34 @@ public class UpgradesManager : MonoBehaviour
 
         upgradeInventory.TryGetValue(inUpgrade, out inventoryCount);
 
-        
+        // if there are is more than one item in the inventory of the upgrade to equip
         if (inventoryCount > 0)
         {
-            if (equipped != Upgrades.None)
+            // if the upgrade is not already equipped
+            if (inUpgrade != equipped)
             {
-                int equippedCount;
+                // if the equipped upgrade is not equal to none
+                if (equipped != Upgrades.None)
+                {
+                    // add the currently equipped item back to the inventory stocks
+                    Add(equipped);
+                }
 
-                upgradeInventory.TryGetValue(equipped, out equippedCount);
-
-                equippedCount++;
-
-                upgradeInventory.Remove(equipped);
-                upgradeInventory.Add(equipped, equippedCount);
-
-                Add(equipped);
-
+                // remove one from the upgrade to equip
                 inventoryCount--;
 
+                // set it in the dictionary
                 upgradeInventory.Remove(inUpgrade);
                 upgradeInventory.Add(inUpgrade, inventoryCount);
 
+                // set equipped item
+                equipped = inUpgrade;
+
+                // update the UI
                 UpdateUI(inUpgrade, inventoryCount);
+
+                equippedImageUI.sprite = upgradeIconSprites[arrayIndex];
             }
-            else
-            {
-                inventoryCount--;
-
-                upgradeInventory.Remove(inUpgrade);
-                upgradeInventory.Add(inUpgrade, inventoryCount);
-
-                UpdateUI(inUpgrade, inventoryCount);
-            }
-
-            equippedImageUI.sprite = upgradeIconSprites[arrayIndex];
         }
         
 
