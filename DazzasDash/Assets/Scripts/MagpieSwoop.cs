@@ -5,19 +5,27 @@ using UnityEngine;
 public class MagpieSwoop : MonoBehaviour
 {
 
-	Transform dazzaTransform;
+	public float dazzaY;
 
     LevelGeneration levelGeneration;
 
     Vector3 verticalVelocity = Vector3.zero;
 
+	GameObject objectDeleter;
+
     bool hasSwooped = false;
 
+	float speed;
 
 	void Start ()
 	{
         levelGeneration = transform.parent.GetComponent<LevelGeneration>();
-		dazzaTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
+
+		dazzaY = GameObject.FindWithTag("Player").GetComponent<Transform>().position.y;
+
+		objectDeleter = GameObject.Find("ObjectDeleter");
+
+		speed = (levelGeneration.GetScrollSpeed() * Time.deltaTime);
 
 		Destroy(gameObject,10);
 	}
@@ -25,46 +33,14 @@ public class MagpieSwoop : MonoBehaviour
 	
 	void FixedUpdate ()
 	{
-        //CheckSwoop();
-		//Swoop();
+		if (!hasSwooped)
+		{
+			transform.position = Vector3.MoveTowards(transform.position, new Vector3(0f,dazzaY - 1), speed);
+
+			if (transform.position.y <= dazzaY)
+				hasSwooped = true;
+		}
+		if (hasSwooped)
+			transform.position = Vector3.MoveTowards(transform.position, objectDeleter.transform.position, speed);
 	}
-
- //   void Swoop()
- //   {
- //       if (hasSwooped == false)
- //       {
- //           if(transform.position.y <= dazzaTransform.position.y + 3f)
- //           {
- //               verticalVelocity = new Vector3(0f, Mathf.Lerp(verticalVelocity.y, 0f, 0.05f), 0f);
- //           }
- //           else
- //           {
- //               verticalVelocity = new Vector3(0f, Mathf.Lerp(verticalVelocity.y, -levelGeneration.GetScrollSpeed(), 0.01f), 0f);
- //           }
- //       }
- //       else
- //       {
- //           verticalVelocity = new Vector3(0f, Mathf.Lerp(verticalVelocity.y, levelGeneration.GetScrollSpeed(), 0.05f), 0f);
- //       }
-
- //       transform.position += verticalVelocity * Time.deltaTime;
- //   }'
-
- //   void CheckSwoop()
- //   {
- //       if (transform.position.y > dazzaTransform.position.y)
- //       {
- //           if(transform.position.x >= dazzaTransform.position.x)
- //           {
- //               hasSwooped = false;
- //           }
- //       }
- //       else
- //       {
- //           if(transform.position.x <= dazzaTransform.position.x)
- //           {
- //               hasSwooped = true;
- //           }
- //       }
- //   }
 }
