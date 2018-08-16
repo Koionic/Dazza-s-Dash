@@ -16,6 +16,8 @@ public class GameData : MonoBehaviour
 
     public bool resetScores = false;
 
+    private Upgrades equippedUpgrade;
+
 
 	// Use this for initialization
 	void Start () 
