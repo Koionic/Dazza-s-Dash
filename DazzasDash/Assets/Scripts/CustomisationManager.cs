@@ -167,7 +167,7 @@ public class CustomisationManager : MonoBehaviour
 
     private void UpdateDollaryDooUI()
     {
-        dollaryDoosCount.text = gameData.dollaryDoos.ToString() ;
+        dollaryDoosCount.text = UsefulFunctions.SetDollaryDooText(gameData.dollaryDoos);
     }
 
     private void UpdateSkinUI(int index)

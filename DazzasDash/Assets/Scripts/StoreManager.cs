@@ -23,7 +23,7 @@ public class StoreManager : MonoBehaviour
 
     void UpdateDollaryDoosUI()
     {
-        dollaryDooUI.text = gameData.dollaryDoos.ToString();
+        dollaryDooUI.text = UsefulFunctions.SetDollaryDooText(gameData.dollaryDoos);
     }
 
 
