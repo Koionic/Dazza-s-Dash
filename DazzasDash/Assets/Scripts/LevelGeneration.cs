@@ -70,7 +70,20 @@ public class LevelGeneration : MonoBehaviour
 	{
         int randIndex = UnityEngine.Random.Range(0, levelPrefabs.Length);
 
-        Instantiate(levelPrefabs[randIndex], spawnLocation.position + levelPrefabs[randIndex].transform.localPosition, Quaternion.identity, transform); // Spawn a random level prefab at the spawn position.
+        if(levelPrefabs[randIndex].tag == "MagnetPowerUp" || levelPrefabs[randIndex].tag == "SpeedBoostPowerUp" || levelPrefabs[randIndex].tag == "ShieldPowerUp")
+        {
+            float randHeight = UnityEngine.Random.Range(0, 6f);
+
+            Instantiate(levelPrefabs[randIndex], spawnLocation.position + new Vector3(levelPrefabs[randIndex].transform.localPosition.x, levelPrefabs[randIndex].transform.localPosition.y + randHeight, levelPrefabs[randIndex].transform.localPosition.z), Quaternion.identity, transform); // Spawn a random level prefab at the spawn position.
+
+            Debug.Log(randHeight);
+
+        }
+        else
+        {
+            Instantiate(levelPrefabs[randIndex], spawnLocation.position + levelPrefabs[randIndex].transform.localPosition, Quaternion.identity, transform); // Spawn a random level prefab at the spawn position.
+        }
+       
 
         nextSpawnTime = UnityEngine.Random.Range(spawnDelayMin, spawnDelayMax);
 
