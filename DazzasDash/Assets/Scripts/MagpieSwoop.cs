@@ -16,6 +16,8 @@ public class MagpieSwoop : MonoBehaviour
 
 	float speed;
 
+	Animator myAnimator;
+
 	void Start ()
 	{
         levelGeneration = transform.parent.GetComponent<LevelGeneration>();
@@ -26,6 +28,8 @@ public class MagpieSwoop : MonoBehaviour
 
 		speed = (levelGeneration.GetScrollSpeed() * Time.deltaTime);
 
+		myAnimator = GetComponent<Animator>();
+
 		Destroy(gameObject,10);
 	}
 	
@@ -34,10 +38,13 @@ public class MagpieSwoop : MonoBehaviour
 	{
 		if (!hasSwooped)
 		{
-			transform.position = Vector3.MoveTowards(transform.position, new Vector3(50f,dazzaY - 0.5f), speed);
+			transform.position = Vector3.MoveTowards(transform.position, new Vector3(15f,dazzaY - 0.5f), speed);
 
 			if (transform.position.y <= dazzaY)
+			{
 				hasSwooped = true;
+				myAnimator.SetBool("hasSwooped", true);
+			}
 		}
 		else
 			transform.position = Vector3.MoveTowards(transform.position, objectDeleter.transform.position, speed);
