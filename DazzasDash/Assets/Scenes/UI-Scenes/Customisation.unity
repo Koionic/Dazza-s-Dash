@@ -1265,6 +1265,7 @@ MonoBehaviour:
   - skinType: 0
     skinCost: 0
     skinKey: SkinDefault
+    skinBackgroundImage: {fileID: 1936202301}
     skinImage: {fileID: 412684444}
     skinSelectButton: {fileID: 412684443}
     skinSelectButtonImage: {fileID: 412684442}
@@ -1275,6 +1276,7 @@ MonoBehaviour:
   - skinType: 1
     skinCost: 1000
     skinKey: SkinPolice
+    skinBackgroundImage: {fileID: 1633362274}
     skinImage: {fileID: 2006860718}
     skinSelectButton: {fileID: 2006860717}
     skinSelectButtonImage: {fileID: 2006860716}
@@ -1285,6 +1287,7 @@ MonoBehaviour:
   - skinType: 2
     skinCost: 1000
     skinKey: SkinShirtless
+    skinBackgroundImage: {fileID: 2054190756}
     skinImage: {fileID: 19456223}
     skinSelectButton: {fileID: 19456222}
     skinSelectButtonImage: {fileID: 19456221}
@@ -1295,6 +1298,7 @@ MonoBehaviour:
   - skinType: 3
     skinCost: 1500
     skinKey: SkinTradie
+    skinBackgroundImage: {fileID: 128670561}
     skinImage: {fileID: 426685027}
     skinSelectButton: {fileID: 426685026}
     skinSelectButtonImage: {fileID: 426685025}
@@ -2414,7 +2418,7 @@ Prefab:
     - target: {fileID: 224682920231044730, guid: 5053eb7fb9ba0fd40af4ff2a5b8d1f6f,
         type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224814965161795850, guid: 5053eb7fb9ba0fd40af4ff2a5b8d1f6f,
         type: 2}
@@ -2424,7 +2428,7 @@ Prefab:
     - target: {fileID: 224045351647798032, guid: 5053eb7fb9ba0fd40af4ff2a5b8d1f6f,
         type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5053eb7fb9ba0fd40af4ff2a5b8d1f6f, type: 2}

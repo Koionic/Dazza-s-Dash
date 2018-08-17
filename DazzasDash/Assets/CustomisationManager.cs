@@ -18,6 +18,7 @@ public class CustomisationManager : MonoBehaviour
         public DazzaSkin skinType;
         public int skinCost;
         public string skinKey;
+        public Image skinBackgroundImage;
         public Image skinImage;
         public Button skinSelectButton;
         public Image skinSelectButtonImage;
@@ -180,6 +181,7 @@ public class CustomisationManager : MonoBehaviour
         if(unlocked)
         {
             skins[index].skinImage.color = Color.white; // make skin image white
+            skins[index].skinBackgroundImage.color = Color.white; // make skins background image white
             skins[index].skinSelectButton.interactable = true; // make skin select button interactable
             skins[index].skinSelectButtonImage.color = Color.white; // make skin select button image white
 
@@ -191,6 +193,7 @@ public class CustomisationManager : MonoBehaviour
         else
         {
             skins[index].skinImage.color = semiBlack; // make skin image white
+            skins[index].skinBackgroundImage.color = semiBlack; // make skins background image white
             skins[index].skinSelectButton.interactable = false; // make skin select button interactable
             skins[index].skinSelectButtonImage.color = semiBlack; // make skin select button image white
 
@@ -224,16 +227,29 @@ public class CustomisationManager : MonoBehaviour
         {
             if(skins[i].skinType != selectedSkin)
             {
-                skins[i].skinImage.color = Color.white; // make skin image white
-                skins[i].skinSelectButton.interactable = true; // make skin select button interactable
-                skins[i].skinSelectButtonImage.color = Color.white; // make skin select button image white
-                skins[i].skinSelecButtonText.text = "SELECT";
+                if (PlayerPrefs.GetInt(skins[i].skinKey) == 1)
+                {
+                    skins[i].skinImage.color = new Color(0.6f, 0.6f, 0.6f); // make skin image white
+                    skins[i].skinBackgroundImage.color = Color.white; // make skins background image white
+                    skins[i].skinSelectButton.interactable = true; // make skin select button interactable
+                    skins[i].skinSelectButtonImage.color = Color.white; // make skin select button image white
+                    skins[i].skinSelecButtonText.text = "SELECT";
+                }
+                else
+                {
+                    skins[i].skinImage.color = new Color(0.4f, 0.4f, 0.4f); // make skin image white
+                    skins[i].skinBackgroundImage.color = Color.white; // make skins background image white
+                    skins[i].skinSelectButton.interactable = true; // make skin select button interactable
+                    skins[i].skinSelectButtonImage.color = Color.white; // make skin select button image white
+                    skins[i].skinSelecButtonText.text = "PURCHASE";
+                }
             }
             else
             {
-                skins[i].skinImage.color = Color.red; // make skin image white
+                skins[i].skinImage.color = Color.white; // make skin image slightly grey
+                skins[i].skinBackgroundImage.color = new Color(0.4f, 0.4f, 0.4f); // make skins background image grey
                 skins[i].skinSelectButton.interactable = false; // make skin select button interactable
-                skins[i].skinSelectButtonImage.color = Color.red; // make skin select button image white
+                skins[i].skinSelectButtonImage.color = new Color(0.1f, 0.1f, 0.1f); // make skin select button image white
                 skins[i].skinSelecButtonText.text = "SELECTED";
             }
         }
