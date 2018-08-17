@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DazzaController : MonoBehaviour
 {
+    [SerializeField]
+    GameObject reviveBottle;
 
     GameController gameController; // reference to the game controller script
 
@@ -13,6 +15,8 @@ public class DazzaController : MonoBehaviour
 
     PowerUpController powerUpController;
 
+    UpgradeController upgradeController;
+
     [SerializeField] float jumpForce = 15f; // the speed Dazza jumps
 
     [SerializeField] float maximumJumpTime = .5f; // the maximum time dazza can ascend in his jump for
@@ -20,6 +24,16 @@ public class DazzaController : MonoBehaviour
     [SerializeField] float distanceConstant = 0.1f;
 
     bool isInvincible = false;
+
+    bool isBeingRevived = false;
+
+    bool alreadyBeenRevived = false;
+
+    bool bufferRemoved = false;
+
+    float timeAfterRevive;
+    [SerializeField]
+    float reviveTimeBuffer;
 
     float dazzaDistance = 0f;
 
@@ -47,6 +61,7 @@ public class DazzaController : MonoBehaviour
         // inGameMenu = FindObjectOfType<InGameMenu>().GetComponent<InGameMenu>();
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
         powerUpController = transform.GetComponent<PowerUpController>();
+        upgradeController = gameController.GetComponent<UpgradeController>();
         gameData = GameObject.Find("DataController").GetComponent<GameData>();
         inGameMenu = FindObjectOfType<InGameMenu>().GetComponent<InGameMenu>();
 
@@ -67,6 +82,25 @@ public class DazzaController : MonoBehaviour
             IncrementTimer();
 
             CalculateDistance();
+        }
+
+        if(alreadyBeenRevived && !bufferRemoved)
+        {
+            timeAfterRevive += Time.deltaTime;
+
+            if (timeAfterRevive % 0.5f == 0f)
+            {
+                GetComponent<SpriteRenderer>().enabled = false;
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().enabled = true;
+            }
+
+            if (timeAfterRevive >= reviveTimeBuffer)
+            {
+                RemoveReviveBuffer();
+            }
         }
 
         LimitHeight();
@@ -149,7 +183,7 @@ public class DazzaController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag == "WouldKillDazza")
+        if (collider.gameObject.tag == "WouldKillDazza" && !IsDazzaDead())
         {
             KillDazza();
 
@@ -164,7 +198,7 @@ public class DazzaController : MonoBehaviour
         {
             isDead = true;
 
-            gameController.SetGameSpeed(0f);
+            gameController.PauseScrolling();
 
             StartCoroutine(KillingDazza());
         }
@@ -177,32 +211,77 @@ public class DazzaController : MonoBehaviour
         yield return new WaitForSeconds(3); //Change this to the length of Dazza's death animation plus a second
         Debug.Log("Dazza's dead");
 
-        gameController.SaveDollaryDoos();
-
-        Highscore highscore = FindObjectOfType<Highscore>().GetComponent<Highscore>();
-        if (highscore != null)
+        if (upgradeController.Revive() && !alreadyBeenRevived)
         {
-            if (!gameData.newScoreIsSet)
-            {
-                highscore.CompareHighScore();
-            }
-            else
-            {
-                Debug.Log("score already been set");
-            }
+            Debug.Log("Dazza has a revive");
+            ReviveDazza();
         }
         else
         {
-            Debug.Log("Highscore script not found. Make sure you're starting from the preload scene");
-        }
+            gameController.SaveDollaryDoos();
 
-        inGameMenu.DeathScreen();
+            Highscore highscore = FindObjectOfType<Highscore>().GetComponent<Highscore>();
+            if (highscore != null)
+            {
+                if (!gameData.newScoreIsSet)
+                {
+                    highscore.CompareHighScore();
+                }
+                else
+                {
+                    Debug.Log("score already been set");
+                }
+            }
+            else
+            {
+                Debug.Log("Highscore script not found. Make sure you're starting from the preload scene");
+            }
+
+            inGameMenu.DeathScreen();
+        }
     }
 
+    void ReviveDazza()
+    {
+        StopAllCoroutines();
+
+        Instantiate(reviveBottle, transform);
+
+        isBeingRevived = true;
+
+        alreadyBeenRevived = true;
+
+        MakeDazzaInvincible(true);
+
+        Invoke("FinishRevive", 2f);
+    }
+
+    void FinishRevive()
+    {
+        isBeingRevived = false;
+
+        isDead = false;
+
+        gameController.ResumeScrolling();
+
+        Invoke("RemoveReviveBuffer", 3f);
+    }
+
+    void RemoveReviveBuffer()
+    {
+        bufferRemoved = true;
+
+        MakeDazzaInvincible(false);
+    }
 
     public bool IsDazzaDead()
     {
         return isDead;
+    }
+
+    public bool IsDazzaBeingRevived()
+    {
+        return isBeingRevived;
     }
 
     public bool IsDazzaInvincible()

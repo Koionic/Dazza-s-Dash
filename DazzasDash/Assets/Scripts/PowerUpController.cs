@@ -140,7 +140,7 @@ public class PowerUpController : MonoBehaviour
             if(gameSpeedSet == false)
             {
                 gameSpeedSet = true;
-                gameController.SetGameSpeed(gameController.GetGameSpeed() * sprintBoostGameSpeedRate);
+                gameController.SetGameSpeed(gameController.GetGameSpeed() * sprintBoostGameSpeedRate, 1f);
                 speedBoostSoundSource.Play();
             }
         }
@@ -150,7 +150,7 @@ public class PowerUpController : MonoBehaviour
             if(gameSpeedSet == true)
             {
                 gameSpeedSet = false;
-                gameController.SetGameSpeed(gameSpeedBeforeBoost);
+                gameController.SetGameSpeed(gameSpeedBeforeBoost, 1f);
                 Invoke("MakeDazzaVulnerable", 1.5f);
                 speedBoostSoundSource.Stop();
             }

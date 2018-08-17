@@ -10,9 +10,9 @@ public class UpgradeController : MonoBehaviour
 
     private Upgrades equipped = Upgrades.None;
 
-	bool DoubleDollaryDoosEnabled = false;
-	bool HeadstartEnabled = false;
-	bool ReviveEnabled = false;
+	bool doubleDollaryDoosEnabled = false;
+	bool headstartEnabled = false;
+	bool reviveEnabled = false;
 
 	void Awake()
 	{
@@ -20,7 +20,7 @@ public class UpgradeController : MonoBehaviour
 
 		if (gameData.equippedUpgrade == Upgrades.DoubleDollaryDoos)
         {
-            DoubleDollaryDoosEnabled = true;
+            doubleDollaryDoosEnabled = true;
             gameData.equippedUpgrade = Upgrades.None;
             equipped = Upgrades.DoubleDollaryDoos;
         }
@@ -28,7 +28,7 @@ public class UpgradeController : MonoBehaviour
 
 		if (gameData.equippedUpgrade == Upgrades.HeadStart)
         {
-            HeadstartEnabled = true;
+            headstartEnabled = true;
             gameData.equippedUpgrade = Upgrades.None;
             equipped = Upgrades.HeadStart;
         }
@@ -36,7 +36,7 @@ public class UpgradeController : MonoBehaviour
 
 		if (gameData.equippedUpgrade == Upgrades.Revive)
         {
-            ReviveEnabled = true;
+            reviveEnabled = true;
             gameData.equippedUpgrade = Upgrades.None;
             equipped = Upgrades.Revive;
         }
@@ -49,17 +49,17 @@ public class UpgradeController : MonoBehaviour
 
 	public bool DoubleDollaryDoos()
 	{
-		return DoubleDollaryDoosEnabled;
+		return doubleDollaryDoosEnabled;
 	}
 
 	public bool Headstart()
 	{
-		return HeadstartEnabled;
+		return headstartEnabled;
 	}
 
 	public bool Revive()
 	{
-		return ReviveEnabled;
+		return reviveEnabled;
 	}
 
 
