@@ -5070,7 +5070,7 @@ Prefab:
     - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
         type: 2}
       propertyPath: dazzasSkin
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
         type: 2}
