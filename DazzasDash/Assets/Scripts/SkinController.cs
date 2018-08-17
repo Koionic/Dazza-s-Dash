@@ -158,6 +158,10 @@ public class SkinController : MonoBehaviour
 
             case DazzaSkin.Tradie:
                 currentDazzaSkinAnimation = DazzaAnimationState.TradieSkin;
+                currentDazzaSkinJump = DazzaAnimationState.TradieJumping;
+                currentDazzaSkinFall = DazzaAnimationState.TradieFalling;
+                currentDazzaSkinDeath = DazzaAnimationState.TradieDeath;
+                currentDazzaSkinSpeedBoost = DazzaAnimationState.TradieSpeedBoost;
                 break;
         }
 

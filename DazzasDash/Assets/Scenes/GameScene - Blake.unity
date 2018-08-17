@@ -4993,7 +4993,7 @@ Prefab:
     - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
         type: 2}
       propertyPath: dazzaAnimationStruct.Array.size
-      value: 16
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4025988796735974, guid: 0c84d2327b7ef234fbf9a5f551243f24, type: 2}
       propertyPath: m_LocalPosition.x
@@ -5071,6 +5071,46 @@ Prefab:
         type: 2}
       propertyPath: dazzasSkin
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
+        type: 2}
+      propertyPath: dazzaAnimationStruct.Array.data[16].animation
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
+        type: 2}
+      propertyPath: dazzaAnimationStruct.Array.data[16].animationBool
+      value: TradieJump
+      objectReference: {fileID: 0}
+    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
+        type: 2}
+      propertyPath: dazzaAnimationStruct.Array.data[17].animation
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
+        type: 2}
+      propertyPath: dazzaAnimationStruct.Array.data[17].animationBool
+      value: TradieFalling
+      objectReference: {fileID: 0}
+    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
+        type: 2}
+      propertyPath: dazzaAnimationStruct.Array.data[18].animation
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
+        type: 2}
+      propertyPath: dazzaAnimationStruct.Array.data[18].animationBool
+      value: TradieDeath
+      objectReference: {fileID: 0}
+    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
+        type: 2}
+      propertyPath: dazzaAnimationStruct.Array.data[19].animation
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
+        type: 2}
+      propertyPath: dazzaAnimationStruct.Array.data[19].animationBool
+      value: TradieSpeedBoost
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c84d2327b7ef234fbf9a5f551243f24, type: 2}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum BackgroundState { Suburb, City };
 
-public enum DazzaAnimationState { DefaultSkin, PoliceSkin, ShirtlessSkin, TradieSkin, SpeedBoost, Jumping, Falling, Death, ShirtlessJumping, ShirtlessDeath, ShirtlessFalling, ShirtlessSpeedBoost, PoliceJumping, PoliceFalling, PoliceDeath, PoliceSpeedBoost}
+public enum DazzaAnimationState { DefaultSkin, PoliceSkin, ShirtlessSkin, TradieSkin, SpeedBoost, Jumping, Falling, Death, ShirtlessJumping, ShirtlessDeath, ShirtlessFalling, ShirtlessSpeedBoost, PoliceJumping, PoliceFalling, PoliceDeath, PoliceSpeedBoost, TradieJumping, TradieFalling, TradieDeath, TradieSpeedBoost}
 
 public enum DazzaSkin { Default, Police, Shirtless, Tradie}
 
