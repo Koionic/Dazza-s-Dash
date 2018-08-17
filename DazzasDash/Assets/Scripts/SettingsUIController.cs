@@ -8,9 +8,6 @@ public class SettingsUIController : MonoBehaviour
 {
 	AudioController audioController;
 
-	[SerializeField] Slider musicSlider;
-	[SerializeField] Slider sfxSlider;
-
 	void Awake()
 	{
 		audioController = GameObject.Find("DataController").GetComponent<AudioController>();
@@ -18,11 +15,11 @@ public class SettingsUIController : MonoBehaviour
 
 	public void SetMusicSlider()
 	{
-		audioController.SetMusicSlider(musicSlider.value);
+		audioController.SetMusicSlider();
 	}
 
 	public void SetSFXSlider()
 	{
-		audioController.SetSFXSlider(musicSlider.value);
+		audioController.SetSFXSlider();
 	}
 }

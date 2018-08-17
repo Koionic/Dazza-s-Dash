@@ -21,13 +21,13 @@ public class AudioController : MonoBehaviour
 		}
 	}
 
-	public void SetMusicSlider(float volumeToSet)
+	public void SetMusicSlider()
 	{
-		musicMixer.audioMixer.SetFloat("Music", volumeToSet);
+		musicMixer.audioMixer.SetFloat("Music", musicSlider.value);
 	}
 
-	public void SetSFXSlider(float volumeToSet)
+	public void SetSFXSlider()
 	{
-		musicMixer.audioMixer.SetFloat("SFX", volumeToSet);
+		musicMixer.audioMixer.SetFloat("SFX", sfxSlider.value);
 	}
 }
