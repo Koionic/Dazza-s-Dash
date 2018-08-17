@@ -15,6 +15,7 @@ public class CustomisationManager : MonoBehaviour
     {
         public DazzaSkin skinType;
         public int skinCost;
+        public string skinKey;
         public Image skinImage;
         public Button skinSelectButton;
         public Image skinSelectButtonImage;
@@ -48,8 +49,14 @@ public class CustomisationManager : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        
+        GrabSkinDictionaryData();
 
+        UpdateDollaryDooUI();
+
+        for(int i=0; i < skins.Length; i++)
+        {
+            UpdateSkinUI(i);
+        }
     }
 	
 	// Update is called once per frame
@@ -103,7 +110,7 @@ public class CustomisationManager : MonoBehaviour
             UpdateDollaryDooUI();
 
             // update skinUI based on playerprefs
-            UpdateSkinUI(index, inKey);
+            UpdateSkinUI(index);
         }
     }
 
@@ -124,14 +131,7 @@ public class CustomisationManager : MonoBehaviour
     }
 
 
-    private void GrabSkinDictionaryData()
-    {
-        skinUnlockedDict.Clear();
-        skinUnlockedDict.Add(DazzaSkin.Default, PlayerPrefs.GetInt("SkinDefault", 0));
-        skinUnlockedDict.Add(DazzaSkin.Police, PlayerPrefs.GetInt("SkinPolice", 0));
-        skinUnlockedDict.Add(DazzaSkin.Shirtless, PlayerPrefs.GetInt("SkinShirtless", 0));
-        skinUnlockedDict.Add(DazzaSkin.Tradie, PlayerPrefs.GetInt("SkinTradie", 0));
-    }
+
 
 
     private void UpdateDollaryDooUI()
@@ -139,15 +139,54 @@ public class CustomisationManager : MonoBehaviour
         dollaryDoosCount.text = gameData.dollaryDoos.ToString() ;
     }
 
-    private void UpdateSkinUI(int index, string inKey)
+    private void UpdateSkinUI(int index)
     {
-        // make skin image white
+        int unlockedInt = PlayerPrefs.GetInt(skins[index].skinKey, 0);
+        bool unlocked = false;
+        if (unlockedInt == 1) unlocked = true;
+
+        Color semiBlack = new Color(0.8f, 0.8f, 0.8f, 0.8f);
+
+        if(unlocked)
+        {
+            skins[index].skinImage.color = Color.white; // make skin image white
+            skins[index].skinSelectButton.interactable = true; // make skin select button interactable
+            skins[index].skinSelectButtonImage.color = Color.white; // make skin select button image white
+
+            skins[index].skinCostButton.interactable = false; // make skin cost button not interactable
+            skins[index].skinCostButtonImage.color = semiBlack; // make skin cost button image black
+            skins[index].skinCostButtonText.text = "PURCHASED!"; // change skin cost button text to "PURCHASED"
+        }
+
+        else
+        {
+            skins[index].skinImage.color = semiBlack; // make skin image white
+            skins[index].skinSelectButton.interactable = false; // make skin select button interactable
+            skins[index].skinSelectButtonImage.color = semiBlack; // make skin select button image white
+
+            skins[index].skinCostButton.interactable = true; // make skin cost button not interactable
+            skins[index].skinCostButtonImage.color = Color.white; // make skin cost button image black
+            skins[index].skinCostButtonText.text = skins[index].skinCost.ToString(); // change skin cost button text to "PURCHASED"
+        }
+    }
 
 
-        // make skin select button interactable
-        // make skin select button image white
-        // make skin cost button not interactable
-        // make skin cost button image black
-        // change skin cost button text to "PURCHASED"
+
+
+
+
+
+
+
+
+
+
+    private void GrabSkinDictionaryData()
+    {
+        skinUnlockedDict.Clear();
+        skinUnlockedDict.Add(DazzaSkin.Default, PlayerPrefs.GetInt("SkinDefault", 1));
+        skinUnlockedDict.Add(DazzaSkin.Police, PlayerPrefs.GetInt("SkinPolice", 0));
+        skinUnlockedDict.Add(DazzaSkin.Shirtless, PlayerPrefs.GetInt("SkinShirtless", 0));
+        skinUnlockedDict.Add(DazzaSkin.Tradie, PlayerPrefs.GetInt("SkinTradie", 0));
     }
 }
