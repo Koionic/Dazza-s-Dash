@@ -145,6 +145,8 @@ public class CustomisationManager : MonoBehaviour
         bool unlocked = false;
         if (unlockedInt == 1) unlocked = true;
 
+        Debug.Log(skins[index].skinKey + ": " + unlocked);
+
         Color semiBlack = new Color(0.8f, 0.8f, 0.8f, 0.8f);
 
         if(unlocked)
@@ -184,6 +186,7 @@ public class CustomisationManager : MonoBehaviour
     private void GrabSkinDictionaryData()
     {
         skinUnlockedDict.Clear();
+        PlayerPrefs.SetInt("SkinDefault", 1);
         skinUnlockedDict.Add(DazzaSkin.Default, PlayerPrefs.GetInt("SkinDefault", 1));
         skinUnlockedDict.Add(DazzaSkin.Police, PlayerPrefs.GetInt("SkinPolice", 0));
         skinUnlockedDict.Add(DazzaSkin.Shirtless, PlayerPrefs.GetInt("SkinShirtless", 0));

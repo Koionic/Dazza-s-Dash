@@ -190,7 +190,7 @@ Prefab:
     - target: {fileID: 114061527002089460, guid: 45c1bd5963aafe74b8a414546639e576,
         type: 2}
       propertyPath: dollaryDoos
-      value: 0
+      value: 8000
       objectReference: {fileID: 0}
     - target: {fileID: 114061527002089460, guid: 45c1bd5963aafe74b8a414546639e576,
         type: 2}
