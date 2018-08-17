@@ -40,11 +40,19 @@ public class GameController : MonoBehaviour
 
         soundEffectSource = transform.GetChild(0).GetComponent<AudioSource>();
         musicSource = transform.GetChild(1).GetComponent<AudioSource>();
+
+        gameData.ApplySelectedSkinFromPlayerPrefs();
+
+        dazzaController.GetComponent<SkinController>().SetSkin(gameData.selectedSkin);
     }
 
     private void Start()
     {
         SetDollaryDoos(PlayerPrefs.GetInt("DollaryDoos", 0));
+
+        
+
+        
     }
 
 

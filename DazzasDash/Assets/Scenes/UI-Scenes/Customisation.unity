@@ -248,12 +248,12 @@ Prefab:
     - target: {fileID: 114487449217202898, guid: 5053eb7fb9ba0fd40af4ff2a5b8d1f6f,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: SelectSkin
       objectReference: {fileID: 0}
     - target: {fileID: 114487449217202898, guid: 5053eb7fb9ba0fd40af4ff2a5b8d1f6f,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114049274778667172, guid: 5053eb7fb9ba0fd40af4ff2a5b8d1f6f,
         type: 2}
@@ -281,6 +281,11 @@ Prefab:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 114049274778667172, guid: 5053eb7fb9ba0fd40af4ff2a5b8d1f6f,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: SkinShirtless
+      objectReference: {fileID: 0}
+    - target: {fileID: 114487449217202898, guid: 5053eb7fb9ba0fd40af4ff2a5b8d1f6f,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: SkinShirtless
@@ -672,12 +677,12 @@ Prefab:
     - target: {fileID: 114487449217202898, guid: 5053eb7fb9ba0fd40af4ff2a5b8d1f6f,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: SelectSkin
       objectReference: {fileID: 0}
     - target: {fileID: 114487449217202898, guid: 5053eb7fb9ba0fd40af4ff2a5b8d1f6f,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114049274778667172, guid: 5053eb7fb9ba0fd40af4ff2a5b8d1f6f,
         type: 2}
@@ -894,12 +899,12 @@ Prefab:
     - target: {fileID: 114487449217202898, guid: 5053eb7fb9ba0fd40af4ff2a5b8d1f6f,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: SelectSkin
       objectReference: {fileID: 0}
     - target: {fileID: 114487449217202898, guid: 5053eb7fb9ba0fd40af4ff2a5b8d1f6f,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114049274778667172, guid: 5053eb7fb9ba0fd40af4ff2a5b8d1f6f,
         type: 2}
@@ -927,6 +932,11 @@ Prefab:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 114049274778667172, guid: 5053eb7fb9ba0fd40af4ff2a5b8d1f6f,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: SkinTradie
+      objectReference: {fileID: 0}
+    - target: {fileID: 114487449217202898, guid: 5053eb7fb9ba0fd40af4ff2a5b8d1f6f,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: SkinTradie
@@ -2980,12 +2990,12 @@ Prefab:
     - target: {fileID: 114487449217202898, guid: 5053eb7fb9ba0fd40af4ff2a5b8d1f6f,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: SelectSkin
       objectReference: {fileID: 0}
     - target: {fileID: 114487449217202898, guid: 5053eb7fb9ba0fd40af4ff2a5b8d1f6f,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114049274778667172, guid: 5053eb7fb9ba0fd40af4ff2a5b8d1f6f,
         type: 2}
@@ -3013,6 +3023,11 @@ Prefab:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 114049274778667172, guid: 5053eb7fb9ba0fd40af4ff2a5b8d1f6f,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: SkinPolice
+      objectReference: {fileID: 0}
+    - target: {fileID: 114487449217202898, guid: 5053eb7fb9ba0fd40af4ff2a5b8d1f6f,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: SkinPolice

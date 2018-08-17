@@ -23,6 +23,8 @@ public class GameData : MonoBehaviour
 
     public Dictionary<Upgrades, int> tempUpgradeInventory = new Dictionary<Upgrades, int>();
 
+    public DazzaSkin selectedSkin = DazzaSkin.Default;
+
     // treat this like a bool - 0 is false, 1 is true
     public int inventoryUpdated = 0;
 
@@ -50,9 +52,10 @@ public class GameData : MonoBehaviour
             GetInventoryPlayerPrefs(); 
         }
 
+        ApplySelectedSkinFromPlayerPrefs();
 
 
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () 
@@ -214,6 +217,29 @@ public class GameData : MonoBehaviour
             upgradeInventory = tempUpgradeInventory;
             inventoryUpdated = 1;
             SetInventoryPlayerPrefs(); // this may break! Check this!!!!
+        }
+    }
+
+
+    public void ApplySelectedSkinFromPlayerPrefs()
+    {
+        switch(PlayerPrefs.GetString("SelectedSkin", "SkinDefault"))
+        {
+            case "SkinDefault":
+                selectedSkin = DazzaSkin.Default;
+                break;
+
+            case "SkinShirtless":
+                selectedSkin = DazzaSkin.Shirtless;
+                break;
+
+            case "SkinPolice":
+                selectedSkin = DazzaSkin.Police;
+                break;
+
+            case "SkinTradie":
+                selectedSkin = DazzaSkin.Tradie;
+                break;
         }
     }
 }

@@ -7,6 +7,8 @@ public class CustomisationManager : MonoBehaviour
 {
     private GameData gameData;
 
+    private DazzaSkin selectedSkin = DazzaSkin.Default;
+
     [SerializeField]
     private Text dollaryDoosCount;
 
@@ -51,12 +53,16 @@ public class CustomisationManager : MonoBehaviour
     {
         GrabSkinDictionaryData();
 
+        SelectSkin(PlayerPrefs.GetString("SelectedSkin", skins[0].skinKey));
+
         UpdateDollaryDooUI();
 
         for(int i=0; i < skins.Length; i++)
         {
             UpdateSkinUI(i);
         }
+
+        UpdateSelectableSkinsUI();
     }
 	
 	// Update is called once per frame
@@ -84,6 +90,30 @@ public class CustomisationManager : MonoBehaviour
 
             case "SkinTradie":
                 CheckCanBuySkin(DazzaSkin.Tradie, "SkinTradie");
+                break;
+        }
+    }
+
+
+
+    public void SelectSkin(string inSkin)
+    {
+        switch (inSkin)
+        {
+            case "SkinDefault":
+                SelectTheSkin(DazzaSkin.Default, "SkinDefault");
+                break;
+
+            case "SkinPolice":
+                SelectTheSkin(DazzaSkin.Police, "SkinPolice");
+                break;
+
+            case "SkinShirtless":
+                SelectTheSkin(DazzaSkin.Shirtless, "SkinShirtless");
+                break;
+
+            case "SkinTradie":
+                SelectTheSkin(DazzaSkin.Tradie, "SkinTradie");
                 break;
         }
     }
@@ -145,8 +175,6 @@ public class CustomisationManager : MonoBehaviour
         bool unlocked = false;
         if (unlockedInt == 1) unlocked = true;
 
-        Debug.Log(skins[index].skinKey + ": " + unlocked);
-
         Color semiBlack = new Color(0.8f, 0.8f, 0.8f, 0.8f);
 
         if(unlocked)
@@ -169,6 +197,45 @@ public class CustomisationManager : MonoBehaviour
             skins[index].skinCostButton.interactable = true; // make skin cost button not interactable
             skins[index].skinCostButtonImage.color = Color.white; // make skin cost button image black
             skins[index].skinCostButtonText.text = skins[index].skinCost.ToString(); // change skin cost button text to "PURCHASED"
+        }
+    }
+
+
+
+
+    private void SelectTheSkin(DazzaSkin inSkin, string inKey)
+    {
+        int index = GrabSkinArrayIndex(inSkin);
+
+        selectedSkin = inSkin;
+
+        PlayerPrefs.SetString("SelectedSkin", inKey);
+
+        UpdateSelectableSkinsUI();
+
+        Debug.Log(selectedSkin.ToString());
+    }
+
+
+
+    private void UpdateSelectableSkinsUI()
+    {
+        for(int i=0; i < skins.Length; i++)
+        {
+            if(skins[i].skinType != selectedSkin)
+            {
+                skins[i].skinImage.color = Color.white; // make skin image white
+                skins[i].skinSelectButton.interactable = true; // make skin select button interactable
+                skins[i].skinSelectButtonImage.color = Color.white; // make skin select button image white
+                skins[i].skinSelecButtonText.text = "SELECT";
+            }
+            else
+            {
+                skins[i].skinImage.color = Color.red; // make skin image white
+                skins[i].skinSelectButton.interactable = false; // make skin select button interactable
+                skins[i].skinSelectButtonImage.color = Color.red; // make skin select button image white
+                skins[i].skinSelecButtonText.text = "SELECTED";
+            }
         }
     }
 

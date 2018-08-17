@@ -167,4 +167,10 @@ public class SkinController : MonoBehaviour
 
         currentDazzaAnimation = currentDazzaSkinAnimation;
     }
+
+
+    public void SetSkin(DazzaSkin inSkin)
+    {
+        dazzasSkin = inSkin;
+    }
 }
