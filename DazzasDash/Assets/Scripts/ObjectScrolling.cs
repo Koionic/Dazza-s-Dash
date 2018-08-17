@@ -9,6 +9,8 @@ public class ObjectScrolling : MonoBehaviour
 
     GameObject player;
 
+    GameController gameController;
+
 	void Start ()
 	{
         // grab reference
@@ -17,6 +19,8 @@ public class ObjectScrolling : MonoBehaviour
 
 
         player = GameObject.FindGameObjectWithTag("Player");
+
+        gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
     }
 	
 
@@ -49,4 +53,10 @@ public class ObjectScrolling : MonoBehaviour
             Destroy(gameObject);
 		}
 	}
+
+
+    private void OnDestroy()
+    {
+        gameController.totalLevelObjectsInPlay--;
+    }
 }

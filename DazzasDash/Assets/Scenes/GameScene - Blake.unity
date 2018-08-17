@@ -1212,6 +1212,9 @@ MonoBehaviour:
   backgroundState: 0
   gameSpeed: 10
   rateGameSpeedIncreases: 0.05
+  totalSpawnsAllowed: 2
+  totalLevelObjectsInPlay: 0
+  spawnList: []
 --- !u!4 &459094074
 Transform:
   m_ObjectHideFlags: 0
@@ -1225,7 +1228,7 @@ Transform:
   - {fileID: 103911278}
   - {fileID: 812173688}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &459094075
 MonoBehaviour:
@@ -1644,7 +1647,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &616491765
 Prefab:
@@ -2846,7 +2849,7 @@ Transform:
   - {fileID: 1249485139}
   - {fileID: 461636942}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1068787579
 GameObject:
@@ -3699,7 +3702,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1952198283410366, guid: dcace1c2c77c2ff49bcae24719ece580, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dcace1c2c77c2ff49bcae24719ece580, type: 2}
@@ -3861,6 +3864,10 @@ Prefab:
     - target: {fileID: 4862180375784794, guid: 5b433bcc10d20034ba0c70128cea10f7, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304088034650736, guid: 5b433bcc10d20034ba0c70128cea10f7, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5b433bcc10d20034ba0c70128cea10f7, type: 2}

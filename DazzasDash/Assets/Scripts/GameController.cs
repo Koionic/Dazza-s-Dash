@@ -32,6 +32,11 @@ public class GameController : MonoBehaviour
 
     private bool savedDollaryDoos = false;
 
+    public int totalSpawnsAllowed = 2;
+    public int totalLevelObjectsInPlay = 0;
+
+    public List<GameObject> spawnList = new List<GameObject>();
+
 
     private void Awake()
     {
