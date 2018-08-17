@@ -32,8 +32,8 @@ public class DazzaController : MonoBehaviour
     bool bufferRemoved = false;
 
     float timeAfterRevive;
-    [SerializeField]
-    float reviveTimeBuffer;
+
+    [SerializeField] float reviveTimeBuffer;
 
     float dazzaDistance = 0f;
 
