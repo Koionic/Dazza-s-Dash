@@ -186,4 +186,9 @@ public class PowerUpController : MonoBehaviour
     {
         return sprintBoostActive;
     }
+
+    public bool GetHeadStartActive()
+    {
+        return headStartActive;
+    }
 }
