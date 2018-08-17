@@ -16,8 +16,6 @@ public class PowerUpCollisionScript : MonoBehaviour
 	{
         if (collision.CompareTag("Player"))
 		{
-            Debug.Log(tag + " has been collected");
-
             gameController.CollectedPowerup(collectedSound);
             Destroy(gameObject, 0.1f);
 		}

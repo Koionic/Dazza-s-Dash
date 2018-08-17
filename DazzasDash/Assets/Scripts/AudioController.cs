@@ -13,6 +13,12 @@ public class AudioController : MonoBehaviour
 
 	int i = 0;
 
+	private void Start()
+	{
+		masterMixer.SetFloat("Music", PlayerPrefs.GetFloat("Music Volume"));
+		masterMixer.SetFloat("SFX", PlayerPrefs.GetFloat("SFX Volume"));
+	}
+
 	private void Update()
 	{
 		if (SceneManager.GetActiveScene().name == "Settings")
@@ -21,6 +27,9 @@ public class AudioController : MonoBehaviour
 			{
 				musicSlider = GameObject.Find("Music Slider").GetComponent<Slider>();
 				sfxSlider = GameObject.Find("SFX Slider").GetComponent<Slider>();
+
+				musicSlider.value = PlayerPrefs.GetFloat("Music Volume");
+				sfxSlider.value = PlayerPrefs.GetFloat("SFX Volume");
 
 				i++;
 			}
@@ -33,10 +42,12 @@ public class AudioController : MonoBehaviour
 	public void SetMusicSlider()
 	{
 		masterMixer.SetFloat("Music", musicSlider.value);
+		PlayerPrefs.SetFloat("Music Volume", musicSlider.value);
 	}
 
 	public void SetSFXSlider()
 	{
 		masterMixer.SetFloat("SFX", sfxSlider.value);
+		PlayerPrefs.SetFloat("SFX Volume", sfxSlider.value);
 	}
 }

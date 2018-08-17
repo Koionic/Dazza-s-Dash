@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MagpieSwoop : MonoBehaviour
 {
-
 	public float dazzaY;
 
     LevelGeneration levelGeneration;
@@ -13,9 +12,11 @@ public class MagpieSwoop : MonoBehaviour
 
 	GameObject objectDeleter;
 
-    bool hasSwooped = false;
+    public bool hasSwooped = false;
 
 	float speed;
+
+	Animator myAnimator;
 
 	void Start ()
 	{
@@ -27,20 +28,25 @@ public class MagpieSwoop : MonoBehaviour
 
 		speed = (levelGeneration.GetScrollSpeed() * Time.deltaTime);
 
+		myAnimator = GetComponent<Animator>();
+
 		Destroy(gameObject,10);
 	}
 	
 	
-	void FixedUpdate ()
+	void Update ()
 	{
 		if (!hasSwooped)
 		{
-			transform.position = Vector3.MoveTowards(transform.position, new Vector3(0f,dazzaY - 1), speed);
+			transform.position = Vector3.MoveTowards(transform.position, new Vector3(15f,dazzaY - 0.5f), speed);
 
 			if (transform.position.y <= dazzaY)
+			{
 				hasSwooped = true;
+				myAnimator.SetBool("hasSwooped", true);
+			}
 		}
-		if (hasSwooped)
+		else
 			transform.position = Vector3.MoveTowards(transform.position, objectDeleter.transform.position, speed);
 	}
 }

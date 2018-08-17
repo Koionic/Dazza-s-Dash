@@ -186,8 +186,6 @@ public class DazzaController : MonoBehaviour
         if (collider.gameObject.tag == "WouldKillDazza" && !IsDazzaDead())
         {
             KillDazza();
-
-            Debug.Log("Dazza should die");
         }
     }
 
@@ -206,10 +204,8 @@ public class DazzaController : MonoBehaviour
 
     IEnumerator KillingDazza()
     {
-        Debug.Log("Dazza's dying");
         //Run Dazza's death animation
         yield return new WaitForSeconds(3); //Change this to the length of Dazza's death animation plus a second
-        Debug.Log("Dazza's dead");
 
         if (upgradeController.Revive() && !alreadyBeenRevived)
         {
