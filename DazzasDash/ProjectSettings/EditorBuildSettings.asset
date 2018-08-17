@@ -6,14 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Preload.unity
+    guid: 756e20f07a2d0ee468fe216a2f29353e
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: dd0e0cf04d51446438773eb2db4444eb
-  - enabled: 1
-    path: Assets/Scenes/GameScene.unity
-    guid: 1ce6e83d2f6a51c418566e69cca11644
-  - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/UI-Scenes/Tutorial.unity
     guid: 41101fd88479db940b897a9864346bae
@@ -38,9 +35,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UI-Scenes/Upgrades.unity
     guid: ebd0232439f37411d86279a2c3da2dce
-  - enabled: 1
-    path: Assets/Scenes/GameScene - Josh.unity
-    guid: 771333501741764448a228f1cf660849
   - enabled: 1
     path: Assets/Scenes/GameScene - Blake.unity
     guid: 093effa8482223741b2d0f7484f44411
