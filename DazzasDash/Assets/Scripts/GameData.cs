@@ -57,11 +57,7 @@ public class GameData : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-        if(SceneManager.GetActiveScene().name.Equals(gameSceneName))
-        {
-            upgradeInventory = tempUpgradeInventory;
-            inventoryUpdated = 1;
-        }
+        
 	}
 
 
@@ -206,5 +202,18 @@ public class GameData : MonoBehaviour
             }
         }
 
+    }
+
+
+
+
+    public void SaveGameDataUpgradesInventory()
+    {
+        if (SceneManager.GetActiveScene().name.Equals(gameSceneName))
+        {
+            upgradeInventory = tempUpgradeInventory;
+            inventoryUpdated = 1;
+            SetInventoryPlayerPrefs(); // this may break! Check this!!!!
+        }
     }
 }
