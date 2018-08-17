@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 58423948162404894}
   - component: {fileID: 114940346309020876}
   - component: {fileID: 82609310302681912}
+  - component: {fileID: 70221144281488656}
   m_Layer: 0
   m_Name: ShieldCollider
   m_TagString: ShieldCollider
@@ -99,8 +100,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1086749969617074}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.2, y: 0, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 4025988796735974}
   m_RootOrder: 0
@@ -228,7 +229,7 @@ CircleCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1086749969617074}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -251,6 +252,21 @@ CapsuleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 2.4, y: 4.5}
+  m_Direction: 0
+--- !u!70 &70221144281488656
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1086749969617074}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 7, y: 7}
   m_Direction: 0
 --- !u!82 &82433238548503160
 AudioSource:
@@ -716,7 +732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79a73fc196e8c64693ce3eea3dba39f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dazzasSkin: 2
+  dazzasSkin: 3
   dazzaAnimationStruct:
   - animation: 0
     animationBool: Default Skin
@@ -742,6 +758,22 @@ MonoBehaviour:
     animationBool: ShirtlessFalling
   - animation: 11
     animationBool: ShirtlessSpeedBoost
+  - animation: 12
+    animationBool: PoliceJump
+  - animation: 13
+    animationBool: PoliceFalling
+  - animation: 14
+    animationBool: PoliceDeath
+  - animation: 15
+    animationBool: PoliceSpeedBoost
+  - animation: 16
+    animationBool: TradieJump
+  - animation: 17
+    animationBool: TradieFalling
+  - animation: 18
+    animationBool: TradieDeath
+  - animation: 19
+    animationBool: TradieSpeedBoost
 --- !u!114 &114638722817358600
 MonoBehaviour:
   m_ObjectHideFlags: 1

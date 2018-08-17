@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 95865248317537932}
   - component: {fileID: 50438119785313424}
   - component: {fileID: 114228658038456468}
-  - component: {fileID: 61018600740302084}
   - component: {fileID: 114783289445763746}
+  - component: {fileID: 58596426386747504}
   m_Layer: 0
   m_Name: Magpie
   m_TagString: WouldKillDazza
@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1776067928033086}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 10.83, z: 0}
+  m_LocalPosition: {x: 9.33, y: 4.53, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -65,8 +65,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
---- !u!61 &61018600740302084
-BoxCollider2D:
+--- !u!58 &58596426386747504
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -74,22 +74,12 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.6000001, y: 3.6000001}
-    newSize: {x: 0.51, y: 0.24}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9, y: 4.8}
-  m_EdgeRadius: 0
+  m_Radius: 1
 --- !u!95 &95865248317537932
 Animator:
   serializedVersion: 3

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MagpieSwoop : MonoBehaviour
 {
-
 	public float dazzaY;
 
     LevelGeneration levelGeneration;
@@ -13,7 +12,7 @@ public class MagpieSwoop : MonoBehaviour
 
 	GameObject objectDeleter;
 
-    bool hasSwooped = false;
+    public bool hasSwooped = false;
 
 	float speed;
 
@@ -31,7 +30,7 @@ public class MagpieSwoop : MonoBehaviour
 	}
 	
 	
-	void FixedUpdate ()
+	void Update ()
 	{
 		if (!hasSwooped)
 		{
