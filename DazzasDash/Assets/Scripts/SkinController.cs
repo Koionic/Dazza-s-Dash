@@ -163,6 +163,7 @@ public class SkinController : MonoBehaviour
                 currentDazzaSkinDeath = DazzaAnimationState.Death;
                 currentDazzaSkinSpeedBoost = DazzaAnimationState.SpeedBoost;
                 currentDazzaSkinRevive = DazzaAnimationState.Revive;
+                currentDazzaSkinHeadStart = DazzaAnimationState.HeadStart;
                 break;
 
             case DazzaSkin.Police:
@@ -172,6 +173,7 @@ public class SkinController : MonoBehaviour
                 currentDazzaSkinDeath = DazzaAnimationState.PoliceDeath;
                 currentDazzaSkinSpeedBoost = DazzaAnimationState.PoliceSpeedBoost;
                 currentDazzaSkinRevive = DazzaAnimationState.PoliceRevive;
+                currentDazzaSkinHeadStart = DazzaAnimationState.PoliceHeadStart;
                 break;
 
             case DazzaSkin.Shirtless:
@@ -181,6 +183,7 @@ public class SkinController : MonoBehaviour
                 currentDazzaSkinDeath = DazzaAnimationState.ShirtlessDeath;
                 currentDazzaSkinSpeedBoost = DazzaAnimationState.ShirtlessSpeedBoost;
                 currentDazzaSkinRevive = DazzaAnimationState.ShirtlessRevive;
+                currentDazzaSkinHeadStart = DazzaAnimationState.ShirtlessHeadStart;
                 break;
 
             case DazzaSkin.Tradie:
@@ -190,6 +193,7 @@ public class SkinController : MonoBehaviour
                 currentDazzaSkinDeath = DazzaAnimationState.TradieDeath;
                 currentDazzaSkinSpeedBoost = DazzaAnimationState.TradieSpeedBoost;
                 currentDazzaSkinRevive = DazzaAnimationState.TradieRevive;
+                currentDazzaSkinHeadStart = DazzaAnimationState.TradieHeadStart;
                 break;
         }
 
