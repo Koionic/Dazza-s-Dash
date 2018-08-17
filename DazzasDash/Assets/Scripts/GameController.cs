@@ -61,8 +61,8 @@ public class GameController : MonoBehaviour
     {
         IncreaseGameSpeed();
 
-		if (Input.GetKeyDown(KeyCode.R))
-			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		//if (Input.GetKeyDown(KeyCode.R))
+		//	SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     // A timer function
