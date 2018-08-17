@@ -21,6 +21,7 @@ public class SkinController : MonoBehaviour
     private DazzaAnimationState currentDazzaSkinDeath = DazzaAnimationState.Death;
     private DazzaAnimationState currentDazzaSkinSpeedBoost = DazzaAnimationState.SpeedBoost;
     private DazzaAnimationState currentDazzaSkinRevive = DazzaAnimationState.Revive;
+    private DazzaAnimationState currentDazzaSkinHeadStart = DazzaAnimationState.HeadStart;
 
     [SerializeField]
     private DazzaSkin dazzasSkin = DazzaSkin.Default;
@@ -63,11 +64,22 @@ public class SkinController : MonoBehaviour
         {
             if (powerUpController.GetSpeedBoostActive())
             {
-                currentDazzaAnimation = currentDazzaSkinSpeedBoost;
+                if (powerUpController.GetHeadStartActive())
+                {
+                    currentDazzaAnimation = currentDazzaSkinHeadStart;
 
-                if (previousDazzaAnimation != currentDazzaAnimation) ApplyCorrectAnimation();
+                    if (previousDazzaAnimation != currentDazzaAnimation) ApplyCorrectAnimation();
 
-                previousDazzaAnimation = currentDazzaAnimation;
+                    previousDazzaAnimation = currentDazzaAnimation;
+                }
+                else
+                {
+                    currentDazzaAnimation = currentDazzaSkinSpeedBoost;
+
+                    if (previousDazzaAnimation != currentDazzaAnimation) ApplyCorrectAnimation();
+
+                    previousDazzaAnimation = currentDazzaAnimation;
+                }
 
 
             }
