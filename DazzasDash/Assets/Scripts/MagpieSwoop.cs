@@ -34,7 +34,7 @@ public class MagpieSwoop : MonoBehaviour
 	{
 		if (!hasSwooped)
 		{
-			transform.position = Vector3.MoveTowards(transform.position, new Vector3(0f,dazzaY - 0.5f), speed);
+			transform.position = Vector3.MoveTowards(transform.position, new Vector3(50f,dazzaY - 0.5f), speed);
 
 			if (transform.position.y <= dazzaY)
 				hasSwooped = true;
