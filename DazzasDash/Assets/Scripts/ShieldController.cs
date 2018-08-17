@@ -17,6 +17,7 @@ public class ShieldController : MonoBehaviour
 
     private GameController gameController;
 
+    DazzaController dazzaController;
 
     private void Awake()
     {
@@ -41,8 +42,10 @@ public class ShieldController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("WouldKillDazza"))
+        if (other.CompareTag("WouldKillDazza") && !powerUpController.GetSpeedBoostActive())
         {
+            Debug.Log("Fart");
+            other.gameObject.GetComponent<Collider2D>().enabled = false;
             deactivate = true;
             thisSR.enabled = false;
             thisAudioSource.clip = deactivateSound;
