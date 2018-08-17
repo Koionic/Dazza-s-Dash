@@ -7,27 +7,36 @@ using UnityEngine.Audio;
 
 public class AudioController : MonoBehaviour
 {
-	Slider musicSlider;
-	Slider sfxSlider;
-	AudioMixerGroup musicMixer;
-	AudioMixerGroup sfxMixer;
+	public Slider musicSlider;
+	public Slider sfxSlider;
+	public AudioMixer masterMixer;
 
-	private void Start()
+	int i = 0;
+
+	private void Update()
 	{
 		if (SceneManager.GetActiveScene().name == "Settings")
 		{
-			musicSlider = GameObject.Find("Music Slider").GetComponent<Slider>();
-			sfxSlider = GameObject.Find("SFX Slider").GetComponent<Slider>();
+			if (i == 0)
+			{
+				musicSlider = GameObject.Find("Music Slider").GetComponent<Slider>();
+				sfxSlider = GameObject.Find("SFX Slider").GetComponent<Slider>();
+
+				i++;
+			}
+			
 		}
+		else
+			i = 0;
 	}
 
-	public void SetMusicSlider(float volumeToSet)
+	public void SetMusicSlider()
 	{
-		musicMixer.audioMixer.SetFloat("Music", volumeToSet);
+		masterMixer.SetFloat("Music", musicSlider.value);
 	}
 
-	public void SetSFXSlider(float volumeToSet)
+	public void SetSFXSlider()
 	{
-		musicMixer.audioMixer.SetFloat("SFX", volumeToSet);
+		masterMixer.SetFloat("SFX", sfxSlider.value);
 	}
 }
