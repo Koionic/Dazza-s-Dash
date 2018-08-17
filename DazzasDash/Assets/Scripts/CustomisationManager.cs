@@ -239,9 +239,9 @@ public class CustomisationManager : MonoBehaviour
                 {
                     skins[i].skinImage.color = new Color(0.4f, 0.4f, 0.4f); // make skin image white
                     skins[i].skinBackgroundImage.color = Color.white; // make skins background image white
-                    skins[i].skinSelectButton.interactable = true; // make skin select button interactable
+                    skins[i].skinSelectButton.interactable = false; // make skin select button interactable
                     skins[i].skinSelectButtonImage.color = Color.white; // make skin select button image white
-                    skins[i].skinSelecButtonText.text = "PURCHASE";
+                    skins[i].skinSelecButtonText.text = "SELECT";
                 }
             }
             else
