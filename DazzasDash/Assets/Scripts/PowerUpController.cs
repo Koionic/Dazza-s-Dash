@@ -22,11 +22,16 @@ public class PowerUpController : MonoBehaviour
     private float sprintBoostTime = 5f, sprintBoostGameSpeedRate = 2.5f;
 
     [SerializeField]
+    private float headStartTime = 10f, headStartSpeedRate = 4f;
+
+    bool headStartActive = false;
+
+    [SerializeField]
     private AudioClip speedBoostSound;
 
     private AudioSource speedBoostSoundSource;
 
-
+    UpgradeController upgradeController;
 
     void Awake()
 	{
@@ -37,11 +42,16 @@ public class PowerUpController : MonoBehaviour
 		magnetCollider = GameObject.FindGameObjectWithTag("MagnetCollider");
 
         speedBoostSoundSource = transform.GetChild(2).GetComponent<AudioSource>();
+
+        upgradeController = gameController.GetComponent<UpgradeController>();
     }
 
 	void Start ()
 	{
-
+       if (upgradeController.Headstart())
+        {
+            StartCoroutine(ActivateSprintPowerUp(true));
+        }
 	}
 	
 	void Update ()
@@ -65,9 +75,9 @@ public class PowerUpController : MonoBehaviour
             ActivateShieldPowerUp();
         }
 
-        if(collision.CompareTag("SpeedBoostPowerUp"))
+        if(collision.CompareTag("SpeedBoostPowerUp") && !sprintBoostActive)
         {
-            StartCoroutine(ActivateSprintPowerUp());
+            StartCoroutine(ActivateSprintPowerUp(false));
         }
 	}
 
@@ -98,12 +108,18 @@ public class PowerUpController : MonoBehaviour
         dazzaController.MakeDazzaInvincible(false);
     }
 
-    IEnumerator ActivateSprintPowerUp()
+    IEnumerator ActivateSprintPowerUp(bool headStart)
     {
+        /*  ActivateSprintBoost(true);
+          gameSpeedBeforeBoost = gameController.GetGameSpeed();
+          yield return new WaitForSeconds(sprintBoostTime);
+          ActivateSprintBoost(false); */
+
         ActivateSprintBoost(true);
-        gameSpeedBeforeBoost = gameController.GetGameSpeed();
-        //gameSpeedSet = false;
-        yield return new WaitForSeconds(sprintBoostTime);
+
+        headStartActive = headStart;
+        gameSpeedBeforeBoost = (headStart ? 13f : gameController.GetGameSpeed());
+        yield return new WaitForSeconds(headStart ? headStartTime : sprintBoostTime);
         ActivateSprintBoost(false);
     }
 
@@ -140,7 +156,7 @@ public class PowerUpController : MonoBehaviour
             if(gameSpeedSet == false)
             {
                 gameSpeedSet = true;
-                gameController.SetGameSpeed(gameController.GetGameSpeed() * sprintBoostGameSpeedRate, 1f);
+                gameController.SetGameSpeed(gameController.GetGameSpeed() * (headStartActive ? headStartSpeedRate : sprintBoostGameSpeedRate), 1f);
                 speedBoostSoundSource.Play();
             }
         }
@@ -153,6 +169,7 @@ public class PowerUpController : MonoBehaviour
                 gameController.SetGameSpeed(gameSpeedBeforeBoost, 1f);
                 Invoke("MakeDazzaVulnerable", 1.5f);
                 speedBoostSoundSource.Stop();
+                headStartActive = false;
             }
         }
     }
