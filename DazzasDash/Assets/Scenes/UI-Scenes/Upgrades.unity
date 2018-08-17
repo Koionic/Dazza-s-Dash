@@ -3190,9 +3190,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 231223cef73626542b46c32103d55e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doubleCost: 3000
-  headStartCost: 2000
-  reviveCost: 1500
+  doubleCost: 200
+  headStartCost: 100
+  reviveCost: 150
   inventoryCountUI:
   - {fileID: 1883433609}
   - {fileID: 1109635721}
