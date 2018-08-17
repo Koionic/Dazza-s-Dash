@@ -41,7 +41,7 @@ public class DollaryDoo : MonoBehaviour
         {
             Debug.Log("Moving Towards Player");
 
-            transform.position = Vector2.Lerp(transform.position, player.transform.position, 0.5f * gameController.GetGameSpeed() * Time.deltaTime);
+            transform.position = Vector2.Lerp(transform.position, player.transform.position, 0.6f * gameController.GetGameSpeed() * Time.deltaTime);
         }
     }
 }

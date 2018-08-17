@@ -1584,52 +1584,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 13.148029, y: 30}
   m_EdgeRadius: 0
---- !u!1001 &582248360
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1269178983}
-    m_Modifications:
-    - target: {fileID: 4986959823071614, guid: b69c376d756a4754f9f23cf1d1aa3273, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4986959823071614, guid: b69c376d756a4754f9f23cf1d1aa3273, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 4986959823071614, guid: b69c376d756a4754f9f23cf1d1aa3273, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4986959823071614, guid: b69c376d756a4754f9f23cf1d1aa3273, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4986959823071614, guid: b69c376d756a4754f9f23cf1d1aa3273, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4986959823071614, guid: b69c376d756a4754f9f23cf1d1aa3273, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4986959823071614, guid: b69c376d756a4754f9f23cf1d1aa3273, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4986959823071614, guid: b69c376d756a4754f9f23cf1d1aa3273, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1485897590331106, guid: b69c376d756a4754f9f23cf1d1aa3273, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: b69c376d756a4754f9f23cf1d1aa3273, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &607930163
 GameObject:
   m_ObjectHideFlags: 0
@@ -3342,11 +3296,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4984972861585154, guid: ca2a035c5ac86e14eab3d477fa0fd4b8,
     type: 2}
   m_PrefabInternal: {fileID: 1487222999}
---- !u!4 &1269178983 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4025988796735974, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-    type: 2}
-  m_PrefabInternal: {fileID: 1890501899}
 --- !u!1 &1288025341
 GameObject:
   m_ObjectHideFlags: 0
@@ -3750,7 +3699,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1952198283410366, guid: dcace1c2c77c2ff49bcae24719ece580, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dcace1c2c77c2ff49bcae24719ece580, type: 2}
@@ -5041,18 +4990,13 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: dazzaAnimationStruct.Array.size
-      value: 24
-      objectReference: {fileID: 0}
     - target: {fileID: 4025988796735974, guid: 0c84d2327b7ef234fbf9a5f551243f24, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -11.96
+      value: -12
       objectReference: {fileID: 0}
     - target: {fileID: 4025988796735974, guid: 0c84d2327b7ef234fbf9a5f551243f24, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -5.31
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 4025988796735974, guid: 0c84d2327b7ef234fbf9a5f551243f24, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5077,154 +5021,6 @@ Prefab:
     - target: {fileID: 4025988796735974, guid: 0c84d2327b7ef234fbf9a5f551243f24, type: 2}
       propertyPath: m_RootOrder
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: dazzaAnimationStruct.Array.data[12].animation
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: dazzaAnimationStruct.Array.data[12].animationBool
-      value: PoliceJump
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: dazzaAnimationStruct.Array.data[13].animation
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: dazzaAnimationStruct.Array.data[13].animationBool
-      value: PoliceFalling
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: dazzaAnimationStruct.Array.data[14].animation
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: dazzaAnimationStruct.Array.data[14].animationBool
-      value: PoliceDeath
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: dazzaAnimationStruct.Array.data[15].animation
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: dazzaAnimationStruct.Array.data[15].animationBool
-      value: PoliceSpeedBoost
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: dazzasSkin
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: dazzaAnimationStruct.Array.data[16].animation
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: dazzaAnimationStruct.Array.data[16].animationBool
-      value: TradieJump
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: dazzaAnimationStruct.Array.data[17].animation
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: dazzaAnimationStruct.Array.data[17].animationBool
-      value: TradieFalling
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: dazzaAnimationStruct.Array.data[18].animation
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: dazzaAnimationStruct.Array.data[18].animationBool
-      value: TradieDeath
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: dazzaAnimationStruct.Array.data[19].animation
-      value: 19
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: dazzaAnimationStruct.Array.data[19].animationBool
-      value: TradieSpeedBoost
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: dazzaAnimationStruct.Array.data[20].animation
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: dazzaAnimationStruct.Array.data[20].animationBool
-      value: DefaultRevive
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: dazzaAnimationStruct.Array.data[21].animation
-      value: 21
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: dazzaAnimationStruct.Array.data[21].animationBool
-      value: PoliceRevive
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: dazzaAnimationStruct.Array.data[22].animation
-      value: 22
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: dazzaAnimationStruct.Array.data[22].animationBool
-      value: ShirtlessRevive
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: dazzaAnimationStruct.Array.data[23].animation
-      value: 23
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: dazzaAnimationStruct.Array.data[23].animationBool
-      value: TradieRevive
-      objectReference: {fileID: 0}
-    - target: {fileID: 4608077090524550, guid: 0c84d2327b7ef234fbf9a5f551243f24, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4001640285989894, guid: 0c84d2327b7ef234fbf9a5f551243f24, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4907154460375582, guid: 0c84d2327b7ef234fbf9a5f551243f24, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114025337712810782, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: reviveBottle
-      value: 
-      objectReference: {fileID: 1485897590331106, guid: b69c376d756a4754f9f23cf1d1aa3273,
-        type: 2}
-    - target: {fileID: 114025337712810782, guid: 0c84d2327b7ef234fbf9a5f551243f24,
-        type: 2}
-      propertyPath: reviveTimeBuffer
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c84d2327b7ef234fbf9a5f551243f24, type: 2}
