@@ -4990,6 +4990,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
+        type: 2}
+      propertyPath: dazzaAnimationStruct.Array.size
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 4025988796735974, guid: 0c84d2327b7ef234fbf9a5f551243f24, type: 2}
       propertyPath: m_LocalPosition.x
       value: -11.96
@@ -5021,6 +5026,51 @@ Prefab:
     - target: {fileID: 4025988796735974, guid: 0c84d2327b7ef234fbf9a5f551243f24, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
+        type: 2}
+      propertyPath: dazzaAnimationStruct.Array.data[12].animation
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
+        type: 2}
+      propertyPath: dazzaAnimationStruct.Array.data[12].animationBool
+      value: PoliceJump
+      objectReference: {fileID: 0}
+    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
+        type: 2}
+      propertyPath: dazzaAnimationStruct.Array.data[13].animation
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
+        type: 2}
+      propertyPath: dazzaAnimationStruct.Array.data[13].animationBool
+      value: PoliceFalling
+      objectReference: {fileID: 0}
+    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
+        type: 2}
+      propertyPath: dazzaAnimationStruct.Array.data[14].animation
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
+        type: 2}
+      propertyPath: dazzaAnimationStruct.Array.data[14].animationBool
+      value: PoliceDeath
+      objectReference: {fileID: 0}
+    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
+        type: 2}
+      propertyPath: dazzaAnimationStruct.Array.data[15].animation
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
+        type: 2}
+      propertyPath: dazzaAnimationStruct.Array.data[15].animationBool
+      value: PoliceSpeedBoost
+      objectReference: {fileID: 0}
+    - target: {fileID: 114528935676372162, guid: 0c84d2327b7ef234fbf9a5f551243f24,
+        type: 2}
+      propertyPath: dazzasSkin
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c84d2327b7ef234fbf9a5f551243f24, type: 2}

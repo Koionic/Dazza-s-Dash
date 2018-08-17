@@ -142,6 +142,10 @@ public class SkinController : MonoBehaviour
 
             case DazzaSkin.Police:
                 currentDazzaSkinAnimation = DazzaAnimationState.PoliceSkin;
+                currentDazzaSkinJump = DazzaAnimationState.PoliceJumping;
+                currentDazzaSkinFall = DazzaAnimationState.PoliceFalling;
+                currentDazzaSkinDeath = DazzaAnimationState.PoliceDeath;
+                currentDazzaSkinSpeedBoost = DazzaAnimationState.PoliceSpeedBoost;
                 break;
 
             case DazzaSkin.Shirtless:
