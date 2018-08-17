@@ -55,7 +55,7 @@ public class LevelGeneration : MonoBehaviour
 
     private void Update()
     {
-        if(spawnTimer >= nextSpawnTime)
+        if (spawnTimer >= nextSpawnTime && !dazzaController.IsDazzaBeingRevived())
         {
             SpawnLevelPrefab();
         }

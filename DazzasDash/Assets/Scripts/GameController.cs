@@ -22,6 +22,8 @@ public class GameController : MonoBehaviour
 
     [SerializeField] float gameSpeed;
 
+    float speedBeforePause;
+
     [SerializeField] float rateGameSpeedIncreases = 0.1f;
 
     private AudioSource soundEffectSource, musicSource;
@@ -48,7 +50,10 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        SetDollaryDoos(PlayerPrefs.GetInt("DollaryDoos", 0));
+        Debug.Log(dollaryDoos);
+        SetDollaryDoos(gameData.dollaryDoos);
+
+        Debug.Log(dollaryDoos);
 
         
 
@@ -86,12 +91,25 @@ public class GameController : MonoBehaviour
         return gameSpeed;
     }
 
-	public void SetGameSpeed(float speedToSet)
+	public void SetGameSpeed(float targetSpeed, float lerpSpeed)
 	{
-		gameSpeed = Mathf.Lerp(gameSpeed, speedToSet, 1f);
+		gameSpeed = Mathf.Lerp(gameSpeed, targetSpeed, lerpSpeed);
 	}
 
-	public BackgroundState GetBackgroundState()
+    public void PauseScrolling()
+    {
+        Debug.Log(gameSpeed);
+        speedBeforePause = gameSpeed;
+        Debug.Log(speedBeforePause);
+        SetGameSpeed(0f, 1f);
+    }
+
+    public void ResumeScrolling()
+    {
+        SetGameSpeed(speedBeforePause, 4f);
+    }
+
+    public BackgroundState GetBackgroundState()
     {
         return backgroundState;
     }
@@ -121,6 +139,7 @@ public class GameController : MonoBehaviour
         if(savedDollaryDoos == false)
         {
             savedDollaryDoos = true;
+            Debug.Log(dollaryDoos);
             gameData.dollaryDoos = dollaryDoos;
             PlayerPrefs.SetInt("DollaryDoos", dollaryDoos);
         }
