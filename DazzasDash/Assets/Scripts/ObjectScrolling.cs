@@ -11,6 +11,9 @@ public class ObjectScrolling : MonoBehaviour
 
     GameController gameController;
 
+    [SerializeField]
+    float selfDestructTime = 10f;
+
 	void Start ()
 	{
         // grab reference
@@ -21,6 +24,8 @@ public class ObjectScrolling : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
 
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+
+        Destroy(gameObject, selfDestructTime);
     }
 	
 
@@ -53,7 +58,6 @@ public class ObjectScrolling : MonoBehaviour
             Destroy(gameObject);
 		}
 	}
-
 
     private void OnDestroy()
     {

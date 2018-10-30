@@ -45,6 +45,8 @@ public class DazzaController : MonoBehaviour
 
     bool isDead = false; //private bool that tracks if dazza is alive
 
+    bool mobile;
+
     Rigidbody2D dazzaRB;
 
     public Vector2 offset;
@@ -70,7 +72,10 @@ public class DazzaController : MonoBehaviour
 
     private void Start()
     {
-
+        if (SystemInfo.deviceType == DeviceType.Handheld)
+        {
+            mobile = true;
+        }
     }
 
 
@@ -152,15 +157,34 @@ public class DazzaController : MonoBehaviour
     // switches the jump boolean if the player presses or releases the jump button
     private void DetectUserInputs()
     {
-        if (Input.GetButtonDown("Jump") && jumpTimer == 0f)
+        if (mobile)
         {
-            isJumping = true;
-            isGrounded = false;
-        }
+            foreach (Touch inputTouch in Input.touches)
+            {
+                if (inputTouch.phase == TouchPhase.Began && jumpTimer == 0f)
+                {
+                    isJumping = true;
+                    isGrounded = false;
+                }
+            }
 
-        if (Input.GetButtonUp("Jump"))
+            if (Input.touchCount == 0)
+            {
+                isJumping = false;
+            }
+        }
+        else
         {
-            isJumping = false;
+            if (Input.GetButtonDown("Jump") && jumpTimer == 0f)
+            {
+                isJumping = true;
+                isGrounded = false;
+            }
+
+            if (Input.GetButtonUp("Jump"))
+            {
+                isJumping = false;
+            }
         }
     }
 

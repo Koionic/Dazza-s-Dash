@@ -2,230 +2,76 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-
-public class NameController : MonoBehaviour 
+using UnityEngine.EventSystems;
+public class NameController : MonoBehaviour
 {
+    bool mobile;
+
+    EventSystem eventSystem;
+
     [SerializeField]
     GameObject newHighscoreScreen;
 
     [SerializeField]
     GameObject deathScreen;
 
+    GameData gameData;
+
     Highscore highscoreController;
 
-    string fullIntials;
-
-    string firstInitial;
-    string secondInitial;
-    string thirdInitial;
+    [SerializeField]
+    InputField inputField;
 
     [SerializeField]
-    Text firstInitialText;
-    [SerializeField]
-    Text secondInitialText;
-    [SerializeField]
-    Text thirdInitialText;
+    Transform topTextTransform, middleTextTransform;
 
     void Awake()
     {
+        eventSystem = FindObjectOfType<EventSystem>();
+
+        gameData = GameObject.Find("DataController").GetComponent<GameData>();
+
         highscoreController = FindObjectOfType<Highscore>().GetComponent<Highscore>();
+
+        if (SystemInfo.deviceType == DeviceType.Handheld)
+        {
+            mobile = true;
+        }
     }
 
-    void Start () 
-	{
-        ClearNames();
-	}
+    private void Start()
+    {
+        eventSystem.SetSelectedGameObject(inputField.gameObject);
+    }
 
-	void Update () 
-	{
-       
-        if (Input.GetKeyDown(KeyCode.Return))
+    private void Update()
+    {
+        if (mobile)
         {
-            if (firstInitial == "")
+            if (eventSystem.currentSelectedGameObject == inputField.gameObject)
             {
-                Debug.Log("You need to enter your initials");
+                newHighscoreScreen.transform.position = topTextTransform.position;
             }
             else
             {
-                GameData gameData = GameObject.Find("DataController").GetComponent<GameData>();
-
-                fullIntials = firstInitial + secondInitial + thirdInitial;
-
-                Debug.Log(fullIntials);
-                gameData.newInitials = fullIntials;
-                Debug.Log(gameData.newInitials);
-                highscoreController.SetNewScore();
-                newHighscoreScreen.SetActive(false);
-                deathScreen.SetActive(true);
+                newHighscoreScreen.transform.position = middleTextTransform.position;
             }
-        }
-        else if (Input.GetKeyDown(KeyCode.Backspace))
-        {
-            DeleteInitial();
-        }
-        else if (Input.GetKeyDown(KeyCode.A))
-        {
-            AddInitial("A");
-        }
-        else if (Input.GetKeyDown(KeyCode.B))
-        {
-            AddInitial("B");
-        }
-        else if (Input.GetKeyDown(KeyCode.C))
-        {
-            AddInitial("C");
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            AddInitial("D");
-        }
-        else if (Input.GetKeyDown(KeyCode.E))
-        {
-            AddInitial("E");
-        }
-        else if (Input.GetKeyDown(KeyCode.F))
-        {
-            AddInitial("F");
-        }
-        else if (Input.GetKeyDown(KeyCode.G))
-        {
-            AddInitial("G");
-        }
-        else if (Input.GetKeyDown(KeyCode.H))
-        {
-            AddInitial("H");
-        }
-        else if (Input.GetKeyDown(KeyCode.I))
-        {
-            AddInitial("I");
-        }
-        else if (Input.GetKeyDown(KeyCode.J))
-        {
-            AddInitial("J");
-        }
-        else if (Input.GetKeyDown(KeyCode.K))
-        {
-            AddInitial("K");
-        }
-        else if (Input.GetKeyDown(KeyCode.L))
-        {
-            AddInitial("L");
-        }
-        else if (Input.GetKeyDown(KeyCode.M))
-        {
-            AddInitial("M");
-        }
-        else if (Input.GetKeyDown(KeyCode.N))
-        {
-            AddInitial("N");
-        }
-        else if (Input.GetKeyDown(KeyCode.O))
-        {
-            AddInitial("O");
-        }
-        else if (Input.GetKeyDown(KeyCode.P))
-        {
-            AddInitial("P");
-        }
-        else if (Input.GetKeyDown(KeyCode.Q))
-        {
-            AddInitial("Q");
-        }
-        else if (Input.GetKeyDown(KeyCode.R))
-        {
-            AddInitial("R");
-        }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            AddInitial("S");
-        }
-        else if (Input.GetKeyDown(KeyCode.T))
-        {
-            AddInitial("T");
-        }
-        else if (Input.GetKeyDown(KeyCode.U))
-        {
-            AddInitial("U");
-        }
-        else if (Input.GetKeyDown(KeyCode.V))
-        {
-            AddInitial("V");
-        }
-        else if (Input.GetKeyDown(KeyCode.W))
-        {
-            AddInitial("W");
-        }
-        else if (Input.GetKeyDown(KeyCode.X))
-        {
-            AddInitial("X");
-        }
-        else if (Input.GetKeyDown(KeyCode.Y))
-        {
-            AddInitial("Y");
-        }
-        else if (Input.GetKeyDown(KeyCode.Z))
-        {
-            AddInitial("Z");
-        }
-	}
-
-    void AddInitial (string newInitial)
-    {
-        if (firstInitial == "")
-        {
-            firstInitial = newInitial;
-            firstInitialText.text = firstInitial;
-        }
-        else if (secondInitial == "")
-        {
-            secondInitial = newInitial;
-            secondInitialText.text = secondInitial;
-        }
-        else if (thirdInitial == "")
-        {
-            thirdInitial = newInitial;
-            thirdInitialText.text = thirdInitial;
-        }
-            else
-            {
-                Debug.Log("All Initials Full");
-            }
-
-    }
-
-    void DeleteInitial()
-    {
-        if (thirdInitial != "")
-        {
-            thirdInitial = "";
-            thirdInitialText.text = "";
-        }
-        else if (secondInitial != "")
-        {
-            secondInitial = "";
-            secondInitialText.text = "";
-        }
-        else if (firstInitial != "")
-        {
-            firstInitial = "";
-            firstInitialText.text = "";
-        }
-        else
-        {
-            Debug.Log("There are no initials");
         }
     }
 
-    void ClearNames()
+    public void AddHighscore()
     {
-        firstInitial = "";
-        firstInitialText.text = "";
+        gameData.newInitials = inputField.text;
+        highscoreController.SetNewScore();
+        newHighscoreScreen.SetActive(false);
+        deathScreen.SetActive(true);
+    }
 
-        secondInitial = "";
-        secondInitialText.text = "";
-
-        thirdInitial = "";
-        thirdInitialText.text = "";
+    public void UpdateText()
+    {
+        if (inputField.text != "")
+        {
+            inputField.text = inputField.text.ToUpper();
+        }
     }
 }
